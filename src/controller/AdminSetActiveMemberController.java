@@ -1,0 +1,39 @@
+package controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import dao.MemberDao;
+
+
+@Controller
+@RequestMapping("admin/setActiveMember")
+public class AdminSetActiveMemberController {
+	@Autowired
+	private MemberDao memberDao;
+
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public @ResponseBody String setActive(@RequestParam("aid") int id, @RequestParam("aisactive") int isactive) {
+		String title = "";
+		String image = "";
+		if (isactive == 0) {
+			isactive = 1;
+			title = "Ngừng kích hoạt";
+			image = "tick-circle.gif";
+		} else {
+			isactive = 0;
+			title = "Kích hoạt";
+			image = "minus-circle.gif";
+		}
+		memberDao.updateStatus(id, isactive);
+		String result = "<a href=\"javascript:void(0)\"" + " onclick=\"return setActive(" + id + "," + isactive + ",'"
+				+ "')\"" + " title=\"" + title + "\">" + "<img src='${pageContext.request.contextPath}/templates/admin/images/'" + image
+				+ "\" alt=\"\" />" + "</a>";
+
+		return result;
+	}
+}
