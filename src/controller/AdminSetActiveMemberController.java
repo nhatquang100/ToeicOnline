@@ -30,9 +30,10 @@ public class AdminSetActiveMemberController {
 			image = "minus-circle.gif";
 		}
 		memberDao.updateStatus(id, isactive);
-		String result = "<a href=\"javascript:void(0)\"" + " onclick=\"return setActive(" + id + "," + isactive + ",'"
-				+ "')\"" + " title=\"" + title + "\">" + "<img src='${pageContext.request.contextPath}/templates/admin/images/'" + image
-				+ "\" alt=\"\" />" + "</a>";
+		/*String result = "<a href=\"javascript:void(0)\"" + " onclick=\"return setActive(" + id + "," + isactive + ",'"
+				+ "')\"" + " title=\"" + title + "\">" + "<img src='../templates/admin/images/" + image
+				+ "'\" alt=\"\" />" + "</a>";*/
+		String result ="<a href='javascript:void(0)' onclick='return setActive("+id+","+isactive+")' title='"+title+"' ><img src='../templates/admin/images/"+image+"' alt='' /></a>";
 
 		return result;
 	}

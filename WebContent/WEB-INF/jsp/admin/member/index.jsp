@@ -31,6 +31,7 @@
                                     <tr>
                                         <th class="center">ID</th>
                                         <th class="center">Tên</th>
+                                        <th class="center">Chức vụ</th>
                                         <th class="center">Active</th>
                                         <th class="center">Chức năng</th>
                                     </tr>
@@ -40,6 +41,7 @@
 	                                    <tr class="odd gradeX">
 	                                        <td>${objmember.memberid }</td>
 	                                        <td>${objmember.membername }</td>
+	                                        <td>${objmember.categorymembername }</td>
 	                                        <c:choose>
                      						 <c:when test="${objmember.isactive == 0 }">
                          						 <c:set var="image" value="minus-circle.gif"></c:set>
@@ -50,10 +52,10 @@
                           						<c:set var="title" value="Ngừng kích hoạt"></c:set>
                        						</c:otherwise>
 	                       					</c:choose>
-	                    					<td align="center" id="setactive-${objmember.isactive}"><a  href="javascript:void(0)" onclick="return setActive(${objmember.memberid}, ${objmember.isactive})" title="${title }"><img src="${pageContext.request.contextPath}/templates/admin/images/${image}" alt="" /></a></td>
+	                    					<td align="center" id="setactive-${objmember.memberid}"><a  href="javascript:void(0)" onclick="return setActive(${objmember.memberid}, ${objmember.isactive})" title="${title }"><img src="${pageContext.request.contextPath}/templates/admin/images/${image}" alt="" /></a></td>
 	                                        <td class="center text-center">
 	                                            <a href="${pageContext.request.contextPath}/admin/member/edit/${objmember.memberid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-	                                            <a href="${pageContext.request.contextPath}/admin/member/del/${objmember.memberid }" title="" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+	                                            <a href="${pageContext.request.contextPath}/admin/member/del/${objmember.memberid }" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
 	                                        </td>
 	                                    </tr>
 	                                 </c:forEach>  
@@ -61,7 +63,7 @@
                             </table>
 
                             <!-- Pagination -->
-                            <nav class="text-center" aria-label="...">
+                            <!-- <nav class="text-center" aria-label="...">
                                 <ul class="pagination">
                                     <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">Prev</span></a></li>
                                     <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -71,7 +73,19 @@
                                     <li><a href="#">5</a></li>
                                     <li><a href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
                                 </ul>
-                            </nav>
+                            </nav> -->
+                            <!-- Pagination -->
+								<nav class="text-center" aria-label="...">
+									<ul class="pagination">
+										<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+										<c:forEach var="i" begin="1" end="${sumPage}">
+										<li <c:if test="${page == i }">class="active"</c:if>><a
+												href="${pageContext.request.contextPath}/admin/member/${i}">${i}<span
+													class="sr-only">(current)</span></a></li>
+										</c:forEach>
+										<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+									</ul>
+								</nav>
                             <!-- /.pagination -->
 
                         </div>
@@ -95,6 +109,8 @@ function setActive(id, isactive){
 	});
 	return false;
 }
+
+function confirmAction(){
+  return confirm('Bạn có chắc muốn xóa?');
+}
 </script>
-
-
