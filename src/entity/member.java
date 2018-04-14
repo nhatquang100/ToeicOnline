@@ -7,8 +7,10 @@ public class member {
 	private String password;
 	private int isactive;
 	private int categorymemberid;
+	private String categorymembername;
 	public member(int memberid, String membername, String username,
-			String password, int isactive, int categorymemberid) {
+			String password, int isactive, int categorymemberid,
+			String categorymembername) {
 		super();
 		this.memberid = memberid;
 		this.membername = membername;
@@ -16,6 +18,7 @@ public class member {
 		this.password = password;
 		this.isactive = isactive;
 		this.categorymemberid = categorymemberid;
+		this.categorymembername = categorymembername;
 	}
 	public member() {
 		super();
@@ -55,6 +58,12 @@ public class member {
 	}
 	public void setCategorymemberid(int categorymemberid) {
 		this.categorymemberid = categorymemberid;
+	}
+	public String getCategorymembername() {
+		return categorymembername;
+	}
+	public void setCategorymembername(String categorymembername) {
+		this.categorymembername = categorymembername;
 	}
 	
 	

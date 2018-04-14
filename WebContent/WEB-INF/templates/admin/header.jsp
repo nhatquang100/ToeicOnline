@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%><!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>TOEIC ONLINE-KLTN</title>
     <link rel="shortcut icon" type="image/ico" href="images/icon-180x180.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -25,7 +25,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.php">VNE-Admin</a></h1>
+	                 <h1><a href="index.php">KLTN-TOEICONLINE</a></h1>
 	              </div>
 	           </div>
 	           <div class="col-md-5">

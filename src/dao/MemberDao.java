@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import constant.Defines;
 import entity.member;
 
 @Repository
@@ -24,10 +25,21 @@ public class MemberDao {
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<member>(member.class));
 	}
 	
+	public List<member> getItems(int offset) {
+		String sql = "SELECT memberid, membername, username, password, isactive, a.categorymemberid AS categorymemberid, b.categorymembername AS categorymembername FROM member AS a INNER JOIN categorymember AS b ON a.categorymemberid = b.categorymemberid ORDER BY memberid ASC LIMIT ?, ?";
+		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<member>(member.class));	
+	}
+	
 	public List<member> getItems(){
 		String sql="select * from member where isactive = 1 ";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<member>(member.class));
 	}
+	
+	public int countItem() {
+		String sql = "SELECT COUNT(*) AS countMember FROM member ";
+		return jdbcTemplate.queryForObject(sql, Integer.class);
+	}
+	
 	public int addItem(member member){
 		String sql="insert into member(membername,username,password,isactive,categorymemberid) values(?,?,?,1,?)";
 		return jdbcTemplate.update(sql,new Object[]{member.getMembername(),member.getUsername(),member.getPassword(),member.getCategorymemberid()});

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import constant.Defines;
 import util.StringUtil;
 import dao.MemberDao;
 import entity.member;
@@ -27,9 +28,16 @@ public class AdminMemberController {
 	@Autowired
 	private StringUtil stringUtil;
 	
-	@RequestMapping("")
-	public String index(Model model){
-		model.addAttribute("listmember",memberDao.getAllItems());
+	@RequestMapping(value={"{page}",""})
+	public String index(ModelMap modelMap, @PathVariable(value="page", required = false) Integer page){
+		if(page == null) {
+			page = 1;
+		}
+		int sumPage = (int) Math.ceil((float)memberDao.countItem()/Defines.ROW_COUNT);
+		int offset= (page - 1) * Defines.ROW_COUNT;
+		modelMap.addAttribute("sumPage", sumPage);
+		modelMap.addAttribute("page", page);
+		modelMap.addAttribute("listmember", memberDao.getItems(offset));
 		return "admin.member.index";
 	}
 	

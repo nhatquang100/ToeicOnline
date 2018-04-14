@@ -57,7 +57,7 @@ public class LoginController {
 				return "public.login";
 			}
 		}
-		member member = new member(0,membername,username,stringUtil.md5(password),1,3);
+		member member = new member(0,membername,username,stringUtil.md5(password),1,3,"");
 		if (memberDao.addItem(member) > 0){
 			model.addAttribute("msg","Đăng kí thành công!!");
 			return "public.login";
