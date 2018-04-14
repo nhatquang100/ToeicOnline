@@ -5,8 +5,6 @@
                         <li>
                             <img src="<%=request.getContextPath() %>/templates/public/images/thumbs/up-official-trailer-fake.jpg" alt="Shanghai, China" data-large-src="images/slides/up-official-trailer-fake.jpg" data-description="Shanghai ,chaina">
                         </li>
-
-
                     </ul>
                 </div>
 

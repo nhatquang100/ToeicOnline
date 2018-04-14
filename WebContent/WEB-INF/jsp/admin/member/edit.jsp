@@ -16,8 +16,8 @@
 	                                            <label for="membername">${objmember.membername}</label>
 	                                            <input name ="membername" type="text" class="form-control" placeholder="Input membername">
 	                                            <c:if test="${objmember.memberid == 1}">
-												     <label for="name">${objmember.categorymemberid}</label>
-	                                            	 <input name ="categorymemberid" type="text" class="form-control" placeholder="Input membername">
+												     <label for="name">CategoryMemberid</label>
+	                                            	 <input name ="categorymemberid" type="text" class="form-control" placeholder="Input membername" value="${objmember.categorymemberid}">
 												 </c:if>
 	                                            <label for="password">Password</label>
 	                                            <input name ="password" type="password" class="form-control" placeholder="input Password">

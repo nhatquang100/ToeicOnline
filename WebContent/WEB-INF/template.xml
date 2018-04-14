@@ -25,6 +25,21 @@
   <definition name="admin.member.edit" extends="admin.template">
     <put-attribute name="body" value="/WEB-INF/jsp/admin/member/edit.jsp" />
   </definition>
+  <definition name="admin.question.index" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/index.jsp" />
+  </definition>
+  <definition name="admin.question.listenadd" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/listening_add.jsp" />
+  </definition>
+  <definition name="admin.question.readadd" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/reading_add.jsp" />
+  </definition>
+  <definition name="admin.question.listenedit" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/listening_edit.jsp" />
+  </definition>
+  <definition name="admin.question.readedit" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/reading_edit.jsp" />
+  </definition>
    <!--END ADMIN TEMPLATE -->
     <!-- ///////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
    <!-- PUBLIC TEMPLATE -->
