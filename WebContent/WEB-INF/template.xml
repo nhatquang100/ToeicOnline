@@ -42,32 +42,18 @@
   </definition>
    <!--END ADMIN TEMPLATE -->
     <!-- ///////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-   <!-- PUBLIC TEMPLATE -->
+  
+  <!-- NEW PUBLIC TEMPLATE -->
   <definition name="public.template" template="/WEB-INF/templates/public/template.jsp">
     <put-attribute name="header" value="/WEB-INF/templates/public/header.jsp" />
-     <put-attribute name="rightbar" value="/WEB-INF/templates/public/rightbar.jsp" />
+     <put-attribute name="leftbar" value="/WEB-INF/templates/public/leftbar.jsp" />
     <put-attribute name="body" value="" />
+    <put-attribute name="rightbar" value="/WEB-INF/templates/public/rightbar.jsp" />
     <put-attribute name="footer" value="/WEB-INF/templates/public/footer.jsp" />
   </definition>
   
-  <definition name="public.land.index" extends="public.template">
+  <definition name="public.index.index" extends="public.template">
     <put-attribute name="body" value="/WEB-INF/jsp/public/index.jsp" />
   </definition>
-  
-  <definition name="public.land.cat" extends="public.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/public/cat.jsp" />
-  </definition>
-  
-  <definition name="public.land.detail" extends="public.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/public/single.jsp" />
-  </definition>
-  
-  <definition name="public.contact.index" extends="public.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/public/contact.jsp" />
-  </definition>
-  
-  <definition name="public.login" extends="public.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/public/login.jsp" />
-  </definition>
-  <!--END PUBLIC TEMPLATE -->
+  <!-- END NEW PUBLIC TEMPLATE -->
 </tiles-definitions>

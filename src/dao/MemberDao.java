@@ -41,8 +41,8 @@ public class MemberDao {
 	}
 	
 	public int addItem(member member){
-		String sql="insert into member(membername,username,password,isactive,categorymemberid) values(?,?,?,1,?)";
-		return jdbcTemplate.update(sql,new Object[]{member.getMembername(),member.getUsername(),member.getPassword(),member.getCategorymemberid()});
+		String sql="insert into member(membername,username,password,isactive,categorymemberid,avatar,email,phonenumber) values(?,?,?,1,?,?,?,?)";
+		return jdbcTemplate.update(sql,new Object[]{member.getMembername(),member.getUsername(),member.getPassword(),member.getCategorymemberid(),member.getAvatar(),member.getEmail(),member.getPhonenumber()});
 	}
 	
 	public int updateStatus(int id, int isactive) {
@@ -55,13 +55,18 @@ public class MemberDao {
 	}
 	
 	public int editItem(member member) {
-		String sql="update member set membername=?,password=?, categorymemberid=? where memberid=? ";
-		return jdbcTemplate.update(sql,new Object[]{member.getMembername(),member.getPassword(),member.getCategorymemberid(),member.getMemberid()});
+		String sql="update member set membername=?,password=?, categorymemberid=?,avatar=?,email=?,phonenumber=?  where memberid=? ";
+		return jdbcTemplate.update(sql,new Object[]{member.getMembername(),member.getPassword(),member.getCategorymemberid(),member.getAvatar(),member.getEmail(),member.getPhonenumber(),member.getMemberid()});
 	}
 
 	public int delItem(int memberid){
 		String sql="Delete from member where memberid=? ";
 		return jdbcTemplate.update(sql,new Object[]{memberid});
+	}
+	
+	public member getMemberbyUsername(String username){
+		String sql= "select * from member where username=?";
+		return jdbcTemplate.queryForObject(sql,new Object []{username}, new BeanPropertyRowMapper<member>(member.class));
 	}
 	
 }
