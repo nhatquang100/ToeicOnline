@@ -1,8 +1,11 @@
 package controller;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.management.Notification;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dao.MemberDao;
@@ -29,11 +33,11 @@ public class LoginController {
 	
 	@RequestMapping("login")
 	public String login(){
-		return "public.login";
+		return "public.index.index";
 	}
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
-	public String login(Model model,@RequestParam("username") String username, @RequestParam("password") String password , RedirectAttributes ra, HttpSession session )throws SQLException{
+	public String login(Model model,@RequestParam("username") String username, @RequestParam("password") String password , RedirectAttributes ra, HttpSession session,HttpServletRequest request )throws SQLException{
 		ArrayList<member> list = (ArrayList<member>) memberDao.getItems();
 		for(member objmb: list){
 			if(username.equals(objmb.getUsername())  && stringUtil.md5(password).equals(objmb.getPassword())){
@@ -41,28 +45,57 @@ public class LoginController {
 				objmember.setUsername(username);
 				objmember.setPassword(stringUtil.md5(password));
 				session.setAttribute("sessionmember", objmember);
-				return "redirect:/admin";
+				if(memberDao.getMemberbyUsername(username).getCategorymemberid() == 3){
+					model.addAttribute("objmember",(memberDao.getMemberbyUsername(username)));
+					return "public.index.index";
+				}else{
+					model.addAttribute("objmember",(memberDao.getMemberbyUsername(username)));
+					return "redirect:/admin";
+				}
+				
 			}
 		}
 		model.addAttribute("msg","Sai tên đăng nhập hoặc mật khẩu!!"); 
-		return "public.login";
+		return "public.index.index";
 	}
 	
 	@RequestMapping(value="registry",method=RequestMethod.POST)
-	public String Registry(Model model,@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("membername") String membername, RedirectAttributes ra){
+	public String Registry(Model model,@ModelAttribute("objmember") member member,@RequestParam(value="avatarfile") CommonsMultipartFile multifile, RedirectAttributes ra,HttpServletRequest request){
 		ArrayList<member> list = (ArrayList<member>) memberDao.getItems();
 		for(member objmb: list){
-			if(username.equals(objmb.getUsername())){
+			if(member.getUsername().equals(objmb.getUsername())){
 				model.addAttribute("msg","Tên đăng nhập đã tồn tại!!");
-				return "public.login";
+				return "public.index.index";
 			}
 		}
-		member member = new member(0,membername,username,stringUtil.md5(password),1,3,"");
+		String nameFile = multifile.getOriginalFilename();
+		member.setAvatar(nameFile);
+		System.out.println(member.getAvatar());
+		if(!"".equals(nameFile) ){
+			String dirFile = request.getServletContext().getRealPath("upload");
+			System.out.println(dirFile);
+			File fileDir = new File(dirFile);
+			if(!fileDir.exists()){
+				fileDir.mkdir();
+			}
+			try {
+				multifile.transferTo(new File(fileDir+File.separator+nameFile));
+				System.out.println("Upload file thành công!");
+				model.addAttribute("filename", nameFile);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				System.out.println("Upload file thất bại!");
+			}
+		}
+		
+		member.setPassword(stringUtil.md5(member.getPassword()));
+		member.setIsactive(1);
+		member.setCategorymemberid(3);
 		if (memberDao.addItem(member) > 0){
 			model.addAttribute("msg","Đăng kí thành công!!");
-			return "public.login";
+			return "public.index.index";
 		}
 		model.addAttribute("msg","Đăng kí thất bại!!!");
-		return "public.login";
+		return "public.index.index";
 	}
 }

@@ -1,6 +1,9 @@
 package controller;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import constant.Defines;
@@ -46,7 +50,7 @@ public class AdminMemberController {
 		return "admin.member.add";
 	}
 	@RequestMapping(value="add",method=RequestMethod.POST)
-	public String add(@ModelAttribute("objmember") member member,Model model, RedirectAttributes ra){
+	public String add(@ModelAttribute("objmember") member member,@RequestParam(value="multiimage") CommonsMultipartFile multifile,Model model, RedirectAttributes ra,HttpServletRequest request){
 		member.setIsactive(1);
 		member.setCategorymemberid(2);
 		member.setPassword(stringUtil.md5(member.getPassword()));
@@ -55,6 +59,25 @@ public class AdminMemberController {
 			if(member.getUsername().equals(objmb.getUsername())){
 				model.addAttribute("msg","Tên đăng nhập đã tồn tại!!");
 				return "admin.member.add";
+			}
+		}
+		String nameFile = multifile.getOriginalFilename();
+		member.setAvatar(nameFile);
+		System.out.println(member.getAvatar());
+		if(!"".equals(nameFile) ){
+			String dirFile = request.getServletContext().getRealPath("upload");
+			System.out.println(dirFile);
+			File fileDir = new File(dirFile);
+			if(!fileDir.exists()){
+				fileDir.mkdir();
+			}
+			try {
+				multifile.transferTo(new File(fileDir+File.separator+nameFile));
+				System.out.println("Upload file thành công!");
+				model.addAttribute("filename", nameFile);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				System.out.println("Upload file thất bại!");
 			}
 		}
 		if(memberDao.addItem(member)>0){
@@ -72,7 +95,7 @@ public class AdminMemberController {
 	}
 	
 	@RequestMapping(value="edit/{id}",method=RequestMethod.POST)
-	public String edit(@ModelAttribute("objmember") member member,@PathVariable("id") int id,RedirectAttributes ra, BindingResult rs){
+	public String edit(@ModelAttribute("objmember") member member,@RequestParam(value="multiimage") CommonsMultipartFile multifile,@PathVariable("id") int id,RedirectAttributes ra,Model model, BindingResult rs,HttpServletRequest request){
 		if(rs.hasErrors()) {
 	        return "admin.member.edit";
 	    }
@@ -80,6 +103,25 @@ public class AdminMemberController {
 		member.setPassword(stringUtil.md5(member.getPassword()));
 		if(String.valueOf(member.getCategorymemberid()) == null){
 			member.setCategorymemberid(2);
+		}
+		String nameFile = multifile.getOriginalFilename();
+		member.setAvatar(nameFile);
+		System.out.println(member.getAvatar());
+		if(!"".equals(nameFile) ){
+			String dirFile = request.getServletContext().getRealPath("upload");
+			System.out.println(dirFile);
+			File fileDir = new File(dirFile);
+			if(!fileDir.exists()){
+				fileDir.mkdir();
+			}
+			try {
+				multifile.transferTo(new File(fileDir+File.separator+nameFile));
+				System.out.println("Upload file thành công!");
+				model.addAttribute("filename", nameFile);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				System.out.println("Upload file thất bại!");
+			}
 		}
 		if(memberDao.editItem(member)>0){
 				ra.addFlashAttribute("msg","sửa thành công!!");
