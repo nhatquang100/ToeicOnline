@@ -115,20 +115,24 @@
 		</c:choose>	
 		
 	</div>
-	<div class="full-width main-banner">
-		<h3>Luyện Thi TOEIC online hiệu quả !</h3>
-		<h4>
-			<i class="fa fa-check"></i> Website luyện thi TOEIC trực tuyến số 1
-			tại Việt Nam
-		</h4>
-		<h4>
-			<i class="fa fa-check"></i> Hơn 14000+ câu hỏi, 500+ bộ đề luyện thi
-			TOEIC có đáp án<br>
-		</h4>
-		<h4>
-			<i class="fa fa-check"></i> Truy cập ngay với 199.000 VNĐ / 1 năm,
-			luyện thi TOEIC online thoải mái không giới hạn tài liệu
-		</h4>
-		<a href="#" class="reg_open_modal">Đăng ký ngay</a>
-	</div>
+	<c:choose>
+		    <c:when test="${ empty objmember}">
+		        <div class="full-width main-banner">
+					<h3>Luyện Thi TOEIC online hiệu quả !</h3>
+					<h4>
+						<i class="fa fa-check"></i> Website luyện thi TOEIC trực tuyến số 1
+						tại Việt Nam
+					</h4>
+					<h4>
+						<i class="fa fa-check"></i> Hơn 14000+ câu hỏi, 500+ bộ đề luyện thi
+						TOEIC có đáp án<br>
+					</h4>
+					<h4>
+						<i class="fa fa-check"></i> Truy cập ngay với 199.000 VNĐ / 1 năm,
+						luyện thi TOEIC online thoải mái không giới hạn tài liệu
+					</h4>
+					<a href="#" class="reg_open_modal">Đăng ký ngay</a>
+				</div>
+		    </c:when>    
+		</c:choose>	
 	<!-- end top -->
