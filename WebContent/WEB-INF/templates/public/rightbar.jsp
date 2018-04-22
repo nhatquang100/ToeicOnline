@@ -115,8 +115,23 @@
 			<div class="sidebar-member-number">33624</div>
 		</div>
 	</div>
-
-	<div class="sidebar-spacing">&nbsp;</div>
+	<c:if test="${not empty objmember}">
+		<div class="sidebar-spacing">&nbsp;</div>
+		<div class="sidebar-item chatform">
+             <div class="quick-question-label"></div>
+             <div class="quick-question-form">
+                 <form class="form new_comment" id="sidebar-question">
+                 <label for="question">Câu hỏi hay câu trả lời của thành viên thường phải chờ giáo viên duyệt mới được hiển thị. Nếu nói bậy bạn sẽ bị xóa nick.</label>
+                 <textarea id="question" name="content" placeholder="Câu hỏi của bạn"></textarea>
+				 <input type="hidden" name="section" id="form-section" value="question">
+				 <input type="hidden" name="reply_for" id="form-reply_for" value="0">
+                 <input type="submit" value="Gửi">
+                 </form>
+             </div>
+         </div>
+	</c:if>
+	
+    <div class="sidebar-spacing">&nbsp;</div>
 	<div class="sidebar-item chatbox">
 		<div class="sidebar-chatbox">
 			<div class='chat-item'>
