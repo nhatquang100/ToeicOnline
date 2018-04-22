@@ -46,10 +46,10 @@ public class LoginController {
 				objmember.setPassword(stringUtil.md5(password));
 				session.setAttribute("sessionmember", objmember);
 				if(memberDao.getMemberbyUsername(username).getCategorymemberid() == 3){
-					model.addAttribute("objmember",(memberDao.getMemberbyUsername(username)));
-					return "public.index.index";
+					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
+					return "redirect:/";
 				}else{
-					model.addAttribute("objmember",(memberDao.getMemberbyUsername(username)));
+					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
 					return "redirect:/admin";
 				}
 				

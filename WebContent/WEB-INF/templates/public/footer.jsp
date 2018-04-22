@@ -24,6 +24,34 @@
 		</div>
 	</div>
 </div>
+
+<div id="modal_create_examination" class="modal">
+	<div class="modal-body">
+		<form method="POST" action="${pageContext.request.contextPath}/create_examination" class="form-modal" > <!-- id="login-form" -->
+			<div class="row header">
+				<div class="header-label ">TẠO ĐỀ THI</div>
+				<hr>
+			</div>
+			<div class="row">
+				<div class="info" id="login-info"></div>
+			</div>
+			<div class="row">
+				<span class="label">Username:</span> <input type="text" value=""
+					name="username" class="form-control" />
+			</div>
+			<div class="row">
+				<span class="label">Mật khẩu:</span> <input type="password" value=""
+					name="password" class="form-control" />
+			</div>
+			<div class="row">
+				<span class="label"></span> <input type="submit"
+					class="green-button" value="Đăng Nhập" />
+			</div>
+		</form>
+	</div>
+</div>
+
+
 <div id="modal_login" class="modal">
 	<div class="modal-body">
 		<form method="POST" action="${pageContext.request.contextPath}/login" class="form-modal" > <!-- id="login-form" -->
@@ -79,6 +107,7 @@
 		</script>
 	</div>
 </div>
+
 <div id="modal_reg" class="modal">
 	<div class="modal-body">
 		<form method="POST" action="${pageContext.request.contextPath}/registry" class="form-modal"
@@ -147,6 +176,7 @@
 		</script>
 	</div>
 </div>
+
 <div id="modal_reg_success" class="modal">
 	<div class="modal-body">
 		<div class="form-modal">

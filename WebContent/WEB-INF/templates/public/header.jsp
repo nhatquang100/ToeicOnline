@@ -56,6 +56,8 @@
 <script
 	src="<%=request.getContextPath()%>/templates/public/js/login.js"></script>
 <script
+	src="<%=request.getContextPath()%>/templates/public/js/examination.create.js"></script>
+<script
 	src="<%=request.getContextPath()%>/templates/public/js/comment.js"></script>
 </head>
 
@@ -108,7 +110,7 @@
 		    </c:when>    
 		    <c:otherwise>
 		        <ul class="logo-right">
-					<li><a href="#" class="reg_open_modal">PROFILE</a></li>
+					<li><a href="#" class="create_examination">TẠO ĐỀ THI</a></li>
 					<li><a href="#" class="login_open_modal">THOÁT</a></li>
 				</ul>
 		    </c:otherwise>
