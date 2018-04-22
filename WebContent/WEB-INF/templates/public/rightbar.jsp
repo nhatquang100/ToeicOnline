@@ -4,42 +4,111 @@
 
 <!-- right sidebar -->
 <div class="sidebar-right">
-	<div class="sidebar-item login">
-		<div class="login-box">
-			<a class="login_open_modal" href="#">Đăng nhập</a> 
-			<a href="#" class="reg_open_modal">Đăng ký</a>
-		</div>
-		<div class="login-box-body">
-			<form class="form login" method="POST" action="${pageContext.request.contextPath}/login"> <!-- id="sidebar-login-form" -->
-				<div class="form-line">
-					<!--<a href="https://www.facebook.com/v2.4/dialog/oauth?client_id=1081182245235103&amp;state=b64a9795f34015da6d6579f92a4111c3&amp;response_type=code&amp;sdk=php-sdk-5.0.0&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%3A443%2Flogin_fb_callback&amp;scope=email&redirect_uri=https://www.toeic123.vn:443/login_fb_callback" class="social-login facebook"><i class="fa fa-facebook"> </i>Đăng nhập qua Facebook</a>-->
-					<a
-						href="https://accounts.google.com/o/oauth2/auth?access_type=online&amp;approval_prompt=auto&amp;response_type=code&amp;scope=profile%20email&amp;client_id=790559908503-c98fftp4r7pv8r64vm3ou7gsoj52qlfl.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%2Flogin_google_callback&amp;state"
-						class="social-login google"><i class="fa fa-google-plus">
-					</i>Đăng nhập qua Google+</a>
+	
+	<c:choose>
+	    <c:when test="${ empty objmember}">
+	        <div class="sidebar-item login">
+				<div class="login-box">
+					<a class="login_open_modal" href="#">Đăng nhập</a> 
+					<a href="#" class="reg_open_modal">Đăng ký</a>
 				</div>
-				<div class="form-line info" id="sidebar-login-info"></div>
-				<div class="form-line">
-					<label for="username">Username:</label> <input type="text"
-						id="username" name="username" />
+				<div class="login-box-body">
+					<form class="form login" method="POST" action="${pageContext.request.contextPath}/login"> <!-- id="sidebar-login-form" -->
+						<div class="form-line">
+							<!--<a href="https://www.facebook.com/v2.4/dialog/oauth?client_id=1081182245235103&amp;state=b64a9795f34015da6d6579f92a4111c3&amp;response_type=code&amp;sdk=php-sdk-5.0.0&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%3A443%2Flogin_fb_callback&amp;scope=email&redirect_uri=https://www.toeic123.vn:443/login_fb_callback" class="social-login facebook"><i class="fa fa-facebook"> </i>Đăng nhập qua Facebook</a>-->
+							<a
+								href="https://accounts.google.com/o/oauth2/auth?access_type=online&amp;approval_prompt=auto&amp;response_type=code&amp;scope=profile%20email&amp;client_id=790559908503-c98fftp4r7pv8r64vm3ou7gsoj52qlfl.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%2Flogin_google_callback&amp;state"
+								class="social-login google"><i class="fa fa-google-plus">
+							</i>Đăng nhập qua Google+</a>
+						</div>
+						<div class="form-line info" id="sidebar-login-info"></div>
+						<div class="form-line">
+							<label for="username">Username:</label> <input type="text"
+								id="username" name="username" />
+						</div>
+						<div class="form-line">
+							<label for="password">Mật khẩu:</label> <input type="password"
+								id="password" name="password" />
+						</div>
+						<div class="form-line">
+							<a href="forgot-password.html" class="forgot-pass">Quên mật
+								khẩu?</a> <input type="submit" value="Login" />
+						</div>
+		
+					</form>
+					<script>
+						$(document).ready(function() {
+							login_init('sidebar-login-form', 'sidebar-login-info');
+						});
+					</script>
 				</div>
-				<div class="form-line">
-					<label for="password">Mật khẩu:</label> <input type="password"
-						id="password" name="password" />
+			</div>
+	    </c:when>    
+	    <c:otherwise>
+			<div class="sidebar-item userinfo">
+				<div class="sidebar-userinfo">
+					<div class="row">
+						<div class="col1">
+							<div class="img">
+								<img src="/upload/avatars/a02914702a316d3ba0a9dfca53a08a86"
+									width="55" height="55">
+							</div>
+							<div style="display: inline;">
+								<img height="1" width="1" style="border-style: none;" alt=""
+									src="//www.googleadservices.com/pagead/conversion/973949038/?label=Yn4WCNaYimkQ7pC10AM&amp;guid=ON&amp;script=0">
+							</div>
+						</div>
+						<div class="col2">
+							<span class="username">${objmember.membername }</span> <br> <span
+								class="score">0/47664</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="row">
+							<div class="col1">
+								<span>Từ vựng</span>
+							</div>
+							<div class="col2">
+								<div class="meter">
+									<span style="width: 0%"></span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col1">
+								<span>Luyện nghe</span>
+							</div>
+							<div class="col2">
+								<div class="meter">
+									<span style="width: 0%"></span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col1">
+								<span>Ngữ pháp</span>
+							</div>
+							<div class="col2">
+								<div class="meter">
+									<span style="width: 0%"></span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col1">
+								<span>Thi Thử</span>
+							</div>
+							<div class="col2">
+								<div class="meter">
+									<span style="width: 0%"></span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="form-line">
-					<a href="forgot-password.html" class="forgot-pass">Quên mật
-						khẩu?</a> <input type="submit" value="Login" />
-				</div>
-
-			</form>
-			<script>
-				$(document).ready(function() {
-					login_init('sidebar-login-form', 'sidebar-login-info');
-				});
-			</script>
-		</div>
-	</div>
+			</div>
+		</c:otherwise>
+	</c:choose>
 	<div class="sidebar-spacing">&nbsp;</div>
 	<div class="sidebar-item member">
 		<div class="sidebar-member">
