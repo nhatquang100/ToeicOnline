@@ -27,25 +27,46 @@
 
 <div id="modal_create_examination" class="modal">
 	<div class="modal-body">
-		<form method="POST" action="${pageContext.request.contextPath}/create_examination" class="form-modal" > <!-- id="login-form" -->
+		<form method="POST" action="${pageContext.request.contextPath}/create_examination" class="form-modal" enctype="multipart/form-data"> <!-- id="login-form" -->
 			<div class="row header">
 				<div class="header-label ">TẠO ĐỀ THI</div>
 				<hr>
 			</div>
+			
 			<div class="row">
 				<div class="info" id="login-info"></div>
 			</div>
+			
 			<div class="row">
-				<span class="label">Username:</span> <input type="text" value=""
-					name="username" class="form-control" />
+				<span class="label">Tên đề thi:</span> <input type="text" value=""
+					name="nameexamiation" class="form-control" />
 			</div>
+			
+			<div class ="row">
+				Hình đại diện : <input type="file"  value="Upload File image"  name="multiimage" /><br />
+			</div>
+			
 			<div class="row">
-				<span class="label">Mật khẩu:</span> <input type="password" value=""
-					name="password" class="form-control" />
+				<label for="categoryexamination" class="label" >Loại đề thi</label> 
+				<select class="form-control" name="categoryexamination" style="margin-top: 10px;width: 228px;height: 28px;border: 1px solid #ccc">
+					<option value="1">Listening</option>
+					<option value="2">Reading</option>
+					<option value="3">Listening +  Reading</option>
+				</select>
 			</div>
+			
+			<div class="row">
+				<label for="leveldifficult" class="label" >Chọn level</label> 
+				<select class="form-control" name="leveldifficult" style="margin-top: 10px;width: 228px;height: 28px;border: 1px solid #ccc">
+					<option value="1">Easy</option>
+					<option value="2">Normal</option>
+					<option value="3">Hard</option>
+				</select>
+			</div>
+			
 			<div class="row">
 				<span class="label"></span> <input type="submit"
-					class="green-button" value="Đăng Nhập" />
+					class="green-button" value="Tạo đề thi" />
 			</div>
 		</form>
 	</div>

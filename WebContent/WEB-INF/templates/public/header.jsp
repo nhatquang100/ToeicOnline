@@ -87,7 +87,15 @@
 	</div>
 	<div class="width logo-bar">
 		<ul class="logo-left">
-			<li><a class="current" href="index.html">Trang chủ</a></li>
+			<c:choose>
+			    <c:when test="${ empty objmember}">
+			        <li><a class="current" href="${pageContext.request.contextPath}/">Trang chủ</a></li>
+			    </c:when>    
+			    <c:otherwise>
+			        <li><a class="current" href="${pageContext.request.contextPath}/home">Trang chủ</a></li>
+			    </c:otherwise>
+			</c:choose>
+			
 			<li><a
 				href="news/36/gioi-thieu-tinh-nang-tren-website-toeic123vn.html">Giới
 					thiệu về website</a></li>
@@ -97,9 +105,19 @@
 
 		</ul>
 		<ul class="logo-middle">
-			<a href="index.html"><img
-				src="<%=request.getContextPath()%>/templates/public/images/logo.png"
-				height="35" /></a>
+			<c:choose>
+			    <c:when test="${ empty objmember}">
+			        <a href="${pageContext.request.contextPath}/"><img
+						src="<%=request.getContextPath()%>/templates/public/images/logo.png"
+						height="35" /></a>
+			    </c:when>    
+			    <c:otherwise>
+			        <a href="${pageContext.request.contextPath}/home"><img
+						src="<%=request.getContextPath()%>/templates/public/images/logo.png"
+						height="35" /></a>
+			    </c:otherwise>
+			</c:choose>
+			
 		</ul>
 		 <c:choose>
 		    <c:when test="${ empty objmember}">
@@ -111,7 +129,7 @@
 		    <c:otherwise>
 		        <ul class="logo-right">
 					<li><a href="#" class="create_examination">TẠO ĐỀ THI</a></li>
-					<li><a href="#" class="login_open_modal">THOÁT</a></li>
+					<li><a href="${pageContext.request.contextPath}/logout" >THOÁT</a></li>
 				</ul>
 		    </c:otherwise>
 		</c:choose>	
