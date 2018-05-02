@@ -55,5 +55,9 @@
   <definition name="public.index.index" extends="public.template">
     <put-attribute name="body" value="/WEB-INF/jsp/public/index.jsp" />
   </definition>
+  
+  <definition name="public.index.home" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/home.jsp" />
+  </definition>
   <!-- END NEW PUBLIC TEMPLATE -->
 </tiles-definitions>

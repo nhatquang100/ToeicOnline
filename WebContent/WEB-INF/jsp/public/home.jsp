@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@include file="/templates/taglib.jsp"%>
 <!-- content -->
 <div class="content">
@@ -18,19 +18,21 @@
 				<i class="fa fa-file-text"></i> THI THỬ TOEIC FULL - PHẦN READING
 			</h3></a>
 		<div class="box">
-			<div class="box-item">
-				<a href="exam/48800.html">
-					<div class="img"
-						style="background: url(upload/2016/08/11522.png); background-size: cover;">
-						<p>0/100</p>
-					</div>
-					<div class="meter">
-						<span style="width: 0%"></span>
-					</div>
-					<h4>Bộ đề 94</h4> <a class="learn" href='exam/48800.html'>Luyện
-						ngay</a>
-				</a>
-			</div>
+			<c:forEach items="${listexamreading }" var="objreading">
+				<div class="box-item">
+					<a href="exam/48800.html">
+						<div class="img"
+							style="background: url(${pageContext.request.contextPath}/upload/${objreading.image}); background-size: cover;">
+							<p>0/100</p>
+						</div>
+						<div class="meter">
+							<span style="width: 0%"></span>
+						</div>
+						<h4>Bộ đề ${objreading.examinationid }(${objreading.nameexamination })</h4> <a class="learn" href='exam/48800.html'>Luyện
+							ngay</a>
+					</a>
+				</div>
+			</c:forEach>
 		</div>
 		<div class='paging viewall'>
 			<a href="category/34.html">Xem tất cả &raquo;</a>
@@ -39,19 +41,22 @@
 				<i class="fa fa-file-text"></i> THI THỬ TOEIC FULL - PHẦN LISTENING
 			</h3></a>
 		<div class="box">
-			<div class="box-item">
-				<a href="exam/48799.html">
-					<div class="img"
-						style="background: url(upload/2016/08/11524.png); background-size: cover;">
-						<p>0/100</p>
-					</div>
-					<div class="meter">
-						<span style="width: 0%"></span>
-					</div>
-					<h4>Bộ đề 92</h4> <a class="learn" href='exam/48799.html'>Luyện
-						ngay</a>
-				</a>
-			</div>
+			<c:forEach items="${listexamlistening }" var="objlistening">
+				<div class="box-item">
+					<a href="exam/48799.html">
+						<div class="img"
+							style="background: url(${pageContext.request.contextPath}/upload/${objlistening.image}); background-size: cover;">
+							<p>0/100</p>
+						</div>
+						<div class="meter">
+							<span style="width: 0%"></span>
+						</div>
+						<h4>Bộ đề ${objlistening.examinationid }(${objlistening.nameexamination })</h4>
+						<%-- <h2 style="padding-top:-50px">(${objlistening.nameexamination })</h2> --%>
+						 <a class="learn" href='exam/48799.html'>Luyện ngay</a>
+					</a>
+				</div>
+			</c:forEach>
 		</div>
 		<div class='paging viewall'>
 			<a href="category/33.html">Xem tất cả &raquo;</a>
@@ -61,19 +66,21 @@
 				LISTENING
 			</h3></a>
 		<div class="box">
-			<div class="box-item">
-				<a href="exam/48798.html">
-					<div class="img"
-						style="background: url(upload/2016/09/13579.jpg); background-size: cover;">
-						<p>0/200</p>
-					</div>
-					<div class="meter">
-						<span style="width: 0%"></span>
-					</div>
-					<h4>Bộ đề thi thử FULL 62</h4> <a class="learn"
-					href='exam/48798.html'>Luyện ngay</a>
-				</a>
-			</div>
+			<c:forEach items="${listexamsumary }" var="objsumary">
+				<div class="box-item">
+					<a href="exam/48798.html">
+						<div class="img"
+							style="background: url(${pageContext.request.contextPath}/upload/${objsumary.image}); background-size: cover;">
+							<p>0/200</p>
+						</div>
+						<div class="meter">
+							<span style="width: 0%"></span>
+						</div>
+						<h4>Bộ đề ${objsumary.examinationid}(${objsumary.nameexamination })</h4> <a class="learn"
+						href='exam/48798.html'>Luyện ngay</a>
+					</a>
+				</div>
+			</c:forEach>
 		</div>
 		<div class='paging viewall'>
 			<a href="category/35.html">Xem tất cả &raquo;</a>
@@ -113,7 +120,7 @@
 			<a href="category/5.html">Xem tất cả &raquo;</a>
 		</div>
 	</div>
-	
+
 	<!-- Ngữ pháp toeic -->
 	<div class="content-box">
 		<div class="header">

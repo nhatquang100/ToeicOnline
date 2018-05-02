@@ -45,9 +45,10 @@ public class LoginController {
 				objmember.setUsername(username);
 				objmember.setPassword(stringUtil.md5(password));
 				session.setAttribute("sessionmember", objmember);
-				if(memberDao.getMemberbyUsername(username).getCategorymemberid() == 3){
+				if(memberDao.getMemberbyUsername(username).getCategorymemberid() != 1){
 					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
-					return "redirect:/";
+					model.addAttribute("msg","Đăng nhập thành công!!");
+					return "redirect:/home";
 				}else{
 					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
 					return "redirect:/admin";
@@ -93,9 +94,15 @@ public class LoginController {
 		member.setCategorymemberid(3);
 		if (memberDao.addItem(member) > 0){
 			model.addAttribute("msg","Đăng kí thành công!!");
-			return "public.index.index";
+			return "public.index.home";
 		}
 		model.addAttribute("msg","Đăng kí thất bại!!!");
+		return "public.index.index";
+	}
+	
+	@RequestMapping("logout")
+	public String logout(HttpSession session,HttpServletRequest request){
+		request.getSession().invalidate();
 		return "public.index.index";
 	}
 }

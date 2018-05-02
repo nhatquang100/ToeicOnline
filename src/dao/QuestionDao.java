@@ -50,4 +50,10 @@ public class QuestionDao {
 		String sql="Delete from question where questionid=? ";
 		return jdbcTemplate.update(sql,new Object[]{questionid});
 	}
+	
+	public List<question> getItembyLevelandCategory(int lv, int categoryquestionid){
+		String sql="select * from question where leveldifficult=? and categoryquestionid=?";
+		return jdbcTemplate.query(sql, new Object[]{lv,categoryquestionid}, new BeanPropertyRowMapper<question>(question.class));
+	}
+	
 }
