@@ -20,6 +20,16 @@ public class ExaminationDao {
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<examination>(examination.class));
 	}
 	
+	public List<examination> getAllItemsbycategory(int id){
+		String sql="select * from examination where categoryexamination = ?";
+		return jdbcTemplate.query(sql,new Object[]{id}, new BeanPropertyRowMapper<examination>(examination.class));
+	}
+	
+	public examination getItembyID(int id){
+		String sql="SELECT * from examination where examinationid = ?";
+		return jdbcTemplate.queryForObject(sql,new Object[]{id}, new BeanPropertyRowMapper<examination>(examination.class));
+	}
+	
 	public int addItem(examination obj){
 		String sql="insert into examination(nameexamination,image,datecreate,categoryexamination,leveldifficult,nameexamination) values(?,?,?,?,?,?)";
 		return jdbcTemplate.update(sql,new Object[]{obj.getNameexamination(),obj.getImage(),obj.getDatecreate(),obj.getCategoryexamination(),obj.getLeveldifficult(),obj.getNameexamination()});

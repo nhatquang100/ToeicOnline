@@ -52,12 +52,36 @@
     <put-attribute name="footer" value="/WEB-INF/templates/public/footer.jsp" />
   </definition>
   
-  <definition name="public.index.index" extends="public.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/public/index.jsp" />
-  </definition>
-  
   <definition name="public.index.home" extends="public.template">
     <put-attribute name="body" value="/WEB-INF/jsp/public/home.jsp" />
+  </definition>
+  
+  <definition name="public.exam.reading" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/examination_reading/exam_reading.jsp" />
+  </definition>
+  
+  <definition name="public.allexam.reading" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/examination_reading/all_exam_reading.jsp" />
+  </definition>
+  
+  <definition name="public.exam.listening" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/examination_listening/exam_listening.jsp" />
+  </definition>
+  
+  <definition name="public.allexam.listening" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/examination_listening/all_exam_listening.jsp" />
+  </definition>
+  
+  <definition name="public.exam.listening.reading" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/examination_listening_reading/exam_listening_reading.jsp" />
+  </definition>
+  
+  <definition name="public.allexam.listening.reading" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/examination_listening_reading/all_exam_listening_reading.jsp" />
+  </definition>
+  
+  <definition name="public.exam" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/test_examination/exam.jsp" />
   </definition>
   <!-- END NEW PUBLIC TEMPLATE -->
 </tiles-definitions>

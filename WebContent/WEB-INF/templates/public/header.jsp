@@ -68,17 +68,17 @@
 			<ul class="menu-left">
 				<li><i class="fa fa-phone"> </i> 0988.722.165</li>
 				<li><i class="fa fa-envelope"> </i> <a
-					href="mailto:info@vietcv.net">vonhatquang100@gmail.com</a></li>
-				<li><a href="#"><i class="fa fa-facebook"> </i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"> </i></a></li>
-				<li><a href="#"><i class="fa fa-google-plus"> </i></a></li>
+					href="${pageContext.request.contextPath}/">vonhatquang100@gmail.com</a></li>
+				<li><a href="${pageContext.request.contextPath}/"><i class="fa fa-facebook"> </i></a></li>
+				<li><a href="${pageContext.request.contextPath}/"><i class="fa fa-twitter"> </i></a></li>
+				<li><a href="${pageContext.request.contextPath}/""><i class="fa fa-google-plus"> </i></a></li>
 			</ul>
 			<ul class="menu-right">
-				<li><a href="news/3/gioi-thieu-ve-chung-toi.html">Về chúng
+				<li><a href="${pageContext.request.contextPath}/">Về chúng
 						tôi</a></li>
-				<li><a href="news/4/gioi-thieu-de-thi-toeic-2016.html">Cấu
+				<li><a href="${pageContext.request.contextPath}/">Cấu
 						trúc đề thi toeic</a></li>
-				<li><a href="news/5/chinh-sach-bao-mat.html">Chính sách bảo
+				<li><a href="${pageContext.request.contextPath}/">Chính sách bảo
 						mật</a></li>
 				<li><a href="http://www.studyphim.vn/" target="_blank">Phim
 						Engsub</a></li>
@@ -87,37 +87,20 @@
 	</div>
 	<div class="width logo-bar">
 		<ul class="logo-left">
-			<c:choose>
-			    <c:when test="${ empty objmember}">
-			        <li><a class="current" href="${pageContext.request.contextPath}/">Trang chủ</a></li>
-			    </c:when>    
-			    <c:otherwise>
-			        <li><a class="current" href="${pageContext.request.contextPath}/home">Trang chủ</a></li>
-			    </c:otherwise>
-			</c:choose>
+			<li><a class="current" href="${pageContext.request.contextPath}/">Trang chủ</a></li>
 			
 			<li><a
-				href="news/36/gioi-thieu-tinh-nang-tren-website-toeic123vn.html">Giới
+				href="${pageContext.request.contextPath}/">Giới
 					thiệu về website</a></li>
 			<li><a
-				href="vip-upgradefcee.html?utm_source=Homepage&amp;utm_medium=Menu">|&nbsp;&nbsp;<span
-					class="vip">&nbsp; NÂNG CẤP VIP &nbsp;</span></a></li>
+				href="${pageContext.request.contextPath}/">|&nbsp;&nbsp;<span
+					class="vip">&nbsp; LIÊN HỆ QUẢNG CÁO &nbsp;</span></a></li>
 
 		</ul>
-		<ul class="logo-middle">
-			<c:choose>
-			    <c:when test="${ empty objmember}">
-			        <a href="${pageContext.request.contextPath}/"><img
-						src="<%=request.getContextPath()%>/templates/public/images/logo.png"
-						height="35" /></a>
-			    </c:when>    
-			    <c:otherwise>
-			        <a href="${pageContext.request.contextPath}/home"><img
-						src="<%=request.getContextPath()%>/templates/public/images/logo.png"
-						height="35" /></a>
-			    </c:otherwise>
-			</c:choose>
-			
+		<ul class="logo-middle">   
+		        <a href="${pageContext.request.contextPath}/"><img
+					src="<%=request.getContextPath()%>/templates/public/images/logo.png"
+					height="35" /></a>
 		</ul>
 		 <c:choose>
 		    <c:when test="${ empty objmember}">
@@ -138,18 +121,18 @@
 	<c:choose>
 		    <c:when test="${ empty objmember}">
 		        <div class="full-width main-banner">
-					<h3>Luyện Thi TOEIC online hiệu quả !</h3>
+					<h3>KHÓA LUẬN TỐT NGHIỆP 2018 - TOECONLINE!</h3>
+					
 					<h4>
-						<i class="fa fa-check"></i> Website luyện thi TOEIC trực tuyến số 1
-						tại Việt Nam
+						<i class="fa fa-check"></i> Tự tạo đề thi theo khả năng<br>
 					</h4>
+					
 					<h4>
-						<i class="fa fa-check"></i> Hơn 14000+ câu hỏi, 500+ bộ đề luyện thi
-						TOEIC có đáp án<br>
+						<i class="fa fa-check"></i> Website luyện thi TOEIC online miễn phí
 					</h4>
+					
 					<h4>
-						<i class="fa fa-check"></i> Truy cập ngay với 199.000 VNĐ / 1 năm,
-						luyện thi TOEIC online thoải mái không giới hạn tài liệu
+						<i class="fa fa-check"></i>	Tổng hợp các mẹo hay giúp bạn nâng cao kĩ năng tiếng anh và đạt điểm cao trong bài thi TOEIC
 					</h4>
 					<a href="#" class="reg_open_modal">Đăng ký ngay</a>
 				</div>
