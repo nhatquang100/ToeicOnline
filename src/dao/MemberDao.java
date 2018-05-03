@@ -25,6 +25,11 @@ public class MemberDao {
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<member>(member.class));
 	}
 	
+	public List<member> getAllItemsLimit(){
+		String sql="select * from member order by memberid DESC LIMIT 5";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<member>(member.class));
+	}
+	
 	public List<member> getItems(int offset) {
 		String sql = "SELECT memberid, membername, username, password, isactive, a.categorymemberid AS categorymemberid, b.categorymembername AS categorymembername FROM member AS a INNER JOIN categorymember AS b ON a.categorymemberid = b.categorymemberid ORDER BY memberid ASC LIMIT ?, ?";
 		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<member>(member.class));	

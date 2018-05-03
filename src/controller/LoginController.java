@@ -33,7 +33,7 @@ public class LoginController {
 	
 	@RequestMapping("login")
 	public String login(){
-		return "public.index.index";
+		return "public.index.home";
 	}
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
@@ -48,7 +48,7 @@ public class LoginController {
 				if(memberDao.getMemberbyUsername(username).getCategorymemberid() != 1){
 					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
 					model.addAttribute("msg","Đăng nhập thành công!!");
-					return "redirect:/home";
+					return "redirect:/";
 				}else{
 					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
 					return "redirect:/admin";
@@ -57,7 +57,7 @@ public class LoginController {
 			}
 		}
 		model.addAttribute("msg","Sai tên đăng nhập hoặc mật khẩu!!"); 
-		return "public.index.index";
+		return "public.index.home";
 	}
 	
 	@RequestMapping(value="registry",method=RequestMethod.POST)
@@ -66,7 +66,7 @@ public class LoginController {
 		for(member objmb: list){
 			if(member.getUsername().equals(objmb.getUsername())){
 				model.addAttribute("msg","Tên đăng nhập đã tồn tại!!");
-				return "public.index.index";
+				return "public.index.home";
 			}
 		}
 		String nameFile = multifile.getOriginalFilename();
@@ -97,12 +97,12 @@ public class LoginController {
 			return "public.index.home";
 		}
 		model.addAttribute("msg","Đăng kí thất bại!!!");
-		return "public.index.index";
+		return "public.index.home";
 	}
 	
 	@RequestMapping("logout")
 	public String logout(HttpSession session,HttpServletRequest request){
 		request.getSession().invalidate();
-		return "public.index.index";
+		return "public.index.home";
 	}
 }

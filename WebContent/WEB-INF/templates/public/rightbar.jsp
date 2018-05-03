@@ -3,7 +3,7 @@
 <%@include file="/templates/taglib.jsp"%>
 
 <!-- right sidebar -->
-<div class="sidebar-right">
+<div class="sidebar-right" >
 	
 	<c:choose>
 	    <c:when test="${ empty objmember}">
@@ -50,7 +50,7 @@
 					<div class="row">
 						<div class="col1">
 							<div class="img">
-								<img src="/upload/avatars/a02914702a316d3ba0a9dfca53a08a86"
+								<img src="${pageContext.request.contextPath}/upload/${objmember.avatar}"
 									width="55" height="55">
 							</div>
 							<div style="display: inline;">
@@ -112,7 +112,7 @@
 	<div class="sidebar-spacing">&nbsp;</div>
 	<div class="sidebar-item member">
 		<div class="sidebar-member">
-			<div class="sidebar-member-number">33624</div>
+			<div class="sidebar-member-number">000${allmember}</div>
 		</div>
 	</div>
 	<c:if test="${not empty objmember}">
@@ -135,17 +135,15 @@
 	<div class="sidebar-item chatbox">
 		<div class="sidebar-chatbox">
 			<div class='chat-item'>
-				<span class='chat-user'>pro le</span>
-				<p class='chat-content'>ad cho hỏi phần nội dung của ets 1200 và
-					ets 1000 đã có trong nội dung thi thử của web mình chưa ạ</p>
+				<span class='chat-user'>Nhatquang100</span>
+				<p class='chat-content'>Nội dung bài thi rất hay!!</p>
 				<p class='chat-time'>2018-01-31 10:20:28</p>
 				<button class='reply-for' reply-for='755' section='question'>Trả
 					lời</button>
 				<div class='chat-item-reply'>
 					<span class='chat-user'>Admin <span class='vip'>Quản
 							trị viên</span></span>
-					<p class='chat-content'>Chào em. Các đề thi này đều đã có trên
-						website nhé</p>
+					<p class='chat-content'>Cảm ơn em ^^</p>
 					<p class='chat-time'>2018-01-31 17:37:08</p>
 				</div>
 			</div>
@@ -156,12 +154,14 @@
 		<div class="header"></div>
 		<div class="content-body">
 			<div class="vip-box-body">
+			<c:forEach items="${newmember }" var="objmember1">
 				<div>
-					<img src='upload/avatars/44f8e160b5bd6186a0f4e0bd7d63fd9d.jpg'
+					<img src='${pageContext.request.contextPath}/upload/${objmember1.avatar}'
 						width='30' height='30' />
-					<div>tu vuvan</div>
+					<div>${objmember1.membername}</div>
 					<span class='vip'>VIP</span>
 				</div>
+			</c:forEach>	
 			</div>
 		</div>
 	</div>
