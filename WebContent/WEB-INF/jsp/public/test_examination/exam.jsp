@@ -42,9 +42,15 @@
 			        <div class="question-body" id="q-26225">
 			        <input type="hidden" name="id[]" value="26225">
 			        <h3>Questions ${i.index + 1} </h3>
-					<c:if test="${question.image }">
-						<div class="media"><img src="${pageContext.request.contextPath}/upload/${question.image}" width="80%"></div>
-					</c:if>
+			        <c:choose>
+						<c:when test="${question.image}">
+							<div class="media"><img src="${pageContext.request.contextPath}/upload/${question.image}" width="80%"></div>
+						</c:when>
+						<c:otherwise>
+							<div class="q">${question.paragraph}<br></div>
+						</c:otherwise>
+					</c:choose>
+					
 					<div class="multi-question type6">
 					<div class="question-detail type1">
 					<h3></h3>

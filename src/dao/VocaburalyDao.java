@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import constant.Defines;
-import entity.CategoryVocaburaly;
+import entity.CategoryVocabulary;
 import entity.Vocabulary;
 import entity.examination;
 import entity.member;
@@ -24,31 +24,31 @@ public class VocaburalyDao {
 	//@Autowired
 	//@Qualifier("sessionFactory")
 
-	public List<CategoryVocaburaly> getAll(){
+	public List<CategoryVocabulary> getAll(){
 		String sql = "SELECT * from categoryvocabulary ";
-		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<CategoryVocaburaly>(CategoryVocaburaly.class));
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<CategoryVocabulary>(CategoryVocabulary.class));
 	}
 	public int countItem() {
 		String sql = "SELECT COUNT(*) AS countCategoryVocabulary FROM categoryvocabulary ";
 		return jdbcTemplate.queryForObject(sql, Integer.class);
 	}
-	public List<CategoryVocaburaly> getAlls (int offset){
+	public List<CategoryVocabulary> getAlls (int offset){
 		String sql = "SELECT * from categoryvocabulary ORDER BY categoryvocabularyid ASC LIMIT ?, ?";
-		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<CategoryVocaburaly>(CategoryVocaburaly.class));
+		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<CategoryVocabulary>(CategoryVocabulary.class));
 	}
-	public CategoryVocaburaly getItem(String id) {
+	public CategoryVocabulary getItem(String id) {
 		String sql = "SELECT * FROM categoryvocabulary WHERE categoryvocabularyid = ?";
-		return jdbcTemplate.queryForObject(sql,new Object []{id}, new BeanPropertyRowMapper<CategoryVocaburaly>(CategoryVocaburaly.class));
+		return jdbcTemplate.queryForObject(sql,new Object []{id}, new BeanPropertyRowMapper<CategoryVocabulary>(CategoryVocabulary.class));
 	}
 
-	public int addVoca(CategoryVocaburaly categoryVocaburaly) {
-		String sql="insert into categoryvocabulary(categoryVocaburalyName,categoryVocaburalyImage) values(?,?) ";
-		return jdbcTemplate.update(sql,new Object[]{categoryVocaburaly.getCategoryVocaburalyName(), categoryVocaburaly.getCategoryVocaburalyImage()});
+	public int addVoca(CategoryVocabulary categoryVocaburaly) {
+		String sql="insert into categoryvocabulary(categoryVocabularyName,categoryVocabularyImage) values(?,?) ";
+		return jdbcTemplate.update(sql,new Object[]{categoryVocaburaly.getCategoryVocabularyName(), categoryVocaburaly.getCategoryVocabularyImage()});
 	}
 	
-	public int editItem(CategoryVocaburaly categoryVocaburaly) {
-		String sql="update categoryvocabulary set categoryvocaburalyname=?,categoryvocaburalyimage=? where categoryvocabularyid = ? ";
-		return jdbcTemplate.update(sql,new Object[]{categoryVocaburaly.getCategoryVocaburalyName(), categoryVocaburaly.getCategoryVocaburalyImage(),categoryVocaburaly.getId()});
+	public int editItem(CategoryVocabulary categoryVocaburaly) {
+		String sql="update categoryvocabulary set categoryvocabularyname=?,categoryvocabularyimage=? where categoryvocabularyid = ? ";
+		return jdbcTemplate.update(sql,new Object[]{categoryVocaburaly.getCategoryVocabularyName(), categoryVocaburaly.getCategoryVocabularyImage(),categoryVocaburaly.getId()});
 	}
 
 	public int delItem(String id){
@@ -56,8 +56,9 @@ public class VocaburalyDao {
 		return jdbcTemplate.update(sql,new Object[]{id});
 	}
 	
-	public List<CategoryVocaburaly> getcategoryvocabularyLimit(){
+	public List<CategoryVocabulary> getcategoryvocabularyLimit(){
 		String sql="select * from categoryvocabulary LIMIT 4";
-		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<CategoryVocaburaly>(CategoryVocaburaly.class));
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<CategoryVocabulary>(CategoryVocabulary.class));
 	}
+	
 }

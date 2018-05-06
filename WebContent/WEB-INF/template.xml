@@ -129,18 +129,18 @@
   </definition>
   
   <definition name="public.index.vocabulary" extends="public.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/public/vocabulary/Vocabulary.jsp" />
+    <put-attribute name="body" value="/WEB-INF/jsp/public/vocabulary/all_categoryvocabulary.jsp" />
   </definition>
   
-    <definition name="public.index.vocabulary.detail" extends="public.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/public/vocabulary/Contact.jsp" />
+  <definition name="public.index.vocabulary.detail" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/vocabulary/detail_categoryvocabulary.jsp" />
   </definition>
   
   <definition name="public.index.categorygrammar" extends="public.template">
     <put-attribute name="body" value="/WEB-INF/jsp/public/grammar/categorygrammar.jsp" />
   </definition>
  
-    <definition name="public.index.categorygrammar.detail" extends="public.template">
+  <definition name="public.index.categorygrammar.detail" extends="public.template">
     <put-attribute name="body" value="/WEB-INF/jsp/public/grammar/grammar.jsp" />
   </definition>
   <!-- END NEW PUBLIC TEMPLATE -->

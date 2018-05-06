@@ -34,7 +34,7 @@
 					<i class="fa fa-plus-square"></i> Độ khó: <b>Hard</b><br>
 				</c:if>
 				<i class="fa fa-plus-square"></i> Tổng số câu/Số câu đúng: <b>${sum }/${point}</b><br>
-				<a class="button" id="exam-lnk" href="${pageContext.request.contextPath}/result/detail/${resul}">Xem chi tiết kết quả</a>
+				<a class="button" id="exam-lnk" href="${pageContext.request.contextPath}/exam/getresult/detail/${resul}">Xem chi tiết kết quả</a>
 			</div>
 		</div>
 	</div>

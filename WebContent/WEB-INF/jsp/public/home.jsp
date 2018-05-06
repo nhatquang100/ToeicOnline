@@ -113,12 +113,12 @@
 	<div class="content-box">
 		<div class="header">
 			<div class="h3-container">
-				<a href="${pageContext.request.contextPath}/"><h3>PHẦN TỪ VỰNG TOEIC</h3></a> <span>(3156
-					từ vựng)</span> <a class="learn-all" href="${pageContext.request.contextPath}/">Xem tất cả
+				<a href="${pageContext.request.contextPath}/public/vocabulary/"><h3>PHẦN TỪ VỰNG TOEIC</h3></a> <span>(3156
+					từ vựng)</span> <a class="learn-all" href="${pageContext.request.contextPath}/public/vocabulary/">Xem tất cả
 					&raquo;</a>
 			</div>
 		</div>
-		<a href="${pageContext.request.contextPath}/"><h3 class="sub-header">
+		<a href="${pageContext.request.contextPath}/public/vocabulary"><h3 class="sub-header">
 				<i class="fa fa-book"> </i> Tổng hợp chủ đề từ vựng thiết yếu cho kì thi
 				Toeic
 			</h3></a>
@@ -127,20 +127,20 @@
 				<div class="box-item">
 					<a href="${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.id }">
 						<div class="img"
-							style="background: url(${pageContext.request.contextPath}/upload/${objvocabulary.categoryVocaburalyImage}); background-size: cover;">
+							style="background: url(${pageContext.request.contextPath}/upload/${objvocabulary.categoryVocabularyImage}); background-size: cover;">
 							<p>0/54</p>
 						</div>
 						<div class="meter">
 							<span style="width: 0%"></span>
 						</div>
-						<h4>Bài ${objvocabulary.id}: ${objvocabulary.categoryVocaburalyName }</h4> <a class="learn" href='${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.id }'>Học
+						<h4>Bài ${objvocabulary.id}: ${objvocabulary.categoryVocabularyName }</h4> <a class="learn" href='${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.id }'>Học
 							ngay</a>
 					</a>
 				</div>
 			</c:forEach>
 		</div>
 		<div class='paging viewall'>
-			<a href="${pageContext.request.contextPath}/">Xem tất cả &raquo;</a>
+			<a href="${pageContext.request.contextPath}/public/vocabulary">Xem tất cả &raquo;</a>
 		</div>
 	</div>
 
@@ -148,8 +148,8 @@
 	<div class="content-box">
 		<div class="header">
 			<div class="h3-container">
-				<a href="${pageContext.request.contextPath}/"><h3>PHẦN NGỮ PHÁP TOEIC</h3></a> <span>(0
-					chủ điểm, 0 bài tập)</span> <a class="learn-all" href="${pageContext.request.contextPath}/">Xem
+				<a href="${pageContext.request.contextPath}/public/grammar"><h3>PHẦN NGỮ PHÁP TOEIC</h3></a> <span>(0
+					chủ điểm, 0 bài tập)</span> <a class="learn-all" href="${pageContext.request.contextPath}/public/grammar">Xem
 					tất cả &raquo;</a>
 			</div>
 		</div>
@@ -174,7 +174,7 @@
 			</c:forEach>
 		</div>
 		<div class='paging viewall'>
-			<a href="category/26.html">Xem tất cả &raquo;</a>
+			<a href="${pageContext.request.contextPath}/public/grammar">Xem tất cả &raquo;</a>
 		</div>
 	</div>
 	

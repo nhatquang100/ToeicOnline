@@ -25,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import constant.Defines;
 import dao.GrammarDao;
 import dao.CategoryGrammarDao;
-import entity.CategoryVocaburaly;
+import entity.CategoryVocabulary;
 import entity.categorygrammar;
 import entity.grammar;
 import entity.grammar;

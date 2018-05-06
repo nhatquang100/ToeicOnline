@@ -24,7 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import constant.Defines;
 import dao.VocaburalyDao;
-import entity.CategoryVocaburaly;
+import entity.CategoryVocabulary;
 import entity.member;
 import util.StringUtil;
 
@@ -45,7 +45,7 @@ public class AdminVocaburalyController {
 		int sumPage = (int) Math.ceil((float)vocaburalyDao.countItem()/Defines.ROW_COUNT);
 		int offset= (page - 1) * Defines.ROW_COUNT;
 		ModelAndView mav = new ModelAndView();
-		List<CategoryVocaburaly> list = vocaburalyDao.getAlls(offset) ;
+		List<CategoryVocabulary> list = vocaburalyDao.getAlls(offset) ;
 		modelMap.addAttribute("catVocaburaly", list);
 		modelMap.addAttribute("sumPage", sumPage);
 		modelMap.addAttribute("page", page);
@@ -57,10 +57,10 @@ public class AdminVocaburalyController {
 		return "admin.categoryVacaburaly.add";
 	}
 	@RequestMapping(value="add",method=RequestMethod.POST)
-	public String add(@ModelAttribute("catvocal") CategoryVocaburaly categoryVocaburaly,@RequestParam(value="multiimage") CommonsMultipartFile multifile,Model model, RedirectAttributes ra,HttpServletRequest request){
+	public String add(@ModelAttribute("catvocal") CategoryVocabulary categoryVocaburaly,@RequestParam(value="multiimage") CommonsMultipartFile multifile,Model model, RedirectAttributes ra,HttpServletRequest request){
 
 		String nameFile = multifile.getOriginalFilename();
-		categoryVocaburaly.setCategoryVocaburalyImage(nameFile);
+		categoryVocaburaly.setCategoryVocabularyImage(nameFile);
 		
 		if(!"".equals(nameFile) ){
 			String dirFile = request.getServletContext().getRealPath("upload");
@@ -91,13 +91,13 @@ public class AdminVocaburalyController {
 		return "admin.categoryVacaburaly.edit";
 	}
 	@RequestMapping(value="edit/{id}",method=RequestMethod.POST)
-	public String edit(@ModelAttribute("catvocal") CategoryVocaburaly categoryVocaburaly,@RequestParam(value="multiimage") CommonsMultipartFile multifile,@PathVariable("id") String id,RedirectAttributes ra,Model model, BindingResult rs,HttpServletRequest request){
+	public String edit(@ModelAttribute("catvocal") CategoryVocabulary categoryVocaburaly,@RequestParam(value="multiimage") CommonsMultipartFile multifile,@PathVariable("id") String id,RedirectAttributes ra,Model model, BindingResult rs,HttpServletRequest request){
 		if(rs.hasErrors()) {
 	        return "admin.categoryVacaburaly.edit";
 	    }
 
 		String nameFile = multifile.getOriginalFilename();
-		categoryVocaburaly.setCategoryVocaburalyImage(nameFile);
+		categoryVocaburaly.setCategoryVocabularyImage(nameFile);
 		categoryVocaburaly.setId(id);
 		if(!"".equals(nameFile) ){
 			String dirFile = request.getServletContext().getRealPath("upload");
@@ -135,9 +135,9 @@ public class AdminVocaburalyController {
 	  public void showImage(@RequestParam("id") String id, HttpServletResponse response,HttpServletRequest request) throws IOException  {
 
 
-	    CategoryVocaburaly categoryVocaburaly = vocaburalyDao.getItem(id);        
+	    CategoryVocabulary categoryVocaburaly = vocaburalyDao.getItem(id);        
 	    response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-	    int foo = Integer.parseInt(categoryVocaburaly.getCategoryVocaburalyImage());
+	    int foo = Integer.parseInt(categoryVocaburaly.getCategoryVocabularyImage());
 	    response.getOutputStream().write(foo);
 
 

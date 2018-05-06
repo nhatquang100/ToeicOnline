@@ -18,7 +18,7 @@ import dao.GrammarDao;
 import dao.MemberDao;
 import dao.VocaburalyDao;
 import dao.VocaburalysDao;
-import entity.CategoryVocaburaly;
+import entity.CategoryVocabulary;
 import entity.Vocabulary;
 import entity.categorygrammar;
 import entity.grammar;
@@ -71,15 +71,16 @@ public class PublicIndexController {
 	
 	@RequestMapping("/public/vocabulary")
 	public String vocabulary(ModelMap modelMap){
-		List<CategoryVocaburaly> list = categoryVocabulary.getAll();
+		List<CategoryVocabulary> list = categoryVocabulary.getAll();
 		modelMap.addAttribute("cateVocal", list);
 		return "public.index.vocabulary";
 	}
+	
 	@RequestMapping("/public/vocabulary/{id}")
 	public String readedit(@PathVariable("id") String categoryvocabularyid, ModelMap modelMap){
 		List<Vocabulary> list = vocaburalysDao.getItem(categoryvocabularyid);
 		modelMap.addAttribute("vocal", list);
-		CategoryVocaburaly listCate = categoryVocabulary.getItem(categoryvocabularyid);
+		CategoryVocabulary listCate = categoryVocabulary.getItem(categoryvocabularyid);
 		modelMap.addAttribute("cateVocal", listCate);
 		return "public.index.vocabulary.detail";
 	}
@@ -89,6 +90,8 @@ public class PublicIndexController {
 		modelMap.addAttribute("categram", list);
 		return "public.index.categorygrammar";
 	}
+	
+	
 	@RequestMapping("/public/grammar/{categorygrammarid}")
 	public String detail(@PathVariable("categorygrammarid") String categorygrammarid, ModelMap modelMap){
 		List<grammar> list = grammarDao.getItem(categorygrammarid);

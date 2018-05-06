@@ -42,8 +42,8 @@
 	                                <c:forEach items="${catVocaburaly }" var="catvocal">
 	                                    <tr class="odd gradeX">
 	                                        <td style="text-align:center;" >${catvocal.id }</td>
-	                                        <td style="text-align:center;">${catvocal.categoryVocaburalyName }</td>
-	                    					<td style="text-align:center;">${catvocal.categoryVocaburalyImage }</td>
+	                                        <td style="text-align:center;">${catvocal.categoryVocabularyName }</td>
+	                    					<td style="text-align:center;">${catvocal.categoryVocabularyImage }</td>
 	                                        <td class="center text-center">
 	                                            <a href="${pageContext.request.contextPath}/admin/categoryVoca/edit/${catvocal.id}" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
 	                                            <a href="${pageContext.request.contextPath}/admin/categoryVoca/del/${catvocal.id}" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
