@@ -4,7 +4,7 @@
 	<div class="container">
 
 		<div class="copy text-center">
-			Copyright 2017 &copy; <a href='#'>Vinaenter Edu</a>
+			Copyright 2018 &copy; <a href='#'>Khóa luận tốt nghiệp 2018-TOEIC ONLINE</a>
 		</div>
 
 	</div>

@@ -115,40 +115,7 @@
 			<div class="sidebar-member-number">000${allmember}</div>
 		</div>
 	</div>
-	<c:if test="${not empty objmember}">
-		<div class="sidebar-spacing">&nbsp;</div>
-		<div class="sidebar-item chatform">
-             <div class="quick-question-label"></div>
-             <div class="quick-question-form">
-                 <form class="form new_comment" id="sidebar-question">
-                 <label for="question">Câu hỏi hay câu trả lời của thành viên thường phải chờ giáo viên duyệt mới được hiển thị. Nếu nói bậy bạn sẽ bị xóa nick.</label>
-                 <textarea id="question" name="content" placeholder="Câu hỏi của bạn"></textarea>
-				 <input type="hidden" name="section" id="form-section" value="question">
-				 <input type="hidden" name="reply_for" id="form-reply_for" value="0">
-                 <input type="submit" value="Gửi">
-                 </form>
-             </div>
-         </div>
-	</c:if>
-	
-    <div class="sidebar-spacing">&nbsp;</div>
-	<div class="sidebar-item chatbox">
-		<div class="sidebar-chatbox">
-			<div class='chat-item'>
-				<span class='chat-user'>Nhatquang100</span>
-				<p class='chat-content'>Nội dung bài thi rất hay!!</p>
-				<p class='chat-time'>2018-01-31 10:20:28</p>
-				<button class='reply-for' reply-for='755' section='question'>Trả
-					lời</button>
-				<div class='chat-item-reply'>
-					<span class='chat-user'>Admin <span class='vip'>Quản
-							trị viên</span></span>
-					<p class='chat-content'>Cảm ơn em ^^</p>
-					<p class='chat-time'>2018-01-31 17:37:08</p>
-				</div>
-			</div>
-		</div>
-	</div>
+
 	<div class="sidebar-spacing">&nbsp;</div>
 	<div class="sidebar-item vip-box">
 		<div class="header"></div>
@@ -186,8 +153,85 @@
 					</div>
 					<div class='date'>02/02/2018</div>
 				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/107/toeic-900-tong-hop-cac-giao-trinh-luyen-thi-toeic-900-diem.html'>TOEIC
+							900: Tổng hợp các giáo trình luyện thi TOEIC 900 điểm</a>
+					</div>
+					<div class='date'>02/02/2018</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/107/toeic-900-tong-hop-cac-giao-trinh-luyen-thi-toeic-900-diem.html'>TOEIC
+							900: Tổng hợp các giáo trình luyện thi TOEIC 900 điểm</a>
+					</div>
+					<div class='date'>02/02/2018</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/107/toeic-900-tong-hop-cac-giao-trinh-luyen-thi-toeic-900-diem.html'>TOEIC
+							900: Tổng hợp các giáo trình luyện thi TOEIC 900 điểm</a>
+					</div>
+					<div class='date'>02/02/2018</div>
+				</div>
 			</div>
 			<div id="tabs-2">
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/107/toeic-900-tong-hop-cac-giao-trinh-luyen-thi-toeic-900-diem.html'>TOEIC
+							900: Tổng hợp các giáo trình luyện thi TOEIC 900 điểm</a>
+					</div>
+					<div class='date'>02/02/2018</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/107/toeic-900-tong-hop-cac-giao-trinh-luyen-thi-toeic-900-diem.html'>TOEIC
+							900: Tổng hợp các giáo trình luyện thi TOEIC 900 điểm</a>
+					</div>
+					<div class='date'>02/02/2018</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/107/toeic-900-tong-hop-cac-giao-trinh-luyen-thi-toeic-900-diem.html'>TOEIC
+							900: Tổng hợp các giáo trình luyện thi TOEIC 900 điểm</a>
+					</div>
+					<div class='date'>02/02/2018</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/107/toeic-900-tong-hop-cac-giao-trinh-luyen-thi-toeic-900-diem.html'>TOEIC
+							900: Tổng hợp các giáo trình luyện thi TOEIC 900 điểm</a>
+					</div>
+					<div class='date'>02/02/2018</div>
+				</div>
 				<div class='row'>
 					<div class='icon'>
 						<i class='fa fa-circle'></i>
@@ -212,8 +256,86 @@
 					</div>
 					<div class='date'>26/07/2017</div>
 				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/154/gioi-thieu-tinh-nang-tren-website-toeic-123.html'>Giới
+							thiệu tính năng trên website Toeic 123</a>
+					</div>
+					<div class='date'>26/07/2017</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/154/gioi-thieu-tinh-nang-tren-website-toeic-123.html'>Giới
+							thiệu tính năng trên website Toeic 123</a>
+					</div>
+					<div class='date'>26/07/2017</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/154/gioi-thieu-tinh-nang-tren-website-toeic-123.html'>Giới
+							thiệu tính năng trên website Toeic 123</a>
+					</div>
+					<div class='date'>26/07/2017</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/154/gioi-thieu-tinh-nang-tren-website-toeic-123.html'>Giới
+							thiệu tính năng trên website Toeic 123</a>
+					</div>
+					<div class='date'>26/07/2017</div>
+				</div>
 			</div>
-			<div id="tabs-4"></div>
+			<div id="tabs-4">
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/154/gioi-thieu-tinh-nang-tren-website-toeic-123.html'>Giới
+							thiệu tính năng trên website Toeic 123</a>
+					</div>
+					<div class='date'>26/07/2017</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/154/gioi-thieu-tinh-nang-tren-website-toeic-123.html'>Giới
+							thiệu tính năng trên website Toeic 123</a>
+					</div>
+					<div class='date'>26/07/2017</div>
+				</div>
+				<div class='row'>
+					<div class='icon'>
+						<i class='fa fa-circle'></i>
+					</div>
+					<div class='title'>
+						<a
+							href='news/154/gioi-thieu-tinh-nang-tren-website-toeic-123.html'>Giới
+							thiệu tính năng trên website Toeic 123</a>
+					</div>
+					<div class='date'>26/07/2017</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

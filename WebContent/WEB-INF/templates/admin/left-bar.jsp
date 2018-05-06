@@ -5,6 +5,11 @@
     <li class="current"><a href="${pageContext.request.contextPath}/admin"><i class="glyphicon glyphicon-home"></i> Home</a></li>
     <li><a href="${pageContext.request.contextPath}/admin/member"><i class="glyphicon glyphicon-list"></i> Manager Member</a></li>
     <li><a href="${pageContext.request.contextPath}/admin/question"><i class="glyphicon glyphicon-list"></i> Manager Question</a></li>
+    <li><a href="${pageContext.request.contextPath}/admin/categoryVoca"><i class="glyphicon glyphicon-list"></i> Manager Category Vocaburaly</a></li>
+    <li><a href="${pageContext.request.contextPath}/admin/vocaburaly"><i class="glyphicon glyphicon-list"></i> Manager Vocaburaly</a></li>
+    <li><a href="${pageContext.request.contextPath}/admin/categoryGram"><i class="glyphicon glyphicon-list"></i> Manager Category Vocaburaly</a></li>
+    <li><a href="${pageContext.request.contextPath}/admin/grammar"><i class="glyphicon glyphicon-list"></i> Manager Grammar</a></li>
+     
     <%-- <li class="submenu">
          <a href="#">
             <i class="glyphicon glyphicon-list"></i> Quản lý danh mục

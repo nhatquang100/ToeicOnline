@@ -39,7 +39,7 @@
 			
 			<div class="row">
 				<span class="label">Tên đề thi:</span> <input type="text" value=""
-					name="nameexamiation" class="form-control" />
+					name="nameexamination" class="form-control" />
 			</div>
 			
 			<div class ="row">

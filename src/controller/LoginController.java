@@ -45,13 +45,13 @@ public class LoginController {
 				objmember.setUsername(username);
 				objmember.setPassword(stringUtil.md5(password));
 				session.setAttribute("sessionmember", objmember);
-				if(memberDao.getMemberbyUsername(username).getCategorymemberid() != 1){
+				if(memberDao.getMemberbyUsername(username).getCategorymemberid() == 3){
 					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
-					model.addAttribute("msg","Đăng nhập thành công!!");
 					return "redirect:/";
 				}else{
 					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
 					return "redirect:/admin";
+					
 				}
 				
 			}
@@ -103,6 +103,6 @@ public class LoginController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session,HttpServletRequest request){
 		request.getSession().invalidate();
-		return "public.index.home";
+		return "redirect:/";
 	}
 }

@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import constant.Defines;
+import entity.examination;
 import entity.member;
 import entity.question;
 
@@ -20,6 +21,11 @@ public class QuestionDao {
 	public List<question> getItems(int offset) {
 		String sql = "SELECT questionid, audio, image, paragraph, question,option1,option2,option3,option4,correctquestion,leveldifficult, isactive, a.categoryquestionid AS categoryquestionid, b.categoryquestionname AS categoryquestionname FROM question AS a INNER JOIN categoryquestion AS b ON a.categoryquestionid = b.categoryquestionid ORDER BY questionid ASC LIMIT ?, ?";
 		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<question>(question.class));	
+	}
+	
+	public question getItembyID(int id){
+		String sql="SELECT * from question where questionid = ?";
+		return jdbcTemplate.queryForObject(sql,new Object[]{id}, new BeanPropertyRowMapper<question>(question.class));
 	}
 	
 	public int countItem() {
