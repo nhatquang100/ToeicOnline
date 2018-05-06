@@ -25,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import constant.Defines;
 import dao.VocaburalyDao;
 import dao.VocaburalysDao;
-import entity.CategoryVocaburaly;
+import entity.CategoryVocabulary;
 import entity.Vocabulary;
 import entity.member;
 import entity.question;
@@ -61,14 +61,14 @@ public class AdminVocaburalysController {
 	}
 	@RequestMapping("add")
 	public String add(ModelMap modelMap){
-		List<CategoryVocaburaly> listCate = categoryVocaburalyDao.getAll();
+		List<CategoryVocabulary> listCate = categoryVocaburalyDao.getAll();
 		modelMap.addAttribute("listCateogry", listCate);
 		return "admin.vocabularys.add";
 	}
 	@RequestMapping(value="add",method=RequestMethod.POST)
 	public String add(@RequestBody Vocabulary vocabulary,ModelMap modelMap, RedirectAttributes ra,HttpServletRequest request){
 		ArrayList<Vocabulary> list = (ArrayList<Vocabulary>) vocaburalysDao.getItems();
-		List<CategoryVocaburaly> listCate = categoryVocaburalyDao.getAll();
+		List<CategoryVocabulary> listCate = categoryVocaburalyDao.getAll();
 		modelMap.addAttribute("listCateogry", listCate);
 		vocaburalysDao.addItem(vocabulary);
 		/*if(){

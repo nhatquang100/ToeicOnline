@@ -27,7 +27,7 @@
 			<div class="img"
 				style="background: url(/upload/2016/05/9106.jpg); background-size: cover;"></div>
 			<div class="info">
-				<h3>Chủ Đề : ${cateVocal.categoryVocaburalyName }</h3>
+				<h3>Chủ Đề : ${cateVocal.categoryVocabularyName }</h3>
 				<!-- <div class="meter">
 					<span style="width: 0%"></span>
 				</div>

@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import constant.Defines;
-import entity.CategoryVocaburaly;
+import entity.CategoryVocabulary;
 import entity.categorygrammar;
 
 @Repository

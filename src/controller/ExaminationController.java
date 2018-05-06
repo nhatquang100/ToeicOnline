@@ -23,6 +23,7 @@ import entity.member;
 import entity.question;
 import entity.questionListWraper;
 import entity.question_answer;
+import entity.question_answer_correct;
 import entity.questionexam;
 import entity.result;
 
@@ -68,14 +69,14 @@ public class ExaminationController {
 	public String getruslut(Model model, @ModelAttribute ("questionListWraper") questionListWraper questionlistWraprer,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
-			System.out.println(member.getMembername());
+			//System.out.println(member.getMembername());
 			List<questionexam> objquestion = questionlistWraprer.getQuestionlist();
 			int examinationid = 0;
 			String stringchose = "";
 			List<question_answer> qa = new ArrayList<question_answer>(); 
 			for(questionexam obj:objquestion){
 				examinationid = obj.getExaminationid();
-				stringchose = stringchose.concat(obj.getQuestionid()+ "~" +obj.getChose() + "|" );
+				stringchose = stringchose.concat(obj.getQuestionid()+ "~" +obj.getChose() + "&" );
 				question_answer question_answer = new question_answer(obj.getQuestionid(),obj.getChose());
 				qa.add(question_answer);
 			}
@@ -85,8 +86,8 @@ public class ExaminationController {
 			//check point
 			int point = 0;
 			for(question_answer objq:qa){
-				System.out.println(objq.getChose() );
-				System.out.println(questionDao.getItembyID(objq.getQuestionid()).getCorrectquestion()+ "\n");
+				//System.out.println(objq.getChose() );
+				//System.out.println(questionDao.getItembyID(objq.getQuestionid()).getCorrectquestion()+ "\n");
 				if(objq.getChose() != null && objq.getChose().equals(questionDao.getItembyID(objq.getQuestionid()).getCorrectquestion())){
 					point += 1;
 				}
@@ -105,13 +106,37 @@ public class ExaminationController {
 		
 	}
 	
-	@RequestMapping("/result/detail/${id}")
-	public String listenedit(@PathVariable("id") int resultid, Model model,HttpSession session){
+	@RequestMapping(value="exam/getresult/detail/{resul}")
+	public String listenedit(@PathVariable("resul") int resul, Model model,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
-			result rs = resultDao.getItembyID(resultid);
-			System.out.println(rs.getChoseofmember());
+			//get String result
+			result rs = resultDao.getItembyID(resul);
+			String [] questionans = rs.getChoseofmember().split("&");
+			List<question_answer> detailreuslt = new ArrayList<question_answer>();
+			for(int i = 0 ; i < questionans.length;i++){
+				System.out.println(questionans[i]);
+				String [] tmp = questionans[i].split("~");
+				question_answer qa = new question_answer(Integer.parseInt(tmp[0]),tmp[1]);
+				detailreuslt.add(qa);
+			}
 			
+			//send attribute question and choseofmember
+			List<question_answer_correct> objqac = new ArrayList<question_answer_correct>();
+			for(question_answer obj:detailreuslt){
+				question_answer_correct tmp = new question_answer_correct(obj.getQuestionid(),
+						questionDao.getItembyID(obj.getQuestionid()).getImage(),
+						questionDao.getItembyID(obj.getQuestionid()).getAudio(),
+						questionDao.getItembyID(obj.getQuestionid()).getParagraph(),
+						questionDao.getItembyID(obj.getQuestionid()).getOption1(),
+						questionDao.getItembyID(obj.getQuestionid()).getOption2(),
+						questionDao.getItembyID(obj.getQuestionid()).getOption3(),
+						questionDao.getItembyID(obj.getQuestionid()).getOption4(),
+						obj.getChose(),questionDao.getItembyID(obj.getQuestionid()).getCorrectquestion(),
+						questionDao.getItembyID(obj.getQuestionid()).getCategoryquestionid());
+				objqac.add(tmp);
+			}
+			model.addAttribute("listdetailresult",objqac);
 			return "public.exam.result.detail";
 		}else{
 			model.addAttribute("msg","Vui lòng đăng nhập hoặc đăng kí thành viên!");

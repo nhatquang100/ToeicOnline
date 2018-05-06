@@ -31,7 +31,7 @@
 								
 								<select class="categoryvocabularyid">
 									<c:forEach items="${listCateogry }" var="cate">
-										<option value="${cate.id }">${cate.categoryVocaburalyName }</option>
+										<option value="${cate.id }">${cate.categoryVocabularyName }</option>
 									</c:forEach>
 								</select> 
 								

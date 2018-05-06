@@ -50,19 +50,18 @@
 		<c:forEach items="${cateVocal }" var="cateVocal">
 			<div class="box-item">
 				
-					<!-- <div class="img"
-						style="background: url(/upload/2016/05/9106.jpg); background-size: cover;">
-						<p>0/54</p>
-					</div> -->
-					<!-- <div class="meter">
-						<span style="width: 0%"></span>
-					</div> -->
-					<h4 >Chủ Đề:</h4>
-					<h4 style="color: blue;">${cateVocal.categoryVocaburalyName }</h4>
+				<div class="img"
+					style="background: url(<%=request.getContextPath()%>/templates/public/images/TOEICSMART-Red-Grammar-300x424.jpg); background-size: cover;">
+				</div>
+				<div class="meter">
+					<span style="width: 0%"></span>
+				</div>
+				<h4 >Chủ Đề:${cateVocal.id}</h4>
+				<h4 style="color: blue;">${cateVocal.categoryVocabularyName }</h4>
 				<a class="learn" style="color: red" href="${pageContext.request.contextPath}/public/vocabulary/${cateVocal.id }">Học ngay</a>
 
 			</div>
-			</c:forEach>
+		</c:forEach>
 			
 		</div>
 		
