@@ -15,7 +15,7 @@
 						</span>
 						<div class="text-box">
 							<p class="main-text">
-								<a class="fs-14" href="cat.php" title="">Quản lý danh mục</a>
+								<a class="fs-14" href="${pageContext.request.contextPath}/admin" title="">Quản lý danh mục</a>
 							</p>
 							<p class="text-muted">Có 4 danh mục</p>
 						</div>
@@ -28,9 +28,9 @@
 						</span>
 						<div class="text-box">
 							<p class="main-text">
-								<a class="fs-14" href="news.php" title="">Quản lý truyện</a>
+								<a class="fs-14" href="${pageContext.request.contextPath}/admin" title="">Danh mục có thể dùng</a>
 							</p>
-							<p class="text-muted">Có 20 truyện</p>
+							<p class="text-muted">Có 6 danh mục</p>
 						</div>
 					</div>
 				</div>
@@ -41,7 +41,7 @@
 						</span>
 						<div class="text-box">
 							<p class="main-text">
-								<a class="fs-14" href="" title="">Quản lý người dùng</a>
+								<a class="fs-14" href="${pageContext.request.contextPath}/admin" title="">Quản lý người dùng</a>
 							</p>
 							<p class="text-muted">Có 5 người dùng</p>
 						</div>

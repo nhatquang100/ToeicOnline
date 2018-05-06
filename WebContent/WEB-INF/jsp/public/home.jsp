@@ -9,8 +9,8 @@
 	<div class="content-box">
 		<div class="header">
 			<div class="h3-container">
-				<a href="category/4.html"><h3>Thi Thử TOEIC</h3></a> <a
-					class="learn-all" href="category/4.html">Xem tất cả &raquo;</a>
+				<a href="${pageContext.request.contextPath}/"><h3>PHẦN READING</h3></a> <a
+					class="learn-all" href="${pageContext.request.contextPath}/">Xem tất cả &raquo;</a>
 			</div>
 		</div>
 
@@ -37,6 +37,17 @@
 		<div class='paging viewall'>
 			<a href="${pageContext.request.contextPath}/all_exam_reading">Xem tất cả &raquo;</a>
 		</div>
+	</div>
+	
+	<!-- Phần listening -->
+	<div class="content-box">
+		<div class="header">
+			<div class="h3-container">
+				<a href="category/1.html"><h3>PHẦN LISTENING</h3></a>
+				<a class="learn-all" href="category/1.html">Xem tất cả
+					&raquo;</a>
+			</div>
+		</div>
 		<a href="${pageContext.request.contextPath}/all_exam_listening"><h3 class="sub-header">
 				<i class="fa fa-file-text"></i> THI THỬ TOEIC FULL - PHẦN LISTENING
 			</h3></a>
@@ -53,13 +64,24 @@
 						</div>
 						<h4>Bộ đề ${objlistening.examinationid }(${objlistening.nameexamination })</h4>
 						<%-- <h2 style="padding-top:-50px">(${objlistening.nameexamination })</h2> --%>
-						 <a class="learn" href='exam/48799.html'>Luyện ngay</a>
+						 <a class="learn" href='${pageContext.request.contextPath}/exam/${objlistening.examinationid}'>Luyện ngay</a>
 					</a>
 				</div>
 			</c:forEach>
 		</div>
 		<div class='paging viewall'>
 			<a href="${pageContext.request.contextPath}/all_exam_listening">Xem tất cả &raquo;</a>
+		</div>
+	</div>
+	
+	<!-- Phần reading + listening -->
+	<div class="content-box">
+		<div class="header">
+			<div class="h3-container">
+				<a href="category/1.html"><h3> PHẦN READING + LISTENING</h3></a>
+				 <a class="learn-all" href="category/1.html">Xem tất cả
+					&raquo;</a>
+			</div>
 		</div>
 		<a href="${pageContext.request.contextPath}/all_exam_sumary"><h3 class="sub-header">
 				<i class="fa fa-file-text"></i> THI THỬ TOEIC FULL - READING +
@@ -87,37 +109,38 @@
 		</div>
 	</div>
 
-
 	<!-- Từ vựng toeic -->
 	<div class="content-box">
 		<div class="header">
 			<div class="h3-container">
-				<a href="category/1.html"><h3>Từ vựng Toeic</h3></a> <span>(3156
-					từ vựng)</span> <a class="learn-all" href="category/1.html">Xem tất cả
+				<a href="${pageContext.request.contextPath}/"><h3>PHẦN TỪ VỰNG TOEIC</h3></a> <span>(3156
+					từ vựng)</span> <a class="learn-all" href="${pageContext.request.contextPath}/">Xem tất cả
 					&raquo;</a>
 			</div>
 		</div>
-		<a href="category/5.html"><h3 class="sub-header">
-				<i class="fa fa-book"> </i> SÁCH: 600 từ vựng thiết yếu cho kì thi
+		<a href="${pageContext.request.contextPath}/"><h3 class="sub-header">
+				<i class="fa fa-book"> </i> Tổng hợp chủ đề từ vựng thiết yếu cho kì thi
 				Toeic
 			</h3></a>
 		<div class="box">
-			<div class="box-item">
-				<a href="exam/56.html">
-					<div class="img"
-						style="background: url(upload/2016/05/9106.jpg); background-size: cover;">
-						<p>0/54</p>
-					</div>
-					<div class="meter">
-						<span style="width: 0%"></span>
-					</div>
-					<h4>Bài 1: Contract</h4> <a class="learn" href='exam/56.html'>Học
-						ngay</a>
-				</a>
-			</div>
+			<c:forEach items="${categoryvocabulary }" var="objvocabulary">
+				<div class="box-item">
+					<a href="${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.id }">
+						<div class="img"
+							style="background: url(${pageContext.request.contextPath}/upload/${objvocabulary.categoryVocaburalyImage}); background-size: cover;">
+							<p>0/54</p>
+						</div>
+						<div class="meter">
+							<span style="width: 0%"></span>
+						</div>
+						<h4>Bài ${objvocabulary.id}: ${objvocabulary.categoryVocaburalyName }</h4> <a class="learn" href='${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.id }'>Học
+							ngay</a>
+					</a>
+				</div>
+			</c:forEach>
 		</div>
 		<div class='paging viewall'>
-			<a href="category/5.html">Xem tất cả &raquo;</a>
+			<a href="${pageContext.request.contextPath}/">Xem tất cả &raquo;</a>
 		</div>
 	</div>
 
@@ -125,48 +148,30 @@
 	<div class="content-box">
 		<div class="header">
 			<div class="h3-container">
-				<a href="category/3.html"><h3>Ngữ pháp Toeic</h3></a> <span>(0
-					chủ điểm, 0 bài tập)</span> <a class="learn-all" href="category/3.html">Xem
+				<a href="${pageContext.request.contextPath}/"><h3>PHẦN NGỮ PHÁP TOEIC</h3></a> <span>(0
+					chủ điểm, 0 bài tập)</span> <a class="learn-all" href="${pageContext.request.contextPath}/">Xem
 					tất cả &raquo;</a>
 			</div>
 		</div>
-		<div class="box"></div>
-		<div class="spacing"></div>
-		<div class="paging">
-			<ul class="pagination-sm pagination" id="paging-3"></ul>
-		</div>
-		<script>
-			$('#paging-3').twbsPagination({
-				totalPages : 0,
-				visiblePages : 3,
-				href : '/category/3?page={{number}}',
-				next : '',
-				last : '»',
-				first : '',
-				prev : '',
-				onPageClick : function(event, page) {
-					//
-				}
-			});
-		</script>
-		<a href="category/26.html"><h3 class="sub-header">
-				<i class="fa fa-pencil-square"></i> BÍ QUYẾT LUYỆN THI TOEIC - PART
-				5
+		<a href="${pageContext.request.contextPath}/"><h3 class="sub-header">
+				<i class="fa fa-pencil-square"></i> BÍ QUYẾT LUYỆN THI TOEIC
 			</h3></a>
 		<div class="box">
-			<div class="box-item">
-				<a href="exam/442.html">
-					<div class="img"
-						style="background: url(upload/2016/07/9306.jpg); background-size: cover;">
-						<p>0/12</p>
-					</div>
-					<div class="meter">
-						<span style="width: 0%"></span>
-					</div>
-					<h4>Bài 1: Hiểu rõ bài thi toeic</h4> <a class="learn"
-					href='exam/442.html'>Học ngay</a>
-				</a>
-			</div>
+			<c:forEach items="${categorygrammar }" var="objgrammar">
+				<div class="box-item">
+					<a href="${pageContext.request.contextPath}/public/grammar/${objgrammar.categorygrammarid }">
+						<div class="img"
+							style="background: url(<%=request.getContextPath()%>/templates/public/images/TOEICSMART-Red-Grammar-300x424.jpg); background-size: cover;">
+							<p>0/54</p>
+						</div>
+						<div class="meter">
+							<span style="width: 0%"></span>
+						</div>
+						<h4>Bài ${objgrammar.categorygrammarid}: ${objgrammar.categorygrammarname }</h4> <a class="learn" href='${pageContext.request.contextPath}/public/grammar/${objgrammar.categorygrammarid }'>Học
+							ngay</a>
+					</a>
+				</div>
+			</c:forEach>
 		</div>
 		<div class='paging viewall'>
 			<a href="category/26.html">Xem tất cả &raquo;</a>

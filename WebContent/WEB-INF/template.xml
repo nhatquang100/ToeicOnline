@@ -40,6 +40,42 @@
   <definition name="admin.question.readedit" extends="admin.template">
     <put-attribute name="body" value="/WEB-INF/jsp/admin/question/reading_edit.jsp" />
   </definition>
+  <definition name="admin.categoryVacaburaly.index" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/vocaburaly/index.jsp" />
+  </definition>
+    <definition name="admin.categoryVacaburaly.add" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/vocaburaly/add.jsp" />
+  </definition>
+    <definition name="admin.categoryVacaburaly.edit" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/vocaburaly/edit.jsp" />
+  </definition>
+  <definition name="admin.vocabularys.index" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/vocaburalys/index.jsp" />
+  </definition>
+    <definition name="admin.vocabularys.add" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/vocaburalys/add.jsp" />
+  </definition>
+    <definition name="admin.vocabularys.edit" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/vocaburalys/edit.jsp" />
+  </definition>
+  <definition name="admin.categoryGrammar.index" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/categorygrammar/index.jsp" />
+  </definition>
+    <definition name="admin.categoryGrammar.add" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/categorygrammar/add.jsp" />
+  </definition>
+    <definition name="admin.categoryGrammar.edit" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/categorygrammar/edit.jsp" />
+  </definition>
+  <definition name="admin.grammar.index" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/grammar/index.jsp" />
+  </definition>
+    <definition name="admin.grammar.add" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/grammar/add.jsp" />
+  </definition>
+    <definition name="admin.grammar.edit" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/grammar/edit.jsp" />
+  </definition>
    <!--END ADMIN TEMPLATE -->
     <!-- ///////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
   
@@ -82,6 +118,30 @@
   
   <definition name="public.exam" extends="public.template">
     <put-attribute name="body" value="/WEB-INF/jsp/public/test_examination/exam.jsp" />
+  </definition>
+  
+  <definition name="public.exam.result" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/test_examination/exam_result.jsp" />
+  </definition>
+  
+  <definition name="public.exam.result.detail" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/test_examination/exam_result_detail.jsp" />
+  </definition>
+  
+  <definition name="public.index.vocabulary" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/vocabulary/Vocabulary.jsp" />
+  </definition>
+  
+    <definition name="public.index.vocabulary.detail" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/vocabulary/Contact.jsp" />
+  </definition>
+  
+  <definition name="public.index.categorygrammar" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/grammar/categorygrammar.jsp" />
+  </definition>
+ 
+    <definition name="public.index.categorygrammar.detail" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/grammar/grammar.jsp" />
   </definition>
   <!-- END NEW PUBLIC TEMPLATE -->
 </tiles-definitions>

@@ -83,7 +83,7 @@
 							<span style="width: 0%"></span>
 						</div>
 						<h4>Bộ đề ${objexam.examinationid }(${objexam.nameexamination })</h4>
-					</a><a class="learn" href="${pageContext.request.contextPath}/exam_reading/${objexam.examinationid}">Luyện ngay</a>
+					</a><a class="learn" href="${pageContext.request.contextPath}/exam/${objexam.examinationid}">Luyện ngay</a>
 				</div>
 			</c:forEach>
 		</div>

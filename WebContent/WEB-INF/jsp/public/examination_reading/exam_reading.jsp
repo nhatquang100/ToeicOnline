@@ -34,7 +34,7 @@
 				<c:if test="${examreading.leveldifficult == 3 }">
 					<i class="fa fa-plus-square"></i> Độ khó: <b>Hard</b><br>
 				</c:if>
-				<a class="button" id="exam-lnk" href="/do-exam/48800">Làm bài
+				<a class="button" id="exam-lnk" href="${pageContext.request.contextPath}/exam/${examreading.examinationid}">Làm bài
 					ngay</a>
 			</div>
 		</div>

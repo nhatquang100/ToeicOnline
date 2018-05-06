@@ -31,8 +31,8 @@ public class ExaminationDao {
 	}
 	
 	public int addItem(examination obj){
-		String sql="insert into examination(nameexamination,image,datecreate,categoryexamination,leveldifficult,nameexamination) values(?,?,?,?,?,?)";
-		return jdbcTemplate.update(sql,new Object[]{obj.getNameexamination(),obj.getImage(),obj.getDatecreate(),obj.getCategoryexamination(),obj.getLeveldifficult(),obj.getNameexamination()});
+		String sql="insert into examination(image,datecreate,categoryexamination,leveldifficult,nameexamination) values(?,?,?,?,?)";
+		return jdbcTemplate.update(sql,new Object[]{obj.getImage(),obj.getDatecreate(),obj.getCategoryexamination(),obj.getLeveldifficult(),obj.getNameexamination()});
 	}
 	
 	public examination getNewItem(){
