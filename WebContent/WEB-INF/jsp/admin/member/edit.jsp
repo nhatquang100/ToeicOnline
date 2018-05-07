@@ -15,15 +15,15 @@
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <label for="membername">${objmember.membername}</label>
-	                                            <input name ="membername" type="text" class="form-control" placeholder="Input membername">
+	                                            <input name ="membername" type="text" class="form-control" placeholder="Input membername" maxlength=50 required>
 	                                            
-	                                            Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" /><br />
+	                                            Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" required/><br />
 	                                            
 	                                            <label for="email">Email:</label>
-	                                            <input name ="email" type="password" class="form-control" placeholder="input email">
+	                                            <input name ="email" type="email" class="form-control" placeholder="input email" required>
 	                                            
 	                                            <label for="phonenumber">Phonenumber:</label>
-	                                            <input name ="phonenumber" type="password" class="form-control" placeholder="input phonenumber">
+	                                            <input name ="phonenumber" type="password" class="form-control" placeholder="input phonenumber" pattern="\d*" minlength=10 maxlength=12 required>
 	                                            
 	                                            <c:if test="${objmember.memberid == 1}">
 	                                            	 <label for="categorymemberid" style="margin-top:10px;font-size:15px">Chức vụ</label>
@@ -34,8 +34,8 @@
 													 </select>
 												 </c:if>
 												 
-	                                            <label for="password">Password1:</label>
-	                                            <input name ="password" type="password" class="form-control" placeholder="input Password">
+	                                            <label for="password">Password:</label>
+	                                            <input name ="password" type="password" class="form-control" placeholder="input Password" minlength=6 maxlength=30 required>
 	                                          
 	                                        </div>
 	                                        <form:errors path="objmember.membername" cssStyle="color:red;display:block"></form:errors>

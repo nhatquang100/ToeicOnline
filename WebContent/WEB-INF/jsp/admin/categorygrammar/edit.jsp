@@ -15,7 +15,7 @@
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <label for="categorygrammarname">Category Name</label></br>
-	                                            <textarea rows="2" cols="40" name="categorygrammarname" >${catgram.categorygrammarname}</textarea></br>
+	                                            <textarea rows="2" cols="40" name="categorygrammarname" required>${catgram.categorygrammarname}</textarea></br>
 	                                            
 	                                            
 	                                        </div>

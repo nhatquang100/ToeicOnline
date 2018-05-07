@@ -20,7 +20,9 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dao.MemberDao;
+import dao.ResultDao;
 import entity.member;
+import entity.result;
 import util.StringUtil;;
 
 @Controller
@@ -36,6 +38,9 @@ public class LoginController {
 		return "public.index.home";
 	}
 	
+	@Autowired
+	private ResultDao resultDao;
+	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	public String login(Model model,@RequestParam("username") String username, @RequestParam("password") String password , RedirectAttributes ra, HttpSession session,HttpServletRequest request )throws SQLException{
 		ArrayList<member> list = (ArrayList<member>) memberDao.getItems();
@@ -47,6 +52,10 @@ public class LoginController {
 				session.setAttribute("sessionmember", objmember);
 				if(memberDao.getMemberbyUsername(username).getCategorymemberid() == 3){
 					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));
+					session.setAttribute("listresult",resultDao.getItembymemberID(memberDao.getMemberbyUsername(username).getMemberid()));
+					for(result obj:resultDao.getItembymemberID(memberDao.getMemberbyUsername(username).getMemberid())){
+						System.out.println(obj.getChoseofmember());
+					}
 					return "redirect:/";
 				}else{
 					session.setAttribute("objmember",(memberDao.getMemberbyUsername(username)));

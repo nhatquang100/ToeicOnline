@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,7 +81,8 @@ public class ExaminationController {
 				question_answer question_answer = new question_answer(obj.getQuestionid(),obj.getChose());
 				qa.add(question_answer);
 			}
-			result resutl = new result(0,member.getMemberid(),examinationid,stringchose);
+			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+			result resutl = new result(0,member.getMemberid(),examinationid,stringchose,timestamp);
 			resultDao.addItem(resutl);
 			
 			//check point
@@ -107,7 +109,7 @@ public class ExaminationController {
 	}
 	
 	@RequestMapping(value="exam/getresult/detail/{resul}")
-	public String listenedit(@PathVariable("resul") int resul, Model model,HttpSession session){
+	public String detailresult(@PathVariable("resul") int resul, Model model,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
 			//get String result
@@ -138,6 +140,19 @@ public class ExaminationController {
 			}
 			model.addAttribute("listdetailresult",objqac);
 			return "public.exam.result.detail";
+		}else{
+			model.addAttribute("msg","Vui lòng đăng nhập hoặc đăng kí thành viên!");
+			return "public.index.home";
+		}
+		
+	}
+	
+	@RequestMapping(value="getallresult")
+	public String getallresult( Model model,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			model.addAttribute("listresult",resultDao.getallItembyID(member.getMemberid()));
+			return "public.exam.allresult";
 		}else{
 			model.addAttribute("msg","Vui lòng đăng nhập hoặc đăng kí thành viên!");
 			return "public.index.home";

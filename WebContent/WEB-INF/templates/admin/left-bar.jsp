@@ -9,6 +9,7 @@
     <li><a href="${pageContext.request.contextPath}/admin/vocaburaly"><i class="glyphicon glyphicon-list"></i> Manager Vocaburaly</a></li>
     <li><a href="${pageContext.request.contextPath}/admin/categoryGram"><i class="glyphicon glyphicon-list"></i> Manager Category Vocaburaly</a></li>
     <li><a href="${pageContext.request.contextPath}/admin/grammar"><i class="glyphicon glyphicon-list"></i> Manager Grammar</a></li>
+    <li><a href="${pageContext.request.contextPath}/admin/contact"><i class="glyphicon glyphicon-list"></i> Manager Contact</a></li>
      
     <%-- <li class="submenu">
          <a href="#">

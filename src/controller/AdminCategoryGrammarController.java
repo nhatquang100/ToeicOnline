@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,48 +54,69 @@ public class AdminCategoryGrammarController {
 		
 	}
 	@RequestMapping("add")
-	public String add(){
-		return "admin.categoryGrammar.add";
+	public String add(HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			return "admin.categoryGrammar.add";
+		}else{
+			return "public.index.home";
+		}
+		
 	}
 	@RequestMapping(value="add",method=RequestMethod.POST)
-	public String add(@ModelAttribute("catgram") categorygrammar categorygrammar, Model model, RedirectAttributes ra,HttpServletRequest request){
-
-		if(categoryGrammarDao.addVoca(categorygrammar)>0){
-			ra.addFlashAttribute("msg","ThÃªm thaÌ€nh cÃ´ng!!");
-			return "redirect:/admin/categoryGram";
+	public String add(@ModelAttribute("catgram") categorygrammar categorygrammar, Model model, RedirectAttributes ra,HttpServletRequest request,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(categoryGrammarDao.addVoca(categorygrammar)>0){
+				ra.addFlashAttribute("msg","thêm thành công!!");
+				return "redirect:/admin/categoryGram";
+			}
+			model.addAttribute("msg","có lỗi trong quá trình thêm!!!");
+			return "admin.categoryGrammar.add";
 		}
-		model.addAttribute("msg","coÌ� lÃ´Ìƒi trong quaÌ� triÌ€nh thÃªm!!!");
-		return "admin.categoryGrammar.add";
+		return "redirect:/";
 	}
 	@RequestMapping("edit/{categorygrammarid}")
-	public String edit(@PathVariable("categorygrammarid") String categorygrammarid, ModelMap modelMap){
-		modelMap.addAttribute("catgram", categoryGrammarDao.getItem(categorygrammarid));
-		return "admin.categoryGrammar.edit";
+	public String edit(@PathVariable("categorygrammarid") String categorygrammarid, ModelMap modelMap,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			modelMap.addAttribute("catgram", categoryGrammarDao.getItem(categorygrammarid));
+			return "admin.categoryGrammar.edit";
+		}
+		return "redirect:/";
 	}
 	@RequestMapping(value="edit/{categorygrammarid}",method=RequestMethod.POST)
-	public String edit(@ModelAttribute("catgram") categorygrammar categorygrammar,@PathVariable("categorygrammarid") String categorygrammarid,RedirectAttributes ra,Model model, BindingResult rs,HttpServletRequest request){
-		if(rs.hasErrors()) {
-	        return "admin.categoryGrammar.edit";
-	    }
+	public String edit(@ModelAttribute("catgram") categorygrammar categorygrammar,@PathVariable("categorygrammarid") String categorygrammarid,RedirectAttributes ra,Model model, BindingResult rs,HttpServletRequest request,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(rs.hasErrors()) {
+		        return "admin.categoryGrammar.edit";
+		    }
 
-		
-		categorygrammar.setCategorygrammarid(categorygrammarid);
-		
-		if(categoryGrammarDao.editItem(categorygrammar)>0){
-				ra.addFlashAttribute("msg","sÆ°Ì‰a thaÌ€nh cÃ´ng!!");
-			}else{
-				ra.addFlashAttribute("msg","sÆ°Ì‰a thÃ¢Ì�t baÌ£i!!");
-			}
-		return "redirect:/admin/categoryGram";
+			
+			categorygrammar.setCategorygrammarid(categorygrammarid);
+			
+			if(categoryGrammarDao.editItem(categorygrammar)>0){
+					ra.addFlashAttribute("msg","Sửa thành công!!");
+				}else{
+					ra.addFlashAttribute("msg","Sửa thất bại!!");
+				}
+			return "redirect:/admin/categoryGram";
+		}
+		return "redirect:/";
 	}
 	@RequestMapping("del/{categorygrammarid}")
-	public String del(@PathVariable("categorygrammarid") String categorygrammarid,RedirectAttributes ra){
-		if(categoryGrammarDao.delItem(categorygrammarid)>0){
-			ra.addFlashAttribute("msg","xoÌ�a thaÌ€nh cÃ´ng!!");
-		}else{
-			ra.addFlashAttribute("msg","xoÌ�a thÃ¢Ì�t baÌ£i!!");
+	public String del(@PathVariable("categorygrammarid") String categorygrammarid,RedirectAttributes ra,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(categoryGrammarDao.delItem(categorygrammarid)>0){
+				ra.addFlashAttribute("msg","Xóa thành công!!");
+			}else{
+				ra.addFlashAttribute("msg","Xóa thất bại!!");
+			}
+			return "redirect:/admin/categoryGram";
 		}
-		return "redirect:/admin/categoryGram";
+		return "redirect:/";
 	}
 		
 }

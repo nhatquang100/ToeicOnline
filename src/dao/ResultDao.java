@@ -20,8 +20,8 @@ public class ResultDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int addItem(result result) {
-		String sql="insert into result(memberid,examinationid,choseofmember) values(?,?,?) ";
-		return jdbcTemplate.update(sql,new Object[]{result.getMemberid(),result.getExaminationid(),result.getChoseofmember()});
+		String sql="insert into result(memberid,examinationid,choseofmember,datecreate) values(?,?,?,?) ";
+		return jdbcTemplate.update(sql,new Object[]{result.getMemberid(),result.getExaminationid(),result.getChoseofmember(),result.getDatecreate()});
 	}
 	
 	public result getNewItem(){
@@ -32,5 +32,15 @@ public class ResultDao {
 	public result getItembyID(int resultid){
 		String sql="SELECT * from result where resultid = ?";
 		return jdbcTemplate.queryForObject(sql,new Object[]{resultid},new BeanPropertyRowMapper<result>(result.class));
+	}
+	
+	public List<result> getItembymemberID(int meberid){
+		String sql="SELECT * from result where memberid = ? order by resultid DESC LIMIT 4";
+		return jdbcTemplate.query(sql,new Object[]{meberid},new BeanPropertyRowMapper<result>(result.class));
+	}
+	
+	public List<result> getallItembyID(int memberid){
+		String sql="SELECT * from result where memberid = ?";
+		return jdbcTemplate.query(sql,new Object[]{memberid},new BeanPropertyRowMapper<result>(result.class));
 	}
 }

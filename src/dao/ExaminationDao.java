@@ -42,17 +42,17 @@ public class ExaminationDao {
 
 	
 	public List<examination> getExaminationListenLimit(){
-		String sql="select * from examination where categoryexamination = 1 LIMIT 4";
+		String sql="select * from examination where categoryexamination = 1 order by examinationid DESC LIMIT 4";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<examination>(examination.class));
 	}
 	
 	public List<examination> getExaminationReadingLimit(){
-		String sql="select * from examination where categoryexamination = 2 LIMIT 4";
+		String sql="select * from examination where categoryexamination = 2 order by examinationid DESC LIMIT 4";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<examination>(examination.class));
 	}
 	
 	public List<examination> getExaminationSumaryLimit(){
-		String sql="select * from examination where categoryexamination = 3 LIMIT 4";
+		String sql="select * from examination where categoryexamination = 3 order by examinationid DESC LIMIT 4";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<examination>(examination.class));
 	}
 }
