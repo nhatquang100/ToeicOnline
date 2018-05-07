@@ -15,9 +15,9 @@
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <label for="categoryVocabularyName">Category Name</label></br>
-	                                            <textarea rows="2" cols="40" name="categoryVocabularyName" >${catvocal.categoryVocabularyName}</textarea></br>
+	                                            <textarea rows="2" cols="40" name="categoryVocabularyName" required>${catvocal.categoryVocabularyName}</textarea></br>
 	                                            
-	                                            Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" /><br />
+	                                            Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" required/><br />
 	                                            
 	                                        </div>
 	                                        <form:errors path="catvocal.categoryVocabularyName" cssStyle="color:red;display:block"></form:errors>

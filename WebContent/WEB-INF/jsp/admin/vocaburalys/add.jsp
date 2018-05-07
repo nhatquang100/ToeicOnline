@@ -18,23 +18,22 @@
 						<div class="form-group">
 							<label for="vocabularyname">Vocabulary Name </label> <input
 								name="vocabularyname" type="text" class="form-control"
-								placeholder="input vocabularyname" id="vocabularyname">
+								placeholder="input vocabularyname" id="vocabularyname" required>
 
 							<!-- Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" /><br / -->
-							 <label for="spelling">Spelling:</label> <input name="spelling"
+							<label for="spelling">Spelling:</label> <input name="spelling"
 								type="text" class="form-control" placeholder="input spelling"
-								id="spelling"> <label for="vocabularymean">Vocabulary
+								id="spelling" required> <label for="vocabularymean">Vocabulary
 								Mean:</label> <input name="vocabularymean" type="text"
 								class="form-control" placeholder="input vocabularymean"
-								id="vocabularymean"> <label for="category"
-								style="margin-top: 10px; font-size: 15px">Chủ đề</label></br> 
-								
-								<select class="categoryvocabularyid">
-									<c:forEach items="${listCateogry }" var="cate">
-										<option value="${cate.id }">${cate.categoryVocabularyName }</option>
-									</c:forEach>
-								</select> 
-								
+								id="vocabularymean" required> <label for="category"
+								style="margin-top: 10px; font-size: 15px">Chủ đề</label></br> <select
+								class="categoryvocabularyid">
+								<c:forEach items="${listCateogry }" var="cate">
+									<option value="${cate.id }">${cate.categoryVocabularyName }</option>
+								</c:forEach>
+							</select>
+
 						</div>
 					</div>
 					<hr>
@@ -44,7 +43,7 @@
 							<input style="margin-left: 18px; margin-top: 10px" type="submit"
 								value="Submit" class="btn btn-success" onclick="addViaAjax()" />
 							<input style="margin-left: 18px; margin-top: 10px" type="reset"
-								value="Reset" class="btn btn-default" onclick="reset()"/>
+								value="Reset" class="btn btn-default" onclick="reset()" />
 						</div>
 					</div>
 				</div>
@@ -58,16 +57,17 @@
 	
 </script>
 <script type="text/javascript">
-	function reset(){
+	function reset() {
 		$("#vocabularyname").val("");
 		$("#spelling").val("");
 		$("#vocabularymean").val(" ");
 	}
 	function addViaAjax() {
-		
+
 		var vocabularyname = $("#vocabularyname").val();
 		var spelling = $("#spelling").val();
-		var categoryvocabularyid = $('.categoryvocabularyid option:selected').val();
+		var categoryvocabularyid = $('.categoryvocabularyid option:selected')
+				.val();
 		var vocabularymean = $("#vocabularymean").val();
 		var vocabulary = {
 			"vocabularyname" : vocabularyname,

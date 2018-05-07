@@ -18,17 +18,17 @@
 						<div class="form-group">
 							<label for="grammarname">Tên Ngữ Pháp </label> <input
 								name="grammarname" type="text" class="form-control"
-								placeholder="input grammarname" id="grammarname">
+								placeholder="input grammarname" id="grammarname" required>
 
 							<!-- Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" /><br / -->
 							 <label for="content">Nội dung:</label>
 							  <input name="content"
 								type="text" class="form-control" placeholder="input content"
-								id="content"> 
+								id="content" required> 
 								<label for="example">Ví dụ:</label> 
 								<input name="example" type="text"
 								class="form-control" placeholder="input example"
-								id="example"> 
+								id="example" required> 
 								<label for="category"
 								style="margin-top: 10px; font-size: 15px">Chủ đề</label>
 								</br> 

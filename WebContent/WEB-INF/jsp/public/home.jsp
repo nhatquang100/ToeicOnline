@@ -5,6 +5,41 @@
 <div class="content">
 
 	<input type="hidden" name="msg" id="msg" value="${msg} ">
+	<c:if test="${not empty listresult}">
+		<div class="content-box">
+			<div class="header">
+				<div class="h3-container">
+					<a href="${pageContext.request.contextPath}/getallresult"><h3>Đề đã thi</h3></a> <a
+						class="learn-all" href="${pageContext.request.contextPath}/getallresult">Xem tất cả &raquo;</a>
+				</div>
+			</div>
+	
+			<a href="${pageContext.request.contextPath}/getallresult"><h3 class="sub-header">
+					<i class="fa fa-file-text"></i> Tổng hợp các đề đã thi
+				</h3></a>
+			<div class="box">
+				<c:forEach items="${listresult }" var="objresult">
+					<div class="box-item">
+						<a href="${pageContext.request.contextPath}/exam/getresult/detail/${objresult.resultid }">
+							<div class="img"
+								style="background: url(<%=request.getContextPath()%>/templates/public/images/TOEICSMART-Red-Grammar-300x424.jpg); background-size: cover;">
+								<p>0/100</p>
+							</div>
+							<div class="meter">
+								<span style="width: 0%"></span>
+							</div>
+							<h4>Đề:${objresult.examinationid}</h4> 
+							<h4>Date:${objresult.datecreate}</h4> 
+							<a class="learn" href='${pageContext.request.contextPath}/exam/getresult/detail/${objresult.resultid }'>Xem ngay</a>
+						</a>
+					</div>
+				</c:forEach>
+			</div>
+			<div class='paging viewall'>
+				<a href="${pageContext.request.contextPath}/all_exam_reading">Xem tất cả &raquo;</a>
+			</div>
+		</div>
+	</c:if>
 	<!-- Đề thi -->
 	<div class="content-box">
 		<div class="header">

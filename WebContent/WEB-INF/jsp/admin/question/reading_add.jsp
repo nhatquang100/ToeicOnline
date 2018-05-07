@@ -19,27 +19,27 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label for="paragraph">Paragraph</label>
-								<textarea rows="5" cols="80" name="paragraph"></textarea></br>
+								<textarea rows="5" cols="80" name="paragraph" required></textarea></br>
 								
 								<label for="question" style="margin-top:10px;">Question</label></br>
-								<textarea rows="2" cols="40" name="question" ></textarea></br>
+								<textarea rows="2" cols="40" name="question" required></textarea></br>
 
 								<label for="option1" style="margin-top:10px;" >option1</label></br>
-								<textarea rows="2" cols="40" name="option1" ></textarea></br>
+								<textarea rows="2" cols="40" name="option1" required></textarea></br>
 								
-								<label for="option2" style="margin-top:10px;">option1</label></br>
-								<textarea rows="2" cols="40" name="option2" ></textarea></br>
+								<label for="option2" style="margin-top:10px;">option2</label></br>
+								<textarea rows="2" cols="40" name="option2" required></textarea></br>
 								
-								<label for="option3" style="margin-top:10px;">option1</label></br>
-								<textarea rows="2" cols="40" name="option3" ></textarea></br>
+								<label for="option3" style="margin-top:10px;">option3</label></br>
+								<textarea rows="2" cols="40" name="option3" required></textarea></br>
 								
-								<label for="option4" >option1</label></br>
-								<textarea rows="2" cols="40" name="option4" style="margin-top:10px;"></textarea></br>
+								<label for="option4" style="margin-top:10px;">option4</label></br>
+								<textarea rows="2" cols="40" name="option4" required></textarea></br>
 
 								<label for="correctquestion" style="margin-top:10px;">correctquestion</label> <input
 									name="correctquestion" type="input" class="form-control"
 									placeholder="input correctquestion"
-									value=""> 
+									value="" required> 
 									
 								<label for="leveldifficult" style="margin-top:10px;font-size:15px">level</label>
 								 <select name="leveldifficult" style="margin-top:10px;">

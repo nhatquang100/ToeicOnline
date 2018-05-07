@@ -17,18 +17,18 @@
 						<div class="form-line">
 							<!--<a href="https://www.facebook.com/v2.4/dialog/oauth?client_id=1081182245235103&amp;state=b64a9795f34015da6d6579f92a4111c3&amp;response_type=code&amp;sdk=php-sdk-5.0.0&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%3A443%2Flogin_fb_callback&amp;scope=email&redirect_uri=https://www.toeic123.vn:443/login_fb_callback" class="social-login facebook"><i class="fa fa-facebook"> </i>Đăng nhập qua Facebook</a>-->
 							<a
-								href="https://accounts.google.com/o/oauth2/auth?access_type=online&amp;approval_prompt=auto&amp;response_type=code&amp;scope=profile%20email&amp;client_id=790559908503-c98fftp4r7pv8r64vm3ou7gsoj52qlfl.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%2Flogin_google_callback&amp;state"
+								href="${pageContext.request.contextPath}/"
 								class="social-login google"><i class="fa fa-google-plus">
 							</i>Đăng nhập qua Google+</a>
 						</div>
 						<div class="form-line info" id="sidebar-login-info"></div>
 						<div class="form-line">
 							<label for="username">Username:</label> <input type="text"
-								id="username" name="username" />
+								id="username" name="username" minlength=6 maxlength=30 required/>
 						</div>
 						<div class="form-line">
 							<label for="password">Mật khẩu:</label> <input type="password"
-								id="password" name="password" />
+								id="password" name="password" minlength=6 maxlength=30 required/>
 						</div>
 						<div class="form-line">
 							<a href="forgot-password.html" class="forgot-pass">Quên mật

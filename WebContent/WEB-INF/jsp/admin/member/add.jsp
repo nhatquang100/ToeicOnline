@@ -15,24 +15,24 @@
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <label for="name">Membername</label>
-	                                            <input name ="membername" type="text" class="form-control" placeholder="input membername">
+	                                            <input name ="membername" type="text" class="form-control" placeholder="input membername" maxlength=50 required>
 	                                            
-	                                            Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" /><br />
+	                                            Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" required/><br />
 	                                            
 	                                            <label for="email">Email:</label>
-	                                            <input name ="email" type="text" class="form-control" placeholder="input email">
+	                                            <input name ="email" type="email" class="form-control" placeholder="input email">
 	                                            
 	                                            <label for="phonenumber">Phonenumber:</label>
-	                                            <input name ="phonenumber" type="text" class="form-control" placeholder="input phonenumber">
+	                                            <input name ="phonenumber" type="text" class="form-control" placeholder="input phonenumber" pattern="\d*" minlength=10 maxlength=12 required>
 	                                            
 	                                            <label for="username">Username</label>
-	                                            <input name ="username" type="text" class="form-control" placeholder="input Username">
+	                                            <input name ="username" type="text" class="form-control" placeholder="input Username" minlength=6 maxlength=30 required>
 	                                            
 	                                            <label for="password">Password</label>
-	                                            <input name ="password" type="password" class="form-control" placeholder="input Password">
+	                                            <input name ="password" type="password" class="form-control" placeholder="input Password" minlength=6 maxlength=30 required>
 	                                            
 	                                            <label for="repassword">Repassword</label>
-	                                            <input name ="repassword" type="password" class="form-control" placeholder="input Repassword">
+	                                            <input name ="repassword" type="password" class="form-control" placeholder="input Repassword" minlength=6 maxlength=30 required>
 	                                        </div>
 	                                   </div>
 	                                <hr>

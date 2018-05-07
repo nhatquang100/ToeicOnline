@@ -15,17 +15,17 @@
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <label for="vocabularyname">Vocabulary Name </label>
-	                                            <textarea rows="2" cols="40" name="vocabularyname" > ${vocal.vocabularyname }</textarea></br>
+	                                            <textarea rows="2" cols="40" name="vocabularyname" required> ${vocal.vocabularyname }</textarea></br>
 	                                            
 	                                            <!-- Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" /><br / -->
 	                                            <label for="spelling">Spelling:</label>
-	                                             <textarea rows="2" cols="40" name="spelling" > ${vocal.spelling }</textarea></br>
+	                                             <textarea rows="2" cols="40" name="spelling" required> ${vocal.spelling }</textarea></br>
 	                                            
 	                                            <label for="vocabularymean">Vocabulary Mean:</label>
-	                                              <textarea rows="2" cols="40" name="vocabularymean" > ${vocal.vocabularymean }</textarea></br>
+	                                              <textarea rows="2" cols="40" name="vocabularymean" required> ${vocal.vocabularymean }</textarea></br>
 	                                            
 	                                            <label for="categoryvocabularyid">Category vocabulary</label>
-	                                              <textarea rows="2" cols="40" name="categoryvocabularyid" > ${vocal.categoryvocabularyid }</textarea></br>
+	                                              <textarea rows="2" cols="40" name="categoryvocabularyid" required> ${vocal.categoryvocabularyid }</textarea></br>
 	                                          
 	                                        </div>
 	                                        <form:errors path="vocal.vocabularyname" cssStyle="color:red;display:block"></form:errors>

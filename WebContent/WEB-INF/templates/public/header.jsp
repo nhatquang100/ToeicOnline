@@ -57,6 +57,8 @@
 	src="<%=request.getContextPath()%>/templates/public/js/login.js"></script>
 <script
 	src="<%=request.getContextPath()%>/templates/public/js/examination.create.js"></script>
+	<script
+	src="<%=request.getContextPath()%>/templates/public/js/contact.create.js"></script>
 <script
 	src="<%=request.getContextPath()%>/templates/public/js/comment.js"></script>
 </head>
@@ -93,8 +95,8 @@
 				href="${pageContext.request.contextPath}/">Giới
 					thiệu về website</a></li>
 			<li><a
-				href="${pageContext.request.contextPath}/">|&nbsp;&nbsp;<span
-					class="vip">&nbsp; LIÊN HỆ QUẢNG CÁO &nbsp;</span></a></li>
+				href="#">|&nbsp;&nbsp;<span
+					class="vip" id="create_contact">&nbsp; LIÊN HỆ QUẢNG CÁO &nbsp;</span></a></li>
 
 		</ul>
 		<ul class="logo-middle">   

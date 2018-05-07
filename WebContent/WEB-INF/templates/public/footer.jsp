@@ -14,7 +14,7 @@
 				<li><a href="page/2/dieu-khoan-su-dung.html">Điều khoản</a></li>
 				<li><a href="#">Quảng cáo</a></li>
 				<li><a href="#">FAQs</a></li>
-				<li><a href="#">Liên hệ</a></li>
+				<li><a href="#" id="create_contact">Liên hệ</a></li>
 				<li><a href="#" class="login_open_modal">Đăng nhập</a></li>
 				<li><a href="#" class="reg_open_modal">Đăng ký</a></li>
 				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -24,6 +24,41 @@
 		</div>
 	</div>
 </div>
+
+<div id="modal_create_contact" class="modal">
+	<div class="modal-body">
+		<form method="POST" action="${pageContext.request.contextPath}/create_contact" class="form-modal"> <!-- id="login-form" -->
+			<div class="row header">
+				<div class="header-label ">LIÊN HỆ</div>
+				<hr>
+			</div>
+			
+			<div class="row">
+				<div class="info" id="login-info"></div>
+			</div>
+			
+			<div class="row">
+				<span class="label">Tiêu đề:</span> <input style="margin-left:50px;" type="text" value=""
+					name="contacttitles" class="form-control"  required/>
+			</div>
+			
+			<div class="row">
+				<span style="width:100" class="label">Mail:</span> <input type="email" value="" style="width:348px;height:30px;margin-left:-74px;"
+					name="frommail" class="form-control" required/>
+			</div>
+			
+			<div class ="row">
+				content: <textarea style="width:348px;" rows="2" cols="40" name="content" required></textarea></br>
+			</div>
+			
+			<div class="row">
+				<span class="label"></span> <input type="submit"
+					class="green-button" value="Gửi liên hệ" />
+			</div>
+		</form>
+	</div>
+</div>
+
 
 <div id="modal_create_examination" class="modal">
 	<div class="modal-body">
@@ -39,11 +74,11 @@
 			
 			<div class="row">
 				<span class="label">Tên đề thi:</span> <input type="text" value=""
-					name="nameexamination" class="form-control" />
+					name="nameexamination" class="form-control" required/>
 			</div>
 			
 			<div class ="row">
-				Hình đại diện : <input type="file"  value="Upload File image"  name="multiimage" /><br />
+				Hình đại diện : <input type="file"  value="Upload File image"  name="multiimage" required/><br />
 			</div>
 			
 			<div class="row">
@@ -85,11 +120,11 @@
 			</div>
 			<div class="row">
 				<span class="label">Username:</span> <input type="text" value=""
-					name="username" class="form-control" />
+					name="username" class="form-control" minlength=6 maxlength=30 required/>
 			</div>
 			<div class="row">
 				<span class="label">Mật khẩu:</span> <input type="password" value=""
-					name="password" class="form-control" />
+					name="password" class="form-control" minlength=6 maxlength=30 required/>
 			</div>
 			<div class="row align-right">
 				Bạn chưa có tài khoản? Tạo tài khoản <a href="#"
@@ -142,33 +177,33 @@
 			<div class="row">
 				<span class="label">Avatar:</span> <input type="hidden"
 					name="MAX_FILE_SIZE" value="104857600"> <input type="file"
-					id="file" name="avatarfile">
+					id="file" name="avatarfile" required />
 			</div>
 			<div class="row">
 				<span class="label">Họ và tên <span class="red">*</span>:
-				</span> <input type="text" value="" name="membername" class="form-control" />
+				</span> <input type="text" value="" name="membername" maxlength=50 class="form-control" required/>
 			</div>
 			<div class="row">
 				<span class="label">Username <span class="red">*</span>:
-				</span> <input type="text" value="" name="username" class="form-control" />
+				</span> <input type="text" value="" name="username" class="form-control" minlength=6 maxlength=30 required/>
 			</div>
 			<div class="row">
 				<span class="label">Email <span class="red">*</span>:
-				</span> <input type="text" value="" name="email" class="form-control" />
+				</span> <input type="email" value="" name="email" class="form-control" required/>
 			</div>
 			<div class="row">
 				<span class="label">Mật khẩu <span class="red">*</span>:
 				</span> <input type="password" value="" name="password"
-					class="form-control" />
+					class="form-control" minlength=6 maxlength=30 required/>
 			</div>
 			<div class="row">
 				<span class="label">Xác nhận <span class="red">*</span>:
 				</span> <input type="password" value="" name="password_confirm"
-					class="form-control" />
+					class="form-control" minlength=6 maxlength=30 required/>
 			</div>
 			<div class="row">
 				<span class="label">Số ĐT:</span> <input type="text" value=""
-					name="phonenumber" class="form-control" />
+					name="phonenumber" class="form-control" pattern="\d*" minlength=10 maxlength=12 required/>
 			</div>
 			<div class="row">
 				<span class="label">&nbsp;</span>

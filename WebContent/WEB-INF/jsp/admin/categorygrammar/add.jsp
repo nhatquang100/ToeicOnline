@@ -15,7 +15,7 @@
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <label for="categorygrammarname">Category Name</label>
-	                                            <input name ="categorygrammarname" type="text" class="form-control" placeholder="input categorygrammarname">
+	                                            <input name ="categorygrammarname" type="text" class="form-control" placeholder="input categorygrammarname" required>
 	                                            
 	                                            
 	                                        </div>

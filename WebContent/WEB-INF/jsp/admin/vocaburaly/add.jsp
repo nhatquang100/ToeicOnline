@@ -15,9 +15,9 @@
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">
 	                                            <label for="categoryVocabularyName">Membername</label>
-	                                            <input name ="categoryVocabularyName" type="text" class="form-control" placeholder="input categoryVocabularyName">
+	                                            <input name ="categoryVocabularyName" type="text" class="form-control" placeholder="input categoryVocabularyName" required>
 	                                            
-	                                            Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" /><br />
+	                                            Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" required/><br />
 	                                            
 	                                        </div>
 	                                   </div>
