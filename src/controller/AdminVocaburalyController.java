@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,98 +39,121 @@ public class AdminVocaburalyController {
 	private StringUtil stringUtil;
 	
 	@RequestMapping(value={"{page}",""},method = RequestMethod.GET)
-	public String goToPage(ModelMap modelMap,@PathVariable(value="page", required = false) Integer page ) {
-		if(page == null) {
-			page = 1;
+	public String goToPage(ModelMap modelMap,@PathVariable(value="page", required = false) Integer page,HttpSession session ) {
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(page == null) {
+				page = 1;
+			}
+			int sumPage = (int) Math.ceil((float)vocaburalyDao.countItem()/Defines.ROW_COUNT);
+			int offset= (page - 1) * Defines.ROW_COUNT;
+			ModelAndView mav = new ModelAndView();
+			List<CategoryVocabulary> list = vocaburalyDao.getAlls(offset) ;
+			modelMap.addAttribute("catVocaburaly", list);
+			modelMap.addAttribute("sumPage", sumPage);
+			modelMap.addAttribute("page", page);
+			return "admin.categoryVacaburaly.index";
 		}
-		int sumPage = (int) Math.ceil((float)vocaburalyDao.countItem()/Defines.ROW_COUNT);
-		int offset= (page - 1) * Defines.ROW_COUNT;
-		ModelAndView mav = new ModelAndView();
-		List<CategoryVocabulary> list = vocaburalyDao.getAlls(offset) ;
-		modelMap.addAttribute("catVocaburaly", list);
-		modelMap.addAttribute("sumPage", sumPage);
-		modelMap.addAttribute("page", page);
-		return "admin.categoryVacaburaly.index";
+		return "redirect:/admin";
 		
 	}
 	@RequestMapping("add")
-	public String add(){
-		return "admin.categoryVacaburaly.add";
+	public String add(HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			return "admin.categoryVacaburaly.add";
+		}
+		return "redirect:/admin";
 	}
 	@RequestMapping(value="add",method=RequestMethod.POST)
-	public String add(@ModelAttribute("catvocal") CategoryVocabulary categoryVocaburaly,@RequestParam(value="multiimage") CommonsMultipartFile multifile,Model model, RedirectAttributes ra,HttpServletRequest request){
-
-		String nameFile = multifile.getOriginalFilename();
-		categoryVocaburaly.setCategoryVocabularyImage(nameFile);
-		
-		if(!"".equals(nameFile) ){
-			String dirFile = request.getServletContext().getRealPath("upload");
-			System.out.println(dirFile);
-			File fileDir = new File(dirFile);
-			if(!fileDir.exists()){
-				fileDir.mkdir();
+	public String add(@ModelAttribute("catvocal") CategoryVocabulary categoryVocaburaly,@RequestParam(value="multiimage") CommonsMultipartFile multifile,Model model, RedirectAttributes ra,HttpServletRequest request,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			String nameFile = multifile.getOriginalFilename();
+			categoryVocaburaly.setCategoryVocabularyImage(nameFile);
+			
+			if(!"".equals(nameFile) ){
+				String dirFile = request.getServletContext().getRealPath("upload");
+				System.out.println(dirFile);
+				File fileDir = new File(dirFile);
+				if(!fileDir.exists()){
+					fileDir.mkdir();
+				}
+				try {
+					multifile.transferTo(new File(fileDir+File.separator+nameFile));
+					System.out.println("Upload file thÃ nh cÃ´ng!");
+					model.addAttribute("filename", nameFile);
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+					System.out.println("Upload file tháº¥t báº¡i!");
+				}
 			}
-			try {
-				multifile.transferTo(new File(fileDir+File.separator+nameFile));
-				System.out.println("Upload file thÃ nh cÃ´ng!");
-				model.addAttribute("filename", nameFile);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				System.out.println("Upload file tháº¥t báº¡i!");
+			if(vocaburalyDao.addVoca(categoryVocaburaly)>0){
+				ra.addFlashAttribute("msg","ThÃªm thaÌ€nh cÃ´ng!!");
+				return "redirect:/admin/categoryVoca";
 			}
+			model.addAttribute("msg","coÌ� lÃ´Ìƒi trong quaÌ� triÌ€nh thÃªm!!!");
+			return "admin.categoryVacaburaly.add";
 		}
-		if(vocaburalyDao.addVoca(categoryVocaburaly)>0){
-			ra.addFlashAttribute("msg","ThÃªm thaÌ€nh cÃ´ng!!");
-			return "redirect:/admin/categoryVoca";
-		}
-		model.addAttribute("msg","coÌ� lÃ´Ìƒi trong quaÌ� triÌ€nh thÃªm!!!");
-		return "admin.categoryVacaburaly.add";
+		return "redirect:/admin";
 	}
 	@RequestMapping("edit/{id}")
-	public String edit(@PathVariable("id") String id, ModelMap modelMap){
-		modelMap.addAttribute("catvocal", vocaburalyDao.getItem(id));
-		return "admin.categoryVacaburaly.edit";
+	public String edit(@PathVariable("id") String id, ModelMap modelMap,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			modelMap.addAttribute("catvocal", vocaburalyDao.getItem(id));
+			return "admin.categoryVacaburaly.edit";
+		}
+		return "redirect:/admin";
 	}
 	@RequestMapping(value="edit/{id}",method=RequestMethod.POST)
-	public String edit(@ModelAttribute("catvocal") CategoryVocabulary categoryVocaburaly,@RequestParam(value="multiimage") CommonsMultipartFile multifile,@PathVariable("id") String id,RedirectAttributes ra,Model model, BindingResult rs,HttpServletRequest request){
-		if(rs.hasErrors()) {
-	        return "admin.categoryVacaburaly.edit";
-	    }
+	public String edit(@ModelAttribute("catvocal") CategoryVocabulary categoryVocaburaly,@RequestParam(value="multiimage") CommonsMultipartFile multifile,@PathVariable("id") String id,RedirectAttributes ra,Model model, BindingResult rs,HttpServletRequest request,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(rs.hasErrors()) {
+		        return "admin.categoryVacaburaly.edit";
+		    }
 
-		String nameFile = multifile.getOriginalFilename();
-		categoryVocaburaly.setCategoryVocabularyImage(nameFile);
-		categoryVocaburaly.setId(id);
-		if(!"".equals(nameFile) ){
-			String dirFile = request.getServletContext().getRealPath("upload");
-			System.out.println(dirFile);
-			File fileDir = new File(dirFile);
-			if(!fileDir.exists()){
-				fileDir.mkdir();
+			String nameFile = multifile.getOriginalFilename();
+			categoryVocaburaly.setCategoryVocabularyImage(nameFile);
+			categoryVocaburaly.setId(id);
+			if(!"".equals(nameFile) ){
+				String dirFile = request.getServletContext().getRealPath("upload");
+				System.out.println(dirFile);
+				File fileDir = new File(dirFile);
+				if(!fileDir.exists()){
+					fileDir.mkdir();
+				}
+				try {
+					multifile.transferTo(new File(fileDir+File.separator+nameFile));
+					System.out.println("Upload file thÃ nh cÃ´ng!");
+					model.addAttribute("filename", nameFile);
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+					System.out.println("Upload file tháº¥t báº¡i!");
+				}
 			}
-			try {
-				multifile.transferTo(new File(fileDir+File.separator+nameFile));
-				System.out.println("Upload file thÃ nh cÃ´ng!");
-				model.addAttribute("filename", nameFile);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-				System.out.println("Upload file tháº¥t báº¡i!");
-			}
+			if(vocaburalyDao.editItem(categoryVocaburaly)>0){
+					ra.addFlashAttribute("msg","sÆ°Ì‰a thaÌ€nh cÃ´ng!!");
+				}else{
+					ra.addFlashAttribute("msg","sÆ°Ì‰a thÃ¢Ì�t baÌ£i!!");
+				}
+			return "redirect:/admin/categoryVoca";
 		}
-		if(vocaburalyDao.editItem(categoryVocaburaly)>0){
-				ra.addFlashAttribute("msg","sÆ°Ì‰a thaÌ€nh cÃ´ng!!");
-			}else{
-				ra.addFlashAttribute("msg","sÆ°Ì‰a thÃ¢Ì�t baÌ£i!!");
-			}
-		return "redirect:/admin/categoryVoca";
+		return "redirect:/admin";
 	}
 	@RequestMapping("del/{id}")
-	public String del(@PathVariable("id") String id,RedirectAttributes ra){
-		if(vocaburalyDao.delItem(id)>0){
-			ra.addFlashAttribute("msg","xoÌ�a thaÌ€nh cÃ´ng!!");
-		}else{
-			ra.addFlashAttribute("msg","xoÌ�a thÃ¢Ì�t baÌ£i!!");
+	public String del(@PathVariable("id") String id,RedirectAttributes ra,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(vocaburalyDao.delItem(id)>0){
+				ra.addFlashAttribute("msg","xoÌ�a thaÌ€nh cÃ´ng!!");
+			}else{
+				ra.addFlashAttribute("msg","xoÌ�a thÃ¢Ì�t baÌ£i!!");
+			}
+			return "redirect:/admin/categoryVoca";
 		}
-		return "redirect:/admin/categoryVoca";
+		return "redirect:/admin";
 	}
 	@RequestMapping(value = "/imageDisplay", method = RequestMethod.GET)
 	  public void showImage(@RequestParam("id") String id, HttpServletResponse response,HttpServletRequest request) throws IOException  {

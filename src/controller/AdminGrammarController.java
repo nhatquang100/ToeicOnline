@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,18 +49,21 @@ public class AdminGrammarController {
 	private List<grammar> listVocabulary = new ArrayList<grammar>();
 	
 	@RequestMapping(value={"{page}",""},method = RequestMethod.GET)
-	public String goToPage(ModelMap modelMap,@PathVariable(value="page", required = false) Integer page ) {
-		if(page == null) {
-			page = 1;
+	public String goToPage(ModelMap modelMap,@PathVariable(value="page", required = false) Integer page,HttpSession session ) {
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(page == null) {
+				page = 1;
+			}
+			int sumPage = (int) Math.ceil((float)grammarDao.countItem()/Defines.ROW_COUNT);
+			int offset= (page - 1) * Defines.ROW_COUNT;
+			ArrayList<grammar> list = (ArrayList<grammar>) grammarDao.getItems();
+			modelMap.addAttribute("grammar", list);
+			modelMap.addAttribute("sumPage", sumPage);
+			modelMap.addAttribute("page", page);
+			return "admin.grammar.index";
 		}
-		int sumPage = (int) Math.ceil((float)grammarDao.countItem()/Defines.ROW_COUNT);
-		int offset= (page - 1) * Defines.ROW_COUNT;
-		ArrayList<grammar> list = (ArrayList<grammar>) grammarDao.getItems();
-		modelMap.addAttribute("grammar", list);
-		modelMap.addAttribute("sumPage", sumPage);
-		modelMap.addAttribute("page", page);
-		return "admin.grammar.index";
-		
+		return "redirect:/admin";
 	}
 	@RequestMapping("add")
 	public String add(ModelMap modelMap){
@@ -68,17 +72,21 @@ public class AdminGrammarController {
 		return "admin.grammar.add";
 	}
 	@RequestMapping(value="add",method=RequestMethod.POST)
-	public String add(@RequestBody grammar grammar,ModelMap modelMap, RedirectAttributes ra,HttpServletRequest request){
-		ArrayList<grammar> list = (ArrayList<grammar>) grammarDao.getItems();
-		List<categorygrammar> listCate = categoryGrammarDao.getAll();
-		modelMap.addAttribute("listCateogry", listCate);
-		if(grammarDao.addItem(grammar)>0){
-			ra.addFlashAttribute("msg","ThÃªm thaÌ€nh cÃ´ng!!");
-		}else{
-			modelMap.addAttribute("msg","ThÃªm thÃ¢Ì�t baÌ£i!!");
-			return "admin.grammar.add";
+	public String add(@RequestBody grammar grammar,ModelMap modelMap, RedirectAttributes ra,HttpServletRequest request,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			ArrayList<grammar> list = (ArrayList<grammar>) grammarDao.getItems();
+			List<categorygrammar> listCate = categoryGrammarDao.getAll();
+			modelMap.addAttribute("listCateogry", listCate);
+			if(grammarDao.addItem(grammar)>0){
+				ra.addFlashAttribute("msg","ThÃªm thaÌ€nh cÃ´ng!!");
+			}else{
+				modelMap.addAttribute("msg","ThÃªm thÃ¢Ì�t baÌ£i!!");
+				return "admin.grammar.add";
+			}
+			return "redirect:/admin/grammar";
 		}
-		return "redirect:/admin/grammar";
+		return "redirect:/admin";
 		
 	}
 /*	@RequestMapping(value = "/addnew", method = RequestMethod.GET)
@@ -104,28 +112,40 @@ public class AdminGrammarController {
 		return ajaxResponse;
 	}*/
 	@RequestMapping("edit/{grammarid}")
-	public String readedit(@PathVariable("grammarid") String grammarid, ModelMap modelMap){
-		modelMap.addAttribute("grammar", grammarDao.getItemById(grammarid));
-		return "admin.grammar.edit";
+	public String readedit(@PathVariable("grammarid") String grammarid, ModelMap modelMap,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			modelMap.addAttribute("grammar", grammarDao.getItemById(grammarid));
+			return "admin.grammar.edit";
+		}
+		return "redirect:/admin";
 	}
 	@RequestMapping(value="edit/{grammarid}",method=RequestMethod.POST)
-	public  String readedit(@PathVariable("grammarid") String grammarid,ModelMap modelMap,@ModelAttribute("objgrammar") grammar grammar,RedirectAttributes ra, BindingResult rs,HttpServletRequest request){
-		grammar.setGrammarid(grammarid);
-		if(grammarDao.editItem(grammar)>0){
-				ra.addFlashAttribute("msg","sÆ°Ì‰a thaÌ€nh cÃ´ng!!");
-			}else{
-				ra.addFlashAttribute("msg","sÆ°Ì‰a thÃ¢Ì�t baÌ£i!!");
-			}
-		return "redirect:/admin/grammar";
+	public  String readedit(@PathVariable("grammarid") String grammarid,ModelMap modelMap,@ModelAttribute("objgrammar") grammar grammar,RedirectAttributes ra, BindingResult rs,HttpServletRequest request,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			grammar.setGrammarid(grammarid);
+			if(grammarDao.editItem(grammar)>0){
+					ra.addFlashAttribute("msg","sÆ°Ì‰a thaÌ€nh cÃ´ng!!");
+				}else{
+					ra.addFlashAttribute("msg","sÆ°Ì‰a thÃ¢Ì�t baÌ£i!!");
+				}
+			return "redirect:/admin/grammar";
+		}
+		return "redirect:/admin";
 	}
 	@RequestMapping("del/{grammarid}")
-	public String del(@PathVariable("grammarid") String grammarid,RedirectAttributes ra){
-		if(grammarDao.delItem(grammarid)>0){
-			ra.addFlashAttribute("msg","xoÌ�a thaÌ€nh cÃ´ng!!");
-		}else{
-			ra.addFlashAttribute("msg","xoÌ�a thÃ¢Ì�t baÌ£i!!");
+	public String del(@PathVariable("grammarid") String grammarid,RedirectAttributes ra,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(grammarDao.delItem(grammarid)>0){
+				ra.addFlashAttribute("msg","xoÌ�a thaÌ€nh cÃ´ng!!");
+			}else{
+				ra.addFlashAttribute("msg","xoÌ�a thÃ¢Ì�t baÌ£i!!");
+			}
+			return "redirect:/admin/grammar";
 		}
-		return "redirect:/admin/grammar";
+		return "redirect:/admin";
 	}
 	
 }

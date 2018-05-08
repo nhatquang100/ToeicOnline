@@ -25,7 +25,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.php">KLTN-TOEICONLINE</a></h1>
+	                 <h1><a href="${pageContext.request.contextPath}/admin">KLTN-TOEICONLINE</a></h1>
 	              </div>
 	           </div>
 	           <div class="col-md-5">
