@@ -57,8 +57,8 @@
 	src="<%=request.getContextPath()%>/templates/public/js/login.js"></script>
 <script
 	src="<%=request.getContextPath()%>/templates/public/js/examination.create.js"></script>
-	<script
-	src="<%=request.getContextPath()%>/templates/public/js/contact.create.js"></script>
+<script
+src="<%=request.getContextPath()%>/templates/public/js/contactjs/contact.create.js"></script>
 <script
 	src="<%=request.getContextPath()%>/templates/public/js/comment.js"></script>
 </head>

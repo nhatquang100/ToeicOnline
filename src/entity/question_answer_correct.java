@@ -12,33 +12,7 @@ public class question_answer_correct {
 	private String chose;
 	private String correct;
 	private int categoryquestionid;
-	
-	
-	public int getCategoryquestionid() {
-		return categoryquestionid;
-	}
-	public void setCategoryquestionid(int categoryquestionid) {
-		this.categoryquestionid = categoryquestionid;
-	}
-	public question_answer_correct(int questionid, String image, String audio,
-			String paragraph, String option1, String option2, String option3,
-			String option4, String chose, String correct, int categoryquestionid) {
-		super();
-		this.questionid = questionid;
-		this.image = image;
-		this.audio = audio;
-		this.paragraph = paragraph;
-		this.option1 = option1;
-		this.option2 = option2;
-		this.option3 = option3;
-		this.option4 = option4;
-		this.chose = chose;
-		this.correct = correct;
-		this.categoryquestionid = categoryquestionid;
-	}
-	public question_answer_correct() {
-		super();
-	}
+	private String question;
 	public int getQuestionid() {
 		return questionid;
 	}
@@ -99,6 +73,40 @@ public class question_answer_correct {
 	public void setCorrect(String correct) {
 		this.correct = correct;
 	}
+	public int getCategoryquestionid() {
+		return categoryquestionid;
+	}
+	public void setCategoryquestionid(int categoryquestionid) {
+		this.categoryquestionid = categoryquestionid;
+	}
+	public String getQuestion() {
+		return question;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+	public question_answer_correct(int questionid, String image, String audio,
+			String paragraph, String option1, String option2, String option3,
+			String option4, String chose, String correct,
+			int categoryquestionid, String question) {
+		super();
+		this.questionid = questionid;
+		this.image = image;
+		this.audio = audio;
+		this.paragraph = paragraph;
+		this.option1 = option1;
+		this.option2 = option2;
+		this.option3 = option3;
+		this.option4 = option4;
+		this.chose = chose;
+		this.correct = correct;
+		this.categoryquestionid = categoryquestionid;
+		this.question = question;
+	}
+	public question_answer_correct() {
+		super();
+	}
+	
 	
 	
 }

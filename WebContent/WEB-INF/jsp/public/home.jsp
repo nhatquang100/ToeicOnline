@@ -35,9 +35,6 @@
 					</div>
 				</c:forEach>
 			</div>
-			<div class='paging viewall'>
-				<a href="${pageContext.request.contextPath}/all_exam_reading">Xem tất cả &raquo;</a>
-			</div>
 		</div>
 	</c:if>
 	<!-- Đề thi -->
@@ -68,9 +65,6 @@
 					</a>
 				</div>
 			</c:forEach>
-		</div>
-		<div class='paging viewall'>
-			<a href="${pageContext.request.contextPath}/all_exam_reading">Xem tất cả &raquo;</a>
 		</div>
 	</div>
 	
@@ -104,9 +98,6 @@
 				</div>
 			</c:forEach>
 		</div>
-		<div class='paging viewall'>
-			<a href="${pageContext.request.contextPath}/all_exam_listening">Xem tất cả &raquo;</a>
-		</div>
 	</div>
 	
 	<!-- Phần reading + listening -->
@@ -138,9 +129,6 @@
 					</a>
 				</div>
 			</c:forEach>
-		</div>
-		<div class='paging viewall'>
-			<a href="${pageContext.request.contextPath}/all_exam_sumary">Xem tất cả &raquo;</a>
 		</div>
 	</div>
 
@@ -174,9 +162,6 @@
 				</div>
 			</c:forEach>
 		</div>
-		<div class='paging viewall'>
-			<a href="${pageContext.request.contextPath}/public/vocabulary">Xem tất cả &raquo;</a>
-		</div>
 	</div>
 
 	<!-- Ngữ pháp toeic -->
@@ -207,9 +192,6 @@
 					</a>
 				</div>
 			</c:forEach>
-		</div>
-		<div class='paging viewall'>
-			<a href="${pageContext.request.contextPath}/public/grammar">Xem tất cả &raquo;</a>
 		</div>
 	</div>
 	

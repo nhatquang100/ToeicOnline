@@ -135,7 +135,8 @@ public class ExaminationController {
 						questionDao.getItembyID(obj.getQuestionid()).getOption3(),
 						questionDao.getItembyID(obj.getQuestionid()).getOption4(),
 						obj.getChose(),questionDao.getItembyID(obj.getQuestionid()).getCorrectquestion(),
-						questionDao.getItembyID(obj.getQuestionid()).getCategoryquestionid());
+						questionDao.getItembyID(obj.getQuestionid()).getCategoryquestionid(),
+						questionDao.getItembyID(obj.getQuestionid()).getQuestion());
 				objqac.add(tmp);
 			}
 			model.addAttribute("listdetailresult",objqac);
