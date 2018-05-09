@@ -54,4 +54,9 @@ public class CategoryGrammarDao {
 		String sql="select * from categorygrammar LIMIT 4";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<categorygrammar>(categorygrammar.class));
 	}
+	
+	public List<categorygrammar> getItemByName(String categorygrammarname) {
+		String sql = "SELECT * FROM categorygrammar where categorygrammarname like ?";
+		return jdbcTemplate.query(sql,new Object []{"%"+categorygrammarname+"%"}, new BeanPropertyRowMapper<categorygrammar>(categorygrammar.class));
+	}
 }

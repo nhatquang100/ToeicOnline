@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -176,5 +177,19 @@ public class AdminMemberController {
 			return "redirect:/admin";
 		}
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(@ModelAttribute("membername") String membername ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request){
+		
+		
+		if(membername.isEmpty()) {
+			return "redirect:/admin/member";
+		}else {
+			List<member> list = memberDao.getMemberByName(membername);
+			modelMap.addAttribute("listmember", list);
+			return "admin.member.search";
+		}
+		//return null;
 	}
 }

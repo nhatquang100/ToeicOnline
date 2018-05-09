@@ -118,5 +118,17 @@ public class AdminCategoryGrammarController {
 		}
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(@ModelAttribute("categorygrammarname") String categorygrammarname ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request){
 		
+		if(categorygrammarname.isEmpty()) {
+			return "redirect:/admin/categoryGram";
+		}else {
+			List<categorygrammar> list = categoryGrammarDao.getItemByName(categorygrammarname);
+			modelMap.addAttribute("catGrammar", list);
+			return "admin.categoryGrammar.search";
+		}
+		//return null;
+	}
 }

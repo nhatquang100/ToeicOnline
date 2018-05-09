@@ -19,12 +19,12 @@
                         </div>
                         <div class="col-md-4">
                             <form action="${pageContext.request.contextPath}/admin/grammar/search" method="post">
-	                            <div class="input-group form">
-	                                <input type="text" class="form-control" placeholder="Search..." name = "grammarname">
-	                                <span class="input-group-btn">
-	                         		<button class="btn btn-primary" type="submit">Search</button>
-	                       			</span>
-	                            </div>
+                            <div class="input-group form">
+                                <input type="text" class="form-control" placeholder="Search..." name = "grammarname">
+                                <span class="input-group-btn">
+                         <button class="btn btn-primary" type="submit">Search</button>
+                       </span>
+                            </div>
                             </form>
                         </div>
                     </div>

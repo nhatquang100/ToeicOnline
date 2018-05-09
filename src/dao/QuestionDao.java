@@ -62,4 +62,9 @@ public class QuestionDao {
 		return jdbcTemplate.query(sql, new Object[]{lv,categoryquestionid}, new BeanPropertyRowMapper<question>(question.class));
 	}
 	
+	public List<question> searchQuestionByID(String questionid){
+		String sql= "select * from question where questionid like ?";
+		return jdbcTemplate.query(sql,new Object []{"%"+questionid+"%"}, new BeanPropertyRowMapper<question>(question.class));
+	
+	}
 }

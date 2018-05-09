@@ -4,25 +4,24 @@
                 <div class="content-box-large">
                     <div class="row">
                         <div class="panel-heading">
-                            <div class="panel-title ">Manager Questions</div>
+                            <div class="panel-title ">Manager Member</div>
                         </div>
                     </div>
                     <hr>
                     <div class="panel-heading" style="margin-left:-18px;color:green">${msg}</div>
                     <div class="row">
                         <div class="col-md-8">
-                            <a href="${pageContext.request.contextPath}/admin/question/listenadd" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Listening</a>
-							<a href="${pageContext.request.contextPath}/admin/question/readadd" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Reading</a>
+                            <a href="${pageContext.request.contextPath}/admin/member/add" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add member</a>
+
                         </div>
-                        
                         <div class="col-md-4">
-                            <form action="${pageContext.request.contextPath}/admin/question/search" method="post">
-	                            <div class="input-group form">
-	                                <input type="text" class="form-control" placeholder="Search..." name = "questionid">
-	                                <span class="input-group-btn">
-	                         		<button class="btn btn-primary" type="submit">Search</button>
-	                       			</span>
-	                            </div>
+                        <form action="${pageContext.request.contextPath}/admin/member/search" method="post" >
+                            <div class="input-group form">
+                                <input type="text" class="form-control" placeholder="Search..." name="membername">
+                                <span class="input-group-btn">
+                         <button class="btn btn-primary" type="submit">Search</button>
+                       </span>
+                            </div>
                             </form>
                         </div>
                     </div>
@@ -33,18 +32,20 @@
                                 <thead>
                                     <tr>
                                         <th class="center" style="text-align:center;">ID</th>
-                                        <th class="center" style="text-align:center;">Loại</th>
+                                        <th class="center" style="text-align:center;">Tên</th>
+                                        <th class="center" style="text-align:center;">Chức vụ</th>
                                         <th class="center" style="text-align:center;">Active</th>
                                         <th class="center" style="text-align:center;">Chức năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-	                                <c:forEach items="${listquestion }" var="objquestion">
+	                                <c:forEach items="${listmember }" var="objmember">
 	                                    <tr class="odd gradeX">
-	                                        <td style="text-align:center;">${objquestion.questionid }</td>
-	                                        <td style="text-align:center;">${objquestion.categoryquestionname }</td>
+	                                        <td style="text-align:center;" >${objmember.memberid }</td>
+	                                        <td style="text-align:center;">${objmember.membername }</td>
+	                                        <td style="text-align:center;">${objmember.categorymembername }</td>
 	                                        <c:choose>
-                     						 <c:when test="${objquestion.isactive == 0 }">
+                     						 <c:when test="${objmember.isactive == 0 }">
                          						 <c:set var="image" value="minus-circle.gif"></c:set>
                          						 <c:set var="title" value="Kích hoạt"></c:set>
                      						 </c:when>
@@ -53,20 +54,10 @@
                           						<c:set var="title" value="Ngừng kích hoạt"></c:set>
                        						</c:otherwise>
 	                       					</c:choose>
-	                    					<td align="center" id="setactive-${objquestion.questionid}"><a  href="javascript:void(0)" onclick="return setActive(${objquestion.questionid}, ${objquestion.isactive})" title="${title }"><img src="${pageContext.request.contextPath}/templates/admin/images/${image}" alt="" /></a></td>
+	                    					<td align="center" id="setactive-${objmember.memberid}"><a  href="javascript:void(0)" onclick="return setActive(${objmember.memberid}, ${objmember.isactive})" title="${title }"><img src="${pageContext.request.contextPath}/templates/admin/images/${image}" alt="" /></a></td>
 	                                        <td class="center text-center">
-	                                        	<c:choose>
-		                     						<c:when test="${objquestion.categoryquestionid == 1 }">
-		                         						<a href="${pageContext.request.contextPath}/admin/question/listenedit/${objquestion.questionid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-		                     						</c:when>
-		                     						<c:when test="${objquestion.categoryquestionid == 2 }">
-		                         						<a href="${pageContext.request.contextPath}/admin/question/readedit/${objquestion.questionid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-		                     						</c:when>
-		                     						<c:otherwise>
-		                          						<a href="${pageContext.request.contextPath}/admin/question/readedit/${objquestion.questionid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-		                       						</c:otherwise>
-		                       					</c:choose>
-	                                            <a href="${pageContext.request.contextPath}/admin/question/del/${objquestion.questionid }" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+	                                            <a href="${pageContext.request.contextPath}/admin/member/edit/${objmember.memberid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
+	                                            <a href="${pageContext.request.contextPath}/admin/member/del/${objmember.memberid }" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
 	                                        </td>
 	                                    </tr>
 	                                 </c:forEach>  
@@ -91,7 +82,7 @@
 										<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 										<c:forEach var="i" begin="1" end="${sumPage}">
 										<li <c:if test="${page == i }">class="active"</c:if>><a
-												href="${pageContext.request.contextPath}/admin/question/${i}">${i}<span
+												href="${pageContext.request.contextPath}/admin/member/${i}">${i}<span
 													class="sr-only">(current)</span></a></li>
 										</c:forEach>
 										<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
@@ -107,7 +98,7 @@
 <script type="text/javascript">
 function setActive(id, isactive){
 	$.ajax({
-		url: '${pageContext.request.contextPath }/admin/setActiveQuestion',
+		url: '${pageContext.request.contextPath }/admin/setActiveMember',
 		type: 'POST',
 		cache: false,
 		data: {aid: id, aisactive: isactive},

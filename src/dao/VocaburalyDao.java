@@ -48,7 +48,7 @@ public class VocaburalyDao {
 	
 	public int editItem(CategoryVocabulary categoryVocaburaly) {
 		String sql="update categoryvocabulary set categoryvocabularyname=?,categoryvocabularyimage=? where categoryvocabularyid = ? ";
-		return jdbcTemplate.update(sql,new Object[]{categoryVocaburaly.getCategoryVocabularyName(), categoryVocaburaly.getCategoryVocabularyImage(),categoryVocaburaly.getId()});
+		return jdbcTemplate.update(sql,new Object[]{categoryVocaburaly.getCategoryVocabularyName(), categoryVocaburaly.getCategoryVocabularyImage(),categoryVocaburaly.getCategoryvocabularyid()});
 	}
 
 	public int delItem(String id){
@@ -61,4 +61,8 @@ public class VocaburalyDao {
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<CategoryVocabulary>(CategoryVocabulary.class));
 	}
 	
+	public List<CategoryVocabulary> getItemByName(String categoryvocabularyname) {
+		String sql = "SELECT * FROM categoryvocabulary where categoryvocabularyname like ?";
+		return jdbcTemplate.query(sql,new Object []{"%"+categoryvocabularyname+"%"}, new BeanPropertyRowMapper<CategoryVocabulary>(CategoryVocabulary.class));
+	}
 }

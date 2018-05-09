@@ -152,4 +152,16 @@ public class AdminVocaburalysController {
 		return "redirect:/admin";
 	}
 	
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(@ModelAttribute("vocabularyname") String vocabularyname ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request){
+		
+		if(vocabularyname.isEmpty()) {
+			return "redirect:/admin/vocaburaly";
+		}else {
+			List<Vocabulary> list = vocaburalysDao.getItemByName(vocabularyname);
+			modelMap.addAttribute("vocabulary", list);
+			return "admin.vocabularys.search";
+		}
+		//return null;
+	}
 }

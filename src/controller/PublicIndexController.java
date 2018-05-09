@@ -93,7 +93,7 @@ public class PublicIndexController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/public/vocabulary/{id}")
+	/*@RequestMapping("/public/vocabulary/{id}")
 	public String readedit(@PathVariable("id") String categoryvocabularyid, ModelMap modelMap,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
@@ -104,7 +104,7 @@ public class PublicIndexController {
 			return "public.index.vocabulary.detail";
 		}
 		return "redirect:/";
-	}
+	}*/
 	@RequestMapping("/public/grammar")
 	public String grammar(ModelMap modelMap,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
@@ -126,6 +126,18 @@ public class PublicIndexController {
 			categorygrammar objcate  = categoryGrammarDao.getItem(categorygrammarid);
 			modelMap.addAttribute("cateGrammar", objcate);
 			return "public.index.categorygrammar.detail";
+		}
+		return "redirect:/";
+	}
+	
+	@RequestMapping("public/vocabulary/{id}")
+	public String vocabularydetail(ModelMap modelMap,@PathVariable("id") int id,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			modelMap.addAttribute("vocal",vocaburalysDao.getItemByIdCategory(id));
+			CategoryVocabulary listCate = categoryVocabulary.getItem(String.valueOf(id));
+			modelMap.addAttribute("cateVocal", listCate);
+			return "public.index.vocabulary.detail";
 		}
 		return "redirect:/";
 	}

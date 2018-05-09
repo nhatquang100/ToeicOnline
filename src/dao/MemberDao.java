@@ -74,4 +74,9 @@ public class MemberDao {
 		return jdbcTemplate.queryForObject(sql,new Object []{username}, new BeanPropertyRowMapper<member>(member.class));
 	}
 	
+	public List<member> getMemberByName(String membername){
+		String sql= "select * from member where membername like ?";
+		return jdbcTemplate.query(sql,new Object []{"%"+membername+"%"}, new BeanPropertyRowMapper<member>(member.class));
+	
+	}
 }
