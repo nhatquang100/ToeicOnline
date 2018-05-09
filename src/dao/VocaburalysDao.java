@@ -54,4 +54,14 @@ public class VocaburalysDao {
 		String sql="Delete from vocabulary where vocabularyid=? ";
 		return jdbcTemplate.update(sql,new Object[]{vocabularyId});
 	}
+	
+	public List<Vocabulary> getItemByIdCategory(int categoryvocabularyid) {
+		String sql = "SELECT * FROM vocabulary WHERE categoryvocabularyid = ?";
+		return jdbcTemplate.query(sql,new Object []{categoryvocabularyid}, new BeanPropertyRowMapper<Vocabulary>(Vocabulary.class));
+	}
+	
+	public List<Vocabulary> getItemByName(String vocabularyname) {
+		String sql = "SELECT * FROM vocabulary where vocabularyname like ?";
+		return jdbcTemplate.query(sql,new Object []{"%"+vocabularyname+"%"}, new BeanPropertyRowMapper<Vocabulary>(Vocabulary.class));
+	}
 }

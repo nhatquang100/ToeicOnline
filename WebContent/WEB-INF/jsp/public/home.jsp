@@ -72,8 +72,8 @@
 	<div class="content-box">
 		<div class="header">
 			<div class="h3-container">
-				<a href="category/1.html"><h3>PHẦN LISTENING</h3></a>
-				<a class="learn-all" href="category/1.html">Xem tất cả
+				<a href="${pageContext.request.contextPath}/all_exam_listening"><h3>PHẦN LISTENING</h3></a>
+				<a class="learn-all" href="${pageContext.request.contextPath}/all_exam_listening">Xem tất cả
 					&raquo;</a>
 			</div>
 		</div>
@@ -104,8 +104,8 @@
 	<div class="content-box">
 		<div class="header">
 			<div class="h3-container">
-				<a href="category/1.html"><h3> PHẦN READING + LISTENING</h3></a>
-				 <a class="learn-all" href="category/1.html">Xem tất cả
+				<a href="${pageContext.request.contextPath}/all_exam_sumary"><h3> PHẦN READING + LISTENING</h3></a>
+				 <a class="learn-all" href="${pageContext.request.contextPath}/all_exam_sumary">Xem tất cả
 					&raquo;</a>
 			</div>
 		</div>
@@ -125,7 +125,7 @@
 							<span style="width: 0%"></span>
 						</div>
 						<h4>Bộ đề ${objsumary.examinationid}(${objsumary.nameexamination })</h4> <a class="learn"
-						href='exam/48798.html'>Luyện ngay</a>
+						href='${pageContext.request.contextPath}/exam/${objsumary.examinationid}'>Luyện ngay</a>
 					</a>
 				</div>
 			</c:forEach>
@@ -148,7 +148,7 @@
 		<div class="box">
 			<c:forEach items="${categoryvocabulary }" var="objvocabulary">
 				<div class="box-item">
-					<a href="${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.id }">
+					<a href="${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.categoryvocabularyid }">
 						<div class="img"
 							style="background: url(${pageContext.request.contextPath}/upload/${objvocabulary.categoryVocabularyImage}); background-size: cover;">
 							<p>0/54</p>
@@ -156,7 +156,7 @@
 						<div class="meter">
 							<span style="width: 0%"></span>
 						</div>
-						<h4>Bài ${objvocabulary.id}: ${objvocabulary.categoryVocabularyName }</h4> <a class="learn" href='${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.id }'>Học
+						<h4>Bài ${objvocabulary.categoryvocabularyid}: ${objvocabulary.categoryVocabularyName }</h4> <a class="learn" href='${pageContext.request.contextPath}/public/vocabulary/${objvocabulary.categoryvocabularyid}'>Học
 							ngay</a>
 					</a>
 				</div>

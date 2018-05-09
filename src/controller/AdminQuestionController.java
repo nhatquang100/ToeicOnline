@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -235,6 +236,22 @@ public class AdminQuestionController {
 				ra.addFlashAttribute("msg","xóa thất bại!!");
 			}
 			return "redirect:/admin/question";
+		}
+		return "redirect:/admin";
+	}
+	
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(@ModelAttribute("questionid") String questionid ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request,HttpSession session){
+		
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(questionid.isEmpty()) {
+				return "redirect:/admin/member";
+			}else {
+				List<question> list = questionDao.searchQuestionByID(questionid);
+				modelMap.addAttribute("listquestion", list);
+				return "admin.question.search";
+			}
 		}
 		return "redirect:/admin";
 	}

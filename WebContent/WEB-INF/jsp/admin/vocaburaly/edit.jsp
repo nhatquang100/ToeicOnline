@@ -10,7 +10,7 @@
                             <div>
                                 <div class="row mb-10"></div>
                                 ${msg }
-							<form action="${pageContext.request.contextPath}/admin/categoryVoca/edit/${catvocal.id}" method="post" enctype="multipart/form-data">
+							<form action="${pageContext.request.contextPath}/admin/categoryVoca/edit/${catvocal.categoryvocabularyid}" method="post" enctype="multipart/form-data">
 	                                <div class="row">
 	                                    <div class="col-sm-6">
 	                                        <div class="form-group">

@@ -18,12 +18,14 @@
 
                         </div>
                         <div class="col-md-4">
-                            <div class="input-group form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                         <button class="btn btn-primary" type="button">Search</button>
-                       </span>
-                            </div>
+                            <form action="${pageContext.request.contextPath}/admin/categoryVoca/search" method="post" enctype="multipart/form-data">
+                            	<div class="input-group form">
+	                                <input type="text" class="form-control" placeholder="Search..." name="categoryvocabularyname">
+	                                <span class="input-group-btn">
+	                         		<button class="btn btn-primary" type="submit" value="Submit">Search</button>
+	                       			</span>
+                            	</div>
+                            </form>
                         </div>
                     </div>
 
@@ -41,12 +43,12 @@
                                 <tbody id =" embody">
 	                                <c:forEach items="${catVocaburaly }" var="catvocal">
 	                                    <tr class="odd gradeX">
-	                                        <td style="text-align:center;" >${catvocal.id }</td>
+	                                        <td style="text-align:center;" >${catvocal.categoryvocabularyid }</td>
 	                                        <td style="text-align:center;">${catvocal.categoryVocabularyName }</td>
 	                    					<td style="text-align:center;">${catvocal.categoryVocabularyImage }</td>
 	                                        <td class="center text-center">
-	                                            <a href="${pageContext.request.contextPath}/admin/categoryVoca/edit/${catvocal.id}" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-	                                            <a href="${pageContext.request.contextPath}/admin/categoryVoca/del/${catvocal.id}" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+	                                            <a href="${pageContext.request.contextPath}/admin/categoryVoca/edit/${catvocal.categoryvocabularyid}" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
+	                                            <a href="${pageContext.request.contextPath}/admin/categoryVoca/del/${catvocal.categoryvocabularyid}" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
 	                                        </td>
 	                                    </tr>
 	                                 </c:forEach>  

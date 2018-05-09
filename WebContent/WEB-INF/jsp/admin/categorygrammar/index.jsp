@@ -18,12 +18,14 @@
 
                         </div>
                         <div class="col-md-4">
-                            <div class="input-group form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                         <button class="btn btn-primary" type="button">Search</button>
-                       </span>
-                            </div>
+                            <form action="${pageContext.request.contextPath}/admin/categoryGram/search" method="post">
+	                            <div class="input-group form">
+	                                <input type="text" class="form-control" placeholder="Search..." name="categorygrammarname">
+	                                <span class="input-group-btn">
+	                         		<button class="btn btn-primary" type="submit">Search</button>
+	                       			</span>
+	                            </div>
+                            </form>
                         </div>
                     </div>
 

@@ -79,9 +79,9 @@ public class AdminGrammarController {
 			List<categorygrammar> listCate = categoryGrammarDao.getAll();
 			modelMap.addAttribute("listCateogry", listCate);
 			if(grammarDao.addItem(grammar)>0){
-				ra.addFlashAttribute("msg","ThÃªm thaÌ€nh cÃ´ng!!");
+				ra.addFlashAttribute("msg","Thêm thành công!!");
 			}else{
-				modelMap.addAttribute("msg","ThÃªm thÃ¢Ì�t baÌ£i!!");
+				modelMap.addAttribute("msg","Thêm thất bại!!");
 				return "admin.grammar.add";
 			}
 			return "redirect:/admin/grammar";
@@ -126,9 +126,9 @@ public class AdminGrammarController {
 		if (member != null){
 			grammar.setGrammarid(grammarid);
 			if(grammarDao.editItem(grammar)>0){
-					ra.addFlashAttribute("msg","sÆ°Ì‰a thaÌ€nh cÃ´ng!!");
+					ra.addFlashAttribute("msg","Sửa thành công!!");
 				}else{
-					ra.addFlashAttribute("msg","sÆ°Ì‰a thÃ¢Ì�t baÌ£i!!");
+					ra.addFlashAttribute("msg","Sửa thất bại!!");
 				}
 			return "redirect:/admin/grammar";
 		}
@@ -139,13 +139,25 @@ public class AdminGrammarController {
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
 			if(grammarDao.delItem(grammarid)>0){
-				ra.addFlashAttribute("msg","xoÌ�a thaÌ€nh cÃ´ng!!");
+				ra.addFlashAttribute("msg","Xóa thành công!!");
 			}else{
-				ra.addFlashAttribute("msg","xoÌ�a thÃ¢Ì�t baÌ£i!!");
+				ra.addFlashAttribute("msg","Xóa thất bại!!");
 			}
 			return "redirect:/admin/grammar";
 		}
 		return "redirect:/admin";
 	}
 	
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(@ModelAttribute("grammarname") String grammarname ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request){
+		
+		if(grammarname.isEmpty()) {
+			return "redirect:/admin/grammar";
+		}else {
+			List<grammar> list = grammarDao.getItemByName(grammarname);
+			modelMap.addAttribute("grammar", list);
+			return "admin.grammar.search";
+		}
+		//return null;
+	}
 }

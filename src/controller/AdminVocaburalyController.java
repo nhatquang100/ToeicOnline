@@ -81,18 +81,18 @@ public class AdminVocaburalyController {
 				}
 				try {
 					multifile.transferTo(new File(fileDir+File.separator+nameFile));
-					System.out.println("Upload file thÃ nh cÃ´ng!");
+					System.out.println("Upload file thành công!");
 					model.addAttribute("filename", nameFile);
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
-					System.out.println("Upload file tháº¥t báº¡i!");
+					System.out.println("Upload file thất bại!");
 				}
 			}
 			if(vocaburalyDao.addVoca(categoryVocaburaly)>0){
-				ra.addFlashAttribute("msg","ThÃªm thaÌ€nh cÃ´ng!!");
+				ra.addFlashAttribute("msg","Thêm thành công!!");
 				return "redirect:/admin/categoryVoca";
 			}
-			model.addAttribute("msg","coÌ� lÃ´Ìƒi trong quaÌ� triÌ€nh thÃªm!!!");
+			model.addAttribute("msg","có lỗi trong quá trình thêm!!!");
 			return "admin.categoryVacaburaly.add";
 		}
 		return "redirect:/admin";
@@ -116,7 +116,7 @@ public class AdminVocaburalyController {
 
 			String nameFile = multifile.getOriginalFilename();
 			categoryVocaburaly.setCategoryVocabularyImage(nameFile);
-			categoryVocaburaly.setId(id);
+			categoryVocaburaly.setCategoryvocabularyid(id);
 			if(!"".equals(nameFile) ){
 				String dirFile = request.getServletContext().getRealPath("upload");
 				System.out.println(dirFile);
@@ -126,17 +126,17 @@ public class AdminVocaburalyController {
 				}
 				try {
 					multifile.transferTo(new File(fileDir+File.separator+nameFile));
-					System.out.println("Upload file thÃ nh cÃ´ng!");
+					System.out.println("Upload file thành công!");
 					model.addAttribute("filename", nameFile);
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
-					System.out.println("Upload file tháº¥t báº¡i!");
+					System.out.println("Upload file thất bại!");
 				}
 			}
 			if(vocaburalyDao.editItem(categoryVocaburaly)>0){
-					ra.addFlashAttribute("msg","sÆ°Ì‰a thaÌ€nh cÃ´ng!!");
+					ra.addFlashAttribute("msg","sửa thành công!!");
 				}else{
-					ra.addFlashAttribute("msg","sÆ°Ì‰a thÃ¢Ì�t baÌ£i!!");
+					ra.addFlashAttribute("msg","sửa thất bại!!");
 				}
 			return "redirect:/admin/categoryVoca";
 		}
@@ -147,9 +147,9 @@ public class AdminVocaburalyController {
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
 			if(vocaburalyDao.delItem(id)>0){
-				ra.addFlashAttribute("msg","xoÌ�a thaÌ€nh cÃ´ng!!");
+				ra.addFlashAttribute("msg","xóa thành công!!");
 			}else{
-				ra.addFlashAttribute("msg","xoÌ�a thÃ¢Ì�t baÌ£i!!");
+				ra.addFlashAttribute("msg","Xóa thất bại!!");
 			}
 			return "redirect:/admin/categoryVoca";
 		}
@@ -166,6 +166,18 @@ public class AdminVocaburalyController {
 
 
 	    response.getOutputStream().close();
-	    }
+	 }
 	
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String search(@ModelAttribute("categoryvocabularyname") String categoryvocabularyname ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request){
+		
+		if(categoryvocabularyname.isEmpty()) {
+			return "redirect:/admin/categoryVoca";
+		}else {
+			List<CategoryVocabulary> list = vocaburalyDao.getItemByName(categoryvocabularyname);
+			modelMap.addAttribute("catVocaburaly", list);
+			return "admin.categoryVacaburaly.search";
+		}
+		//return null;
+	}
 }

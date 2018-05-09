@@ -7,24 +7,24 @@
                 <div class="content-box-large">
                     <div class="row">
                         <div class="panel-heading">
-                            <div class="panel-title ">Manager Grammar</div>
+                            <div class="panel-title ">Manager Category Vocabulary</div>
                         </div>
                     </div>
                     <hr>
                     <div class="panel-heading" style="margin-left:-18px;color:green">${msg}</div>
                     <div class="row">
                         <div class="col-md-8">
-                            <a href="${pageContext.request.contextPath}/admin/grammar/add" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Grammar</a>
+                            <a href="${pageContext.request.contextPath}/admin/vocaburaly/add" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Vocabulary</a>
 
                         </div>
                         <div class="col-md-4">
-                            <form action="${pageContext.request.contextPath}/admin/grammar/search" method="post">
-	                            <div class="input-group form">
-	                                <input type="text" class="form-control" placeholder="Search..." name = "grammarname">
-	                                <span class="input-group-btn">
-	                         		<button class="btn btn-primary" type="submit">Search</button>
-	                       			</span>
-	                            </div>
+                            <form action="${pageContext.request.contextPath}/admin/vocaburaly/search" method="post">
+                            <div class="input-group form">
+                                <input type="text" class="form-control" placeholder="Search..." name = "vocabularyname">
+                                <span class="input-group-btn">
+                         <button class="btn btn-primary" type="submit">Search</button>
+                       </span>
+                            </div>
                             </form>
                         </div>
                     </div>
@@ -36,24 +36,24 @@
                                     <tr>
                                         <th class="center" style="text-align:center;">ID</th>
                                         <th class="center" style="text-align:center;">Tên</th>
-                                        <th class="center" style="text-align:center;">Nội Dung</th>
-                                        <th class="center" style="text-align:center;">Ví Dụ</th>
-                                        <th class="center" style="text-align:center;">Category Grammar ID</th>
+                                        <th class="center" style="text-align:center;">Spelling</th>
+                                        <th class="center" style="text-align:center;">VocaburalyMean</th>
+                                        <th class="center" style="text-align:center;">CategoryVocaburaly</th>
                                         <th class="center" style="text-align:center;"></th>
                                     </tr>
                                 </thead>
                                 <tbody id =" embody">
-	                                <c:forEach items="${grammar }" var="grammar">
+	                                <c:forEach items="${vocabulary }" var="vocal">
 	                                    <tr class="odd gradeX">
-	                                        <td style="text-align:center;" >${grammar.grammarid }</td>
-	                                        <td style="text-align:center;">${grammar.grammarname }</td>
-	                                         <td style="text-align:center;" >${grammar.content }</td>
-	                                        <td style="text-align:center;">${grammar.example }</td>
-	                                        <td style="text-align:center;">${grammar.categorygrammarid }</td>
+	                                        <td style="text-align:center;" >${vocal.vocabularyid }</td>
+	                                        <td style="text-align:center;">${vocal.vocabularyname }</td>
+	                                         <td style="text-align:center;" >${vocal.spelling }</td>
+	                                        <td style="text-align:center;">${vocal.vocabularymean }</td>
+	                                        <td style="text-align:center;">${vocal.categoryvocabularyid }</td>
 	                    					<%-- <td align="center" id="setactive-${objmember.memberid}"><a  href="javascript:void(0)" onclick="return setActive(${objmember.memberid}, ${objmember.isactive})" title="${title }"><img src="${pageContext.request.contextPath}/templates/admin/images/${image}" alt="" /></a></td> --%>
 	                                        <td class="center text-center">
-	                                            <a href="${pageContext.request.contextPath}/admin/grammar/edit/${grammar.grammarid}" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-	                                            <a href="${pageContext.request.contextPath}/admin/grammar/del/${grammar.grammarid }" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+	                                            <a href="${pageContext.request.contextPath}/admin/vocaburaly/edit/${vocal.vocabularyid}" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
+	                                            <a href="${pageContext.request.contextPath}/admin/vocaburaly/del/${vocal.vocabularyid }" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
 	                                        </td>
 	                                    </tr>
 	                                 </c:forEach>  

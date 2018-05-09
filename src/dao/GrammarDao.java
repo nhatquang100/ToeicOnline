@@ -54,4 +54,9 @@ public class GrammarDao {
 		String sql="Delete from grammar where grammarid=? ";
 		return jdbcTemplate.update(sql,new Object[]{grammarid});
 	}
+	
+	public List<grammar> getItemByName(String grammarname) {
+		String sql = "SELECT * FROM grammar where grammarname like ?";
+		return jdbcTemplate.query(sql,new Object []{"%"+grammarname+"%"}, new BeanPropertyRowMapper<grammar>(grammar.class));
+	}
 }
