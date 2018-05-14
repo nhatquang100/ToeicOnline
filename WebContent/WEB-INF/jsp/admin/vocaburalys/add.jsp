@@ -30,7 +30,7 @@
 								style="margin-top: 10px; font-size: 15px">Chủ đề</label></br> <select
 								class="categoryvocabularyid">
 								<c:forEach items="${listCateogry }" var="cate">
-									<option value="${cate.id }">${cate.categoryVocabularyName }</option>
+									<option value="${cate.categoryvocabularyid }">${cate.categoryVocabularyName }</option>
 								</c:forEach>
 							</select>
 

@@ -51,7 +51,7 @@ public class AdminMemberController {
 	public String add(HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
-			if(member.getMemberid() == 1){
+			if(member.getCategorymemberid() == 1){
 				return "admin.member.add";
 			}
 			return "redirect:/admin";
@@ -62,7 +62,7 @@ public class AdminMemberController {
 	public String add(@ModelAttribute("objmember") member member,@RequestParam(value="multiimage") CommonsMultipartFile multifile,Model model, RedirectAttributes ra,HttpServletRequest request,HttpSession session){
 		member memberss = (entity.member) session.getAttribute("objmember");
 		if (memberss != null){
-			if(memberss.getMemberid() == 1){
+			if(memberss.getCategorymemberid() == 1){
 				member.setIsactive(1);
 				member.setCategorymemberid(2);
 				member.setPassword(stringUtil.md5(member.getPassword()));
@@ -108,7 +108,7 @@ public class AdminMemberController {
 	public String edit(@PathVariable("id") int id, ModelMap modelMap,HttpSession session){
 		member memberss = (entity.member) session.getAttribute("objmember");
 		if (memberss != null){
-			if(memberss.getMemberid() == 1){
+			if(memberss.getCategorymemberid() == 1){
 				modelMap.addAttribute("objmember", memberDao.getItem(id));
 				return "admin.member.edit";
 			}
@@ -121,7 +121,7 @@ public class AdminMemberController {
 	public String edit(@ModelAttribute("objmember") member member,@RequestParam(value="multiimage") CommonsMultipartFile multifile,@PathVariable("id") int id,RedirectAttributes ra,Model model, BindingResult rs,HttpServletRequest request,HttpSession session){
 		member memberss = (entity.member) session.getAttribute("objmember");
 		if (memberss != null){
-			if(memberss.getMemberid() == 1){
+			if(memberss.getCategorymemberid() == 1){
 				if(rs.hasErrors()) {
 			        return "admin.member.edit";
 			    }
@@ -166,7 +166,7 @@ public class AdminMemberController {
 	public String del(@PathVariable("id") int id,RedirectAttributes ra,HttpSession session){
 		member memberss = (entity.member) session.getAttribute("objmember");
 		if (memberss != null){
-			if(memberss.getMemberid() == 1){
+			if(memberss.getCategorymemberid() == 1){
 				if(memberDao.delItem(id)>0){
 					ra.addFlashAttribute("msg","xóa thành công!!");
 				}else{
@@ -180,16 +180,20 @@ public class AdminMemberController {
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public String search(@ModelAttribute("membername") String membername ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request){
-		
-		
-		if(membername.isEmpty()) {
-			return "redirect:/admin/member";
-		}else {
-			List<member> list = memberDao.getMemberByName(membername);
-			modelMap.addAttribute("listmember", list);
-			return "admin.member.search";
+	public String search(@ModelAttribute("membername") String membername ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request,HttpSession session){
+		member memberss = (entity.member) session.getAttribute("objmember");
+		if (memberss != null){
+			if(memberss.getCategorymemberid() == 1){
+				if(membername.isEmpty()) {
+					return "redirect:/admin/member";
+				}else {
+					List<member> list = memberDao.getMemberByName(membername);
+					modelMap.addAttribute("listmember", list);
+					return "admin.member.search";
+				}
+			}
+			return "redirect:/admin";
 		}
-		//return null;
+		return "redirect:/";
 	}
 }

@@ -15,14 +15,20 @@ import entity.member;
 public class AdminIndexController {
 	
 	@RequestMapping("")
-	public String index(HttpSession session, ModelMap modelMap,@SessionAttribute("sessionmember") member sessionmember){
-		System.out.println(sessionmember.getMembername());
-		return "admin.index.index";
+	public String index(HttpSession session, ModelMap modelMap){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			return "admin.index.index";
+		}
+		return "redirect:/";
 	}
 	
 	@RequestMapping("{id}")
-	public String indexs(HttpSession session, ModelMap modelMap,@SessionAttribute("sessionmember") member sessionmember,@PathVariable("id") String id){
-		System.out.println(sessionmember.getMembername());
-		return "admin.index.index";
+	public String indexs(HttpSession session, ModelMap modelMap,@PathVariable("id") String id){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			return "admin.index.index";
+		}
+		return "redirect:/";
 	}
 }

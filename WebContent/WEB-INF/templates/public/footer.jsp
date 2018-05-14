@@ -60,53 +60,6 @@
 </div>
 
 
-<div id="modal_create_examination" class="modal">
-	<div class="modal-body">
-		<form method="POST" action="${pageContext.request.contextPath}/create_examination" class="form-modal" enctype="multipart/form-data"> <!-- id="login-form" -->
-			<div class="row header">
-				<div class="header-label ">TẠO ĐỀ THI</div>
-				<hr>
-			</div>
-			
-			<div class="row">
-				<div class="info" id="login-info"></div>
-			</div>
-			
-			<div class="row">
-				<span class="label">Tên đề thi:</span> <input type="text" value=""
-					name="nameexamination" class="form-control" required/>
-			</div>
-			
-			<div class ="row">
-				Hình đại diện : <input type="file"  value="Upload File image"  name="multiimage" required/><br />
-			</div>
-			
-			<div class="row">
-				<label for="categoryexamination" class="label" >Loại đề thi</label> 
-				<select class="form-control" name="categoryexamination" style="margin-top: 10px;width: 228px;height: 28px;border: 1px solid #ccc">
-					<option value="1">Listening</option>
-					<option value="2">Reading</option>
-					<option value="3">Listening +  Reading</option>
-				</select>
-			</div>
-			
-			<div class="row">
-				<label for="leveldifficult" class="label" >Chọn level</label> 
-				<select class="form-control" name="leveldifficult" style="margin-top: 10px;width: 228px;height: 28px;border: 1px solid #ccc">
-					<option value="1">Easy</option>
-					<option value="2">Normal</option>
-					<option value="3">Hard</option>
-				</select>
-			</div>
-			
-			<div class="row">
-				<span class="label"></span> <input type="submit"
-					class="green-button" value="Tạo đề thi" />
-			</div>
-		</form>
-	</div>
-</div>
-
 
 <div id="modal_login" class="modal">
 	<div class="modal-body">
@@ -335,3 +288,69 @@
 	<img height="1" width="1" style="display: none"
 		src="https://www.facebook.com/tr?id=879743565410548&amp;ev=PageView&amp;noscript=1" />
 </noscript>
+
+<div id="modal_create_examination" class="modal">
+	<div class="modal-body">
+		<form id="formcreateexamination" method="POST" action="${pageContext.request.contextPath}/create_examination" class="form-modal" enctype="multipart/form-data"> <!-- id="login-form" -->
+			<div class="row header">
+				<div class="header-label ">TẠO ĐỀ THI</div>
+				<hr>
+			</div>
+			
+			<div class="row">
+				<div class="info" id="login-info"></div>
+			</div>
+			
+			<div class="row">
+				<span class="label">Tên đề thi:</span> <input type="text" value=""
+					name="nameexamination" class="form-control" required/>
+			</div>
+			
+			<div class ="row">
+				Hình đại diện : <input type="file"  value="Upload File image"  name="multiimage" required/><br />
+			</div>
+			
+			<div class="row">
+				<label for="categoryexamination" class="label" >Loại đề thi</label> 
+				<select class="form-control" name="categoryexamination" style="margin-top: 10px;width: 228px;height: 28px;border: 1px solid #ccc">
+					<option value="1">Listening</option>
+					<option value="2">Reading</option>
+					<option value="3">Listening +  Reading</option>
+				</select>
+			</div>
+			
+			<div class="row">
+				<label for="leveldifficult" class="label" >Chọn level</label> 
+				<select class="form-control" name="leveldifficult" style="margin-top: 10px;width: 228px;height: 28px;border: 1px solid #ccc">
+					<option value="1">Easy</option>
+					<option value="2">Normal</option>
+					<option value="3">Hard</option>
+				</select>
+			</div>
+			
+			<div class="row">
+				<label for="chosemethod" class="label" >Hình thức tạo:</label> 
+				<select class="form-control" id="chosemethod" name="chosemethod" style="margin-top: 10px;width: 228px;height: 28px;border: 1px solid #ccc">
+					<option value="1">System Random</option>
+					<option value="2">Tự chọn câu hỏi</option>
+				</select>
+			</div>
+			
+			<div class="row">
+				<span class="label"></span> <input  id="buttoncreate" type="submit"
+					class="green-button" value="Tạo đề thi" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$('#buttoncreate').click(function(){
+		var select = $('#chosemethod').val();
+		if(select == 1){
+			$('#formcreateexamination').attr('action', '${pageContext.request.contextPath}/create_examination');
+		}else{
+			$('#formcreateexamination').attr('action', '${pageContext.request.contextPath}/create_examination_chosequestion');
+		}   
+	});
+</script>

@@ -19,7 +19,7 @@ public class QuestionDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public List<question> getItems(int offset) {
-		String sql = "SELECT questionid, audio, image, paragraph, question,option1,option2,option3,option4,correctquestion,leveldifficult, isactive, a.categoryquestionid AS categoryquestionid, b.categoryquestionname AS categoryquestionname FROM question AS a INNER JOIN categoryquestion AS b ON a.categoryquestionid = b.categoryquestionid ORDER BY questionid ASC LIMIT ?, ?";
+		String sql = "SELECT questionid, audio, image, paragraph, question,option1,option2,option3,option4,correctquestion,leveldifficult, isactive,questionpartid, a.categoryquestionid AS categoryquestionid, b.categoryquestionname AS categoryquestionname FROM question AS a INNER JOIN categoryquestion AS b ON a.categoryquestionid = b.categoryquestionid ORDER BY questionid ASC LIMIT ?, ?";
 		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<question>(question.class));	
 	}
 	
@@ -43,13 +43,13 @@ public class QuestionDao {
 	}
 	
 	public int addItem(question question) {
-		String sql="insert into question(audio,image, paragraph, question,option1,option2,option3,option4,correctquestion,leveldifficult,isactive,categorymemberid) values(?,?,?,?,?,?,?,?,?,?,?,?) ";
-		return jdbcTemplate.update(sql,new Object[]{question.getAudio(), question.getImage(), question.getParagraph(),question.getQuestion(), question.getOption1(),question.getOption2(),question.getOption3(),question.getOption4(),question.getCorrectquestion(),question.getLeveldifficult(),question.getIsactive(),question.getCategoryquestionid()});
+		String sql="insert into question(audio,image, paragraph, question,option1,option2,option3,option4,correctquestion,leveldifficult,isactive,categoryquestionid,questionpartid) values(?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		return jdbcTemplate.update(sql,new Object[]{question.getAudio(), question.getImage(), question.getParagraph(),question.getQuestion(), question.getOption1(),question.getOption2(),question.getOption3(),question.getOption4(),question.getCorrectquestion(),question.getLeveldifficult(),question.getIsactive(),question.getCategoryquestionid(),question.getQuestionpartid()});
 	}
 	
 	public int editItem(question question) {
-		String sql="update question set audio=?,image=?, paragraph=?, question=?,option1=?,option2=?,option3=?,option4=?,correctquestion=? where questionid = ? ";
-		return jdbcTemplate.update(sql,new Object[]{question.getAudio(), question.getImage(), question.getParagraph(),question.getQuestion(), question.getOption1(),question.getOption2(),question.getOption3(),question.getOption4(),question.getCorrectquestion(),question.getQuestionid()});
+		String sql="update question set audio=?,image=?, paragraph=?, question=?,option1=?,option2=?,option3=?,option4=?,correctquestion=?,questionppartid=?,leveldifficult=? where questionid = ? ";
+		return jdbcTemplate.update(sql,new Object[]{question.getAudio(), question.getImage(), question.getParagraph(),question.getQuestion(), question.getOption1(),question.getOption2(),question.getOption3(),question.getOption4(),question.getCorrectquestion(),question.getQuestionpartid(),question.getLeveldifficult(),question.getQuestionid()});
 	}
 
 	public int delItem(int questionid){
@@ -57,9 +57,9 @@ public class QuestionDao {
 		return jdbcTemplate.update(sql,new Object[]{questionid});
 	}
 	
-	public List<question> getItembyLevelandCategory(int lv, int categoryquestionid){
-		String sql="select * from question where leveldifficult=? and categoryquestionid=?";
-		return jdbcTemplate.query(sql, new Object[]{lv,categoryquestionid}, new BeanPropertyRowMapper<question>(question.class));
+	public List<question> getItembyLevelandCategory(int lv, int categoryquestionid, int part){
+		String sql="select * from question where leveldifficult=? and categoryquestionid=? and questionpartid = ?";
+		return jdbcTemplate.query(sql, new Object[]{lv,categoryquestionid,part}, new BeanPropertyRowMapper<question>(question.class));
 	}
 	
 	public List<question> searchQuestionByID(String questionid){
