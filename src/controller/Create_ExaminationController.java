@@ -48,6 +48,7 @@ public class Create_ExaminationController {
 		
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		examination.setDatecreate(timestamp);
+		examination.setIsactive(1);
 		
 		String nameFileimage = multiimage.getOriginalFilename();
 		examination.setImage(nameFileimage);
@@ -69,37 +70,223 @@ public class Create_ExaminationController {
 		}
 		//checklevel
 		int level = examination.getLeveldifficult();
-		int categoryexamination = examination.getCategoryexamination();
-		List<question> listtmp = null;
-		if(categoryexamination < 3){
-			listtmp = questionDao.getItembyLevelandCategory(level, categoryexamination);
-		}else{
-			listtmp = questionDao.getItembyLevelandCategory(level, 1);
+		int categoryquestionid = examination.getCategoryexamination();
+		List<question> listtmp1 = null;
+		List<question> listtmp2 = null;
+		List<question> listtmp3 = null;
+		List<question> listtmp4 = null;
+		List<question> listtmp5 = null;
+		List<question> listtmp6 = null;
+		List<question> listtmp7 = null;
+		if(categoryquestionid < 3){
+			//listtmp = questionDao.getItembyLevelandCategory(level, categoryquestionid);
+			//reading: part5: 50 cau, part6:12 cau, part7:28cau
+			//listening: part1: 10cau, part2:30cau, part3:30cau, part4:30cau
+			if(categoryquestionid == 1){ //islistening
+				listtmp1 = questionDao.getItembyLevelandCategory(level, categoryquestionid,1);
+				listtmp2 = questionDao.getItembyLevelandCategory(level, categoryquestionid,2);
+				listtmp3 = questionDao.getItembyLevelandCategory(level, categoryquestionid,3);
+				listtmp4 = questionDao.getItembyLevelandCategory(level, categoryquestionid,4);
+				
+				List<question> randomPicks = null;
+				
+				if(listtmp1.size()>10){
+					randomPicks = pickNRandom(listtmp1, 10);
+				}else{
+					randomPicks = pickNRandom(listtmp1, listtmp1.size());
+				}
+//				-----------------------------------------------------
+				if(listtmp2.size()>30){
+					for(question obj:pickNRandom(listtmp2, 30)){
+						randomPicks.add(obj);
+					}
+				}else{
+					for(question obj:pickNRandom(listtmp2, listtmp2.size())){
+						randomPicks.add(obj);
+					}
+				}
+//				-----------------------------------------------------
+				if(listtmp3.size()>30){
+					for(question obj:pickNRandom(listtmp3, 30)){
+						randomPicks.add(obj);
+					}
+				}else{
+					for(question obj:pickNRandom(listtmp3, listtmp3.size())){
+						randomPicks.add(obj);
+					}
+				}
+//				--------------------------------------------------------
+				if(listtmp4.size()>30){
+					for(question obj:pickNRandom(listtmp4, 30)){
+						randomPicks.add(obj);
+					}
+				}else{
+					for(question obj:pickNRandom(listtmp4, listtmp4.size())){
+						randomPicks.add(obj);
+					}
+				}
+//				---------------------------------------------------------
+				examination lastexa = examinationDao.getNewItem();
+				
+				if(examinationDao.addItem(examination)>0){
 
-			List<question> tmp2 = questionDao.getItembyLevelandCategory(level, 2);
-			for(question objQuestion2:tmp2){
-				listtmp.add(objQuestion2);
+					for(question objqs:randomPicks){
+						examination_question eq = new examination_question(lastexa.getExaminationid()+1,objqs.getQuestionid());
+						examination_Question_Dao.addItem(eq);		
+					}
+					modelMap.addAttribute("msg","Tạo đề thi thành công!!");
+					return "public.index.home";
+				}
+				modelMap.addAttribute("msg","Tạo đề thi thất bại!!!");
+				return "public.index.home";
+			}else{ //isreading
+				listtmp5 = questionDao.getItembyLevelandCategory(level, categoryquestionid,5);
+				listtmp6 = questionDao.getItembyLevelandCategory(level, categoryquestionid,6);
+				listtmp7 = questionDao.getItembyLevelandCategory(level, categoryquestionid,7);
+				
+				List<question> randomPicks = null;
+				
+				if(listtmp5.size()>50){
+					randomPicks = pickNRandom(listtmp5, 50);
+				}else{
+					randomPicks = pickNRandom(listtmp5, listtmp5.size());
+				}
+//				-----------------------------------------------------
+				if(listtmp6.size()>12){
+					for(question obj:pickNRandom(listtmp6, 12)){
+						randomPicks.add(obj);
+					}
+				}else{
+					for(question obj:pickNRandom(listtmp6, listtmp6.size())){
+						randomPicks.add(obj);
+					}
+				}
+//				-----------------------------------------------------
+				if(listtmp7.size()>28){
+					for(question obj:pickNRandom(listtmp7, 28)){
+						randomPicks.add(obj);
+					}
+				}else{
+					for(question obj:pickNRandom(listtmp7, listtmp7.size())){
+						randomPicks.add(obj);
+					}
+				}
+//				--------------------------------------------------------
+				
+				examination lastexa = examinationDao.getNewItem();
+				
+				if(examinationDao.addItem(examination)>0){
+
+					for(question objqs:randomPicks){
+						examination_question eq = new examination_question(lastexa.getExaminationid()+1,objqs.getQuestionid());
+						examination_Question_Dao.addItem(eq);		
+					}
+					modelMap.addAttribute("msg","Tạo đề thi thành công!!");
+					return "public.index.home";
+				}
+				modelMap.addAttribute("msg","Tạo đề thi thất bại!!!");
+				return "public.index.home";
 			}
-		}
-		List<question> randomPicks = null;
+			
+			
+		}else{//issumary 200question
+			listtmp1 = questionDao.getItembyLevelandCategory(level, 1,1);
+			listtmp2 = questionDao.getItembyLevelandCategory(level, 1,2);
+			listtmp3 = questionDao.getItembyLevelandCategory(level, 1,3);
+			listtmp4 = questionDao.getItembyLevelandCategory(level, 1,4);
+			listtmp5 = questionDao.getItembyLevelandCategory(level, 2,5);
+			listtmp6 = questionDao.getItembyLevelandCategory(level, 2,6);
+			listtmp7 = questionDao.getItembyLevelandCategory(level, 2,7);
+//			listtmp = questionDao.getItembyLevelandCategory(level, 1);
 
-		if(listtmp.size()>=50){
-			randomPicks = pickNRandom(listtmp, 50);
-		}else{
-			randomPicks = pickNRandom(listtmp, listtmp.size());
-		}
-		examination lastexa = examinationDao.getNewItem();
-		
-		if(examinationDao.addItem(examination)>0){
-
-			for(question objqs:randomPicks){
-				examination_question eq = new examination_question(lastexa.getExaminationid()+1,objqs.getQuestionid());
-				examination_Question_Dao.addItem(eq);		
+//			List<question> tmp2 = questionDao.getItembyLevelandCategory(level, 2);
+//			for(question objQuestion2:tmp2){
+//				listtmp.add(objQuestion2);
+//			}
+			List<question> randomPicks = null;
+			
+			if(listtmp1.size()>10){
+				randomPicks = pickNRandom(listtmp1, 10);
+			}else{
+				randomPicks = pickNRandom(listtmp1, listtmp1.size());
 			}
-			modelMap.addAttribute("msg","Tạo đề thi thành công!!");
+//			-----------------------------------------------------
+			if(listtmp2.size()>30){
+				for(question obj:pickNRandom(listtmp2, 30)){
+					randomPicks.add(obj);
+				}
+			}else{
+				for(question obj:pickNRandom(listtmp2, listtmp2.size())){
+					randomPicks.add(obj);
+				}
+			}
+//			-----------------------------------------------------
+			if(listtmp3.size()>30){
+				for(question obj:pickNRandom(listtmp3, 30)){
+					randomPicks.add(obj);
+				}
+			}else{
+				for(question obj:pickNRandom(listtmp3, listtmp3.size())){
+					randomPicks.add(obj);
+				}
+			}
+//			--------------------------------------------------------
+			if(listtmp4.size()>30){
+				for(question obj:pickNRandom(listtmp4, 30)){
+					randomPicks.add(obj);
+				}
+			}else{
+				for(question obj:pickNRandom(listtmp4, listtmp4.size())){
+					randomPicks.add(obj);
+				}
+			}
+//			---------------------------------------------------------
+			if(listtmp5.size()>50){
+				for(question obj:pickNRandom(listtmp5, 50)){
+					randomPicks.add(obj);
+				}
+			}else{
+				for(question obj:pickNRandom(listtmp5, listtmp5.size())){
+					randomPicks.add(obj);
+				}
+			}
+//			---------------------------------------------------------
+			if(listtmp6.size()>12){
+				for(question obj:pickNRandom(listtmp6, 12)){
+					randomPicks.add(obj);
+				}
+			}else{
+				for(question obj:pickNRandom(listtmp6, listtmp6.size())){
+					randomPicks.add(obj);
+				}
+			}
+//			---------------------------------------------------------
+			if(listtmp7.size()>28){
+				for(question obj:pickNRandom(listtmp7, 28)){
+					randomPicks.add(obj);
+				}
+			}else{
+				for(question obj:pickNRandom(listtmp7, listtmp7.size())){
+					randomPicks.add(obj);
+				}
+			}
+//			---------------------------------------------------------
+			examination lastexa = examinationDao.getNewItem();
+			
+			if(examinationDao.addItem(examination)>0){
+
+				for(question objqs:randomPicks){
+					
+					examination_question eq = new examination_question(lastexa.getExaminationid()+1,objqs.getQuestionid());
+					examination_Question_Dao.addItem(eq);		
+				}
+				modelMap.addAttribute("msg","Tạo đề thi thành công!!");
+				return "public.index.home";
+			}
+			modelMap.addAttribute("msg","Tạo đề thi thất bại!!!");
 			return "public.index.home";
 		}
-		modelMap.addAttribute("msg","Tạo đề thi thất bại!!!");
-		return "public.index.home";
 	}
+//	@RequestMapping(value = "chose",method= RequestMethod.POST)
+//	public
 }

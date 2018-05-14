@@ -13,11 +13,14 @@
 			        <div class="question-body" id="q-24380">
 						<div class="question-detail type1">
 							<h3>Question ${i.index + 1}</h3>
-							<div class="media"><audio id="dd13fSF8" controls="" src="${pageContext.request.contextPath}/upload/${question.audio}" style="width: 100%" autoplay="">
-								Your browser does not support the audio element.
+							<div class="media">
+								<audio controls>
+									<source src="${pageContext.request.contextPath}/upload/132526_10012012_912219.ogg" type="audio/ogg">
+									<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
+									  Your browser does not support the audio tag.
 								</audio>
 							</div>
-							<div class="media"><img src="${pageContext.request.contextPath}/upload/${question.image}" width="80%">
+							<div class="media"><img src="${pageContext.request.contextPath}/upload/${question.image}" width="70%">
 							</div>
 							<div class="q"></div>
 							
@@ -44,7 +47,7 @@
 			        <h3>Questions ${i.index + 1} </h3>
 			        <c:choose>
 						<c:when test="${question.image}">
-							<div class="media"><img src="${pageContext.request.contextPath}/upload/${question.image}" width="80%"></div>
+							<div class="media"><img src="${pageContext.request.contextPath}/upload/${question.image}" width="70	%"></div>
 						</c:when>
 						<c:otherwise>
 							<div class="q">${question.paragraph}<br></div>

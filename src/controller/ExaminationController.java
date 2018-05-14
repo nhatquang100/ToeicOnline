@@ -117,7 +117,7 @@ public class ExaminationController {
 			String [] questionans = rs.getChoseofmember().split("&");
 			List<question_answer> detailreuslt = new ArrayList<question_answer>();
 			for(int i = 0 ; i < questionans.length;i++){
-				System.out.println(questionans[i]);
+				//System.out.println(questionans[i]);
 				String [] tmp = questionans[i].split("~");
 				question_answer qa = new question_answer(Integer.parseInt(tmp[0]),tmp[1]);
 				detailreuslt.add(qa);

@@ -124,6 +124,14 @@
   <definition name="admin.member.search" extends="admin.template">
     <put-attribute name="body" value="/WEB-INF/jsp/admin/member/search.jsp" />
   </definition>
+  
+  <definition name="admin.examination.index" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/examination/index.jsp" />
+  </definition>
+  
+  <definition name="admin.examination.search" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/examination/search.jsp" />
+  </definition>
    <!--END ADMIN TEMPLATE -->
     <!-- ///////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
   

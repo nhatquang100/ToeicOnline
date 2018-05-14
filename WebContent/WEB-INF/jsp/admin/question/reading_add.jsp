@@ -47,6 +47,13 @@
 									<option value="2">normal</option>
 									<option value="3">hard</option>
 								</select>
+								
+								<label for="questionpartid" style="margin-top:10px;font-size:15px">Part:</label>
+								 <select name="questionpartid" style="margin-top:10px;">
+									<option value="5">Part 5</option>
+									<option value="6">Part 6</option>
+									<option value="7">part 7</option>
+								</select>
 
 							</div>
 							<form:errors path="objquestion.question" cssStyle="color:red;display:block"></form:errors>

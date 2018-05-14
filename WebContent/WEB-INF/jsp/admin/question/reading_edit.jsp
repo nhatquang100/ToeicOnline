@@ -41,12 +41,19 @@
 									placeholder="input correctquestion"
 									value="${objquestion.correctquestion }" required> 
 									
-								<!-- <label for="leveldifficult" style="margin-top:10px;font-size:15px">level</label>
+								<label for="leveldifficult" style="margin-top:10px;font-size:15px">level:${objquestion.leveldifficult }</label>
 								 <select name="leveldifficult" style="margin-top:10px;">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-								</select> -->
+									<option value="1">easy</option>
+									<option value="2">normal</option>
+									<option value="3">hard</option>
+								</select>
+								
+								<label for="questionpartid" style="margin-top:10px;font-size:15px">Part:${objquestion.questionpartid }</label>
+								 <select name="questionpartid" style="margin-top:10px;">
+									<option value="5">Part 5</option>
+									<option value="6">Part 6</option>
+									<option value="7">part 7</option>
+								</select>
 
 							</div>
 							<form:errors path="objquestion.question" cssStyle="color:red;display:block"></form:errors>
