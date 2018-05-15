@@ -350,7 +350,7 @@
 		if(select == 1){
 			$('#formcreateexamination').attr('action', '${pageContext.request.contextPath}/create_examination');
 		}else{
-			$('#formcreateexamination').attr('action', '${pageContext.request.contextPath}/create_examination_chosequestion');
+			$('#formcreateexamination').attr('action', '${pageContext.request.contextPath}/chosequestion');
 		}   
 	});
 </script>

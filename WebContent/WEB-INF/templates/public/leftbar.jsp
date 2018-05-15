@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/templates/taglib.jsp" %>
-<div class="width content-container">        		<!-- left sidebar -->
+        		<!-- left sidebar -->
         <div class="sidebar-left">
             <a class="list l4" href="${pageContext.request.contextPath}/">&nbsp;</a>
             <a class="list l1" href="${pageContext.request.contextPath}/public/vocabulary">&nbsp;</a>

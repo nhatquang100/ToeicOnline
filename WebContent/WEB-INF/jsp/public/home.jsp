@@ -42,7 +42,7 @@
 		<div class="header">
 			<div class="h3-container">
 				<a href="${pageContext.request.contextPath}/"><h3>PHẦN READING</h3></a> <a
-					class="learn-all" href="${pageContext.request.contextPath}/">Xem tất cả &raquo;</a>
+					class="learn-all" href="${pageContext.request.contextPath}/all_exam_reading">Xem tất cả &raquo;</a>
 			</div>
 		</div>
 

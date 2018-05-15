@@ -340,4 +340,3 @@
 	</div>
 </div>
 <!-- end right sidebar -->
-</div>

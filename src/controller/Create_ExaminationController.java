@@ -28,7 +28,6 @@ import entity.member;
 import entity.question;
 
 @Controller
-@RequestMapping("/create_examination")
 public class Create_ExaminationController {
 	@Autowired
 	private ExaminationDao examinationDao;
@@ -43,7 +42,7 @@ public class Create_ExaminationController {
 	    return copy.subList(0, n);
 	}
 	
-	@RequestMapping(value = "",method= RequestMethod.POST)
+	@RequestMapping(value = "create_examination",method= RequestMethod.POST)
 	public String createExamination(@ModelAttribute("objexamination") examination examination, ModelMap modelMap,@RequestParam(value="multiimage") CommonsMultipartFile multiimage,BindingResult rs,HttpServletRequest request){
 		
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -287,6 +286,56 @@ public class Create_ExaminationController {
 			return "public.index.home";
 		}
 	}
-//	@RequestMapping(value = "chose",method= RequestMethod.POST)
-//	public
+	@RequestMapping(value = "chosequestion",method= RequestMethod.POST)
+	public String createExamination_chosequestion(@ModelAttribute("objexamination") examination examination, ModelMap modelMap,@RequestParam(value="multiimage") CommonsMultipartFile multiimage,BindingResult rs,HttpServletRequest request){
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		examination.setDatecreate(timestamp);
+		examination.setIsactive(1);
+		
+		String nameFileimage = multiimage.getOriginalFilename();
+		examination.setImage(nameFileimage);
+		if(!"".equals(nameFileimage) ){
+			String dirFile = request.getServletContext().getRealPath("upload");
+			System.out.println(dirFile);
+			File fileDir = new File(dirFile);
+			if(!fileDir.exists()){
+				fileDir.mkdir();
+			}
+			try {
+				multiimage.transferTo(new File(fileDir+File.separator+nameFileimage));
+				System.out.println("Upload file thành công!");
+				modelMap.addAttribute("filename", nameFileimage);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				System.out.println("Upload file thất bại!");
+			}
+		}
+		if(examinationDao.addItem(examination)>0){
+			int level = examination.getLeveldifficult();
+			int categoryquestionid = examination.getCategoryexamination();
+			if(categoryquestionid <3){
+				if(categoryquestionid == 1){ //listening
+					modelMap.addAttribute("part1",questionDao.getItembyLevelandCategory(level, 1,1));
+					modelMap.addAttribute("part2",questionDao.getItembyLevelandCategory(level, 1,2));
+					modelMap.addAttribute("part3",questionDao.getItembyLevelandCategory(level, 1,3));
+					modelMap.addAttribute("part4",questionDao.getItembyLevelandCategory(level, 1,4));
+				}else{//reading
+					modelMap.addAttribute("part5",questionDao.getItembyLevelandCategory(level, 2,5));
+					modelMap.addAttribute("part6",questionDao.getItembyLevelandCategory(level, 2,6));
+					modelMap.addAttribute("part7",questionDao.getItembyLevelandCategory(level, 2,7));
+				}
+			}else{//sumary
+				modelMap.addAttribute("part1",questionDao.getItembyLevelandCategory(level, 1,1));
+				modelMap.addAttribute("part2",questionDao.getItembyLevelandCategory(level, 1,2));
+				modelMap.addAttribute("part3",questionDao.getItembyLevelandCategory(level, 1,3));
+				modelMap.addAttribute("part4",questionDao.getItembyLevelandCategory(level, 1,4));
+				modelMap.addAttribute("part5",questionDao.getItembyLevelandCategory(level, 2,5));
+				modelMap.addAttribute("part6",questionDao.getItembyLevelandCategory(level, 2,6));
+				modelMap.addAttribute("part7",questionDao.getItembyLevelandCategory(level, 2,7));
+			}
+			return "public.exam.chose";
+		}
+		modelMap.addAttribute("msg","Tạo đề thi thất bại!!!");
+		return "public.index.home"; 
+	}
 }
