@@ -176,6 +176,10 @@
     <put-attribute name="body" value="/WEB-INF/jsp/public/test_examination/exam.jsp" />
   </definition>
   
+  <definition name="public.exam.chose" extends="public.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/public/test_examination/chosequestion_for_exam.jsp" />
+  </definition>
+  
   <definition name="public.exam.result" extends="public.template">
     <put-attribute name="body" value="/WEB-INF/jsp/public/test_examination/exam_result.jsp" />
   </definition>
@@ -204,5 +208,6 @@
   <definition name="public.index.categorygrammar.detail" extends="public.template">
     <put-attribute name="body" value="/WEB-INF/jsp/public/grammar/grammar.jsp" />
   </definition>
+  
   <!-- END NEW PUBLIC TEMPLATE -->
 </tiles-definitions>

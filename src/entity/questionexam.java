@@ -17,6 +17,13 @@ public class questionexam {
 	private String categoryquestionname;
 	private String chose;
 	private int examinationid;
+	private int questionpartid;
+	public int getQuestionpartid() {
+		return questionpartid;
+	}
+	public void setQuestionpartid(int questionpartid) {
+		this.questionpartid = questionpartid;
+	}
 	public int getQuestionid() {
 		return questionid;
 	}
@@ -113,11 +120,13 @@ public class questionexam {
 	public void setExaminationid(int examinationid) {
 		this.examinationid = examinationid;
 	}
+	
 	public questionexam(int questionid, String audio, String image,
 			String paragraph, String question, String option1, String option2,
 			String option3, String option4, String correctquestion,
 			int leveldifficult, int isactive, int categoryquestionid,
-			String categoryquestionname, String chose, int examinationid) {
+			String categoryquestionname, String chose, int examinationid,
+			int questionpartid) {
 		super();
 		this.questionid = questionid;
 		this.audio = audio;
@@ -135,6 +144,7 @@ public class questionexam {
 		this.categoryquestionname = categoryquestionname;
 		this.chose = chose;
 		this.examinationid = examinationid;
+		this.questionpartid = questionpartid;
 	}
 	public questionexam() {
 		super();
