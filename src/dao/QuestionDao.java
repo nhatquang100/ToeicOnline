@@ -23,13 +23,27 @@ public class QuestionDao {
 		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<question>(question.class));	
 	}
 	
+	public List<question> getItemsListening(int offset) {
+		String sql = "SELECT questionid, audio, image, paragraph, question,option1,option2,option3,option4,correctquestion,leveldifficult, isactive,questionpartid, a.categoryquestionid AS categoryquestionid, b.categoryquestionname AS categoryquestionname FROM question AS a INNER JOIN categoryquestion AS b ON a.categoryquestionid = b.categoryquestionid where a.categoryquestionid = 1 ORDER BY questionid ASC LIMIT ?, ?";
+		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<question>(question.class));	
+	}
+	
+	public List<question> getItemsreading(int offset) {
+		String sql = "SELECT questionid, audio, image, paragraph, question,option1,option2,option3,option4,correctquestion,leveldifficult, isactive,questionpartid, a.categoryquestionid AS categoryquestionid, b.categoryquestionname AS categoryquestionname FROM question AS a INNER JOIN categoryquestion AS b ON a.categoryquestionid = b.categoryquestionid where a.categoryquestionid = 2 ORDER BY questionid ASC LIMIT ?, ?";
+		return jdbcTemplate.query(sql, new Object[]{offset, Defines.ROW_COUNT}, new BeanPropertyRowMapper<question>(question.class));	
+	}
+	
 	public question getItembyID(int id){
 		String sql="SELECT * from question where questionid = ?";
 		return jdbcTemplate.queryForObject(sql,new Object[]{id}, new BeanPropertyRowMapper<question>(question.class));
 	}
 	
-	public int countItem() {
-		String sql = "SELECT COUNT(*) AS countQuestion FROM question ";
+	public int countItemlistening() {
+		String sql = "SELECT COUNT(*) AS countQuestion FROM question where categoryquestionid = 1 ";
+		return jdbcTemplate.queryForObject(sql, Integer.class);
+	}
+	public int countItemreading() {
+		String sql = "SELECT COUNT(*) AS countQuestion FROM question where categoryquestionid = 2";
 		return jdbcTemplate.queryForObject(sql, Integer.class);
 	}
 	
@@ -48,7 +62,7 @@ public class QuestionDao {
 	}
 	
 	public int editItem(question question) {
-		String sql="update question set audio=?,image=?, paragraph=?, question=?,option1=?,option2=?,option3=?,option4=?,correctquestion=?,questionppartid=?,leveldifficult=? where questionid = ? ";
+		String sql="update question set audio=?,image=?, paragraph=?, question=?,option1=?,option2=?,option3=?,option4=?,correctquestion=?,questionpartid=?,leveldifficult=? where questionid = ? ";
 		return jdbcTemplate.update(sql,new Object[]{question.getAudio(), question.getImage(), question.getParagraph(),question.getQuestion(), question.getOption1(),question.getOption2(),question.getOption3(),question.getOption4(),question.getCorrectquestion(),question.getQuestionpartid(),question.getLeveldifficult(),question.getQuestionid()});
 	}
 
@@ -62,9 +76,9 @@ public class QuestionDao {
 		return jdbcTemplate.query(sql, new Object[]{lv,categoryquestionid,part}, new BeanPropertyRowMapper<question>(question.class));
 	}
 	
-	public List<question> searchQuestionByID(String questionid){
-		String sql= "select * from question where questionid like ?";
-		return jdbcTemplate.query(sql,new Object []{"%"+questionid+"%"}, new BeanPropertyRowMapper<question>(question.class));
+	public List<question> searchQuestionByquestion(String questionid,int cateoryquestionid){
+		String sql= "select * from question where categoryquestionid = ? and question like ?";
+		return jdbcTemplate.query(sql,new Object []{cateoryquestionid,"%"+questionid+"%"}, new BeanPropertyRowMapper<question>(question.class));
 	
 	}
 }

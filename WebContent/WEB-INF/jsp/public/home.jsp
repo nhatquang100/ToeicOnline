@@ -60,7 +60,7 @@
 						<div class="meter">
 							<span style="width: 0%"></span>
 						</div>
-						<h4>Bộ đề ${objreading.examinationid }(${objreading.nameexamination })</h4> <a class="learn" href='${pageContext.request.contextPath}/exam_reading/${objreading.examinationid}'>Luyện
+						<h4>Bộ đề ${objreading.examinationid }(${objreading.nameexamination })</h4> <a class="learn" href='${pageContext.request.contextPath}/exam/${objreading.examinationid}'>Luyện
 							ngay</a>
 					</a>
 				</div>

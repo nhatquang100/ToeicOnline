@@ -13,7 +13,7 @@
 
 				<form
 					enctype="multipart/form-data"
-					action="${pageContext.request.contextPath}/admin/question/listenedit/${objquestion.questionid}"
+					action="${pageContext.request.contextPath}/admin/questionlistening/listenedit/${objquestion.questionid}"
 					method="post">
 					<div class="row">
 						<div class="col-sm-6">

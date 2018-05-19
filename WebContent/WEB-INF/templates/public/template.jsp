@@ -5,7 +5,7 @@
 		<div class="width content-container">
 			<tiles:insertAttribute name="leftbar"></tiles:insertAttribute>
 	      	<!-- content -->
-			<div class="content" style="margin-left:-25px">
+			<div class="content" style="">
 				<tiles:insertAttribute name="body"></tiles:insertAttribute>
 			</div>
 			<tiles:insertAttribute name="rightbar"></tiles:insertAttribute>
