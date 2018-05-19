@@ -11,6 +11,7 @@ import constant.Defines;
 import entity.examination;
 import entity.member;
 import entity.question;
+import entity.result;
 
 @Repository
 public class ExaminationDao {
@@ -76,5 +77,10 @@ public class ExaminationDao {
 		String sql= "select * from examination where nameexamination like ?";
 		return jdbcTemplate.query(sql,new Object []{"%"+examinationname+"%"}, new BeanPropertyRowMapper<examination>(examination.class));
 	
+	}
+	
+	public int delItem(int  grammarid){
+		String sql="Delete from examination where examinationid=? ";
+		return jdbcTemplate.update(sql,new Object[]{grammarid});
 	}
 }

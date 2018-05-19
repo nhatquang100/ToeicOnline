@@ -58,7 +58,7 @@ public class PublicIndexController {
 		return "public.index.home";
 	}
 	
-	@RequestMapping("{id},{id}/{id}")
+	@RequestMapping("{id}")
 	public String indexss(ModelMap modelMap,HttpSession session,HttpServletRequest request,@PathVariable("id") String id){
 		modelMap.addAttribute("listexamlistening",examinationDao.getExaminationListenLimit());
 		modelMap.addAttribute("listexamreading",examinationDao.getExaminationReadingLimit());

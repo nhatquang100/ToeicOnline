@@ -13,15 +13,15 @@
 
 				<form
 					enctype="multipart/form-data"
-					action="${pageContext.request.contextPath}/admin/question/listenadd"
+					action="${pageContext.request.contextPath}/admin/questionreading/readadd"
 					method="post">
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								Chọn File Audio : <input type="file"  value="Upload File Audio"  name="multiaudio" required/><br /><br />
-								Chọn File Image : <input type="file"  value="Upload File image"  name="multiimage" required/><br /><br />
+								<label for="paragraph">Paragraph</label>
+								<textarea rows="5" cols="80" name="paragraph" required></textarea></br>
 								
-								<label for="question" style="margin-top:10px;" >Question</label></br>
+								<label for="question" style="margin-top:10px;">Question</label></br>
 								<textarea rows="2" cols="40" name="question" required></textarea></br>
 
 								<label for="option1" style="margin-top:10px;" >option1</label></br>
@@ -50,12 +50,11 @@
 								
 								<label for="questionpartid" style="margin-top:10px;font-size:15px">Part:</label>
 								 <select name="questionpartid" style="margin-top:10px;">
-									<option value="1">Part 1</option>
-									<option value="2">Part 2</option>
-									<option value="3">part 3</option>
-									<option value="4">part 4</option>
+									<option value="5">Part 5</option>
+									<option value="6">Part 6</option>
+									<option value="7">part 7</option>
 								</select>
-								
+
 							</div>
 							<form:errors path="objquestion.question" cssStyle="color:red;display:block"></form:errors>
 						</div>

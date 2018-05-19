@@ -123,7 +123,7 @@ src="<%=request.getContextPath()%>/templates/public/js/contactjs/contact.create.
 	<c:choose>
 		    <c:when test="${ empty objmember}">
 		        <div class="full-width main-banner">
-					<h3>KHÓA LUẬN TỐT NGHIỆP 2018 - TOECONLINE!</h3>
+					<h3>KHÓA LUẬN TỐT NGHIỆP 2018 - TOEICONLINE!</h3>
 					
 					<h4>
 						<i class="fa fa-check"></i> Tự tạo đề thi theo khả năng<br>

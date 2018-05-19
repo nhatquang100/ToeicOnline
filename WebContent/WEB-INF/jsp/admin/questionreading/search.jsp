@@ -11,14 +11,13 @@
                     <div class="panel-heading" style="margin-left:-18px;color:green">${msg}</div>
                     <div class="row">
                         <div class="col-md-8">
-                            <a href="${pageContext.request.contextPath}/admin/question/listenadd" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Listening</a>
-							<a href="${pageContext.request.contextPath}/admin/question/readadd" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Reading</a>
+							<a href="${pageContext.request.contextPath}/admin/questionreading/readadd" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Reading</a>
                         </div>
                         
                         <div class="col-md-4">
-                            <form action="${pageContext.request.contextPath}/admin/question/search" method="post">
+                            <form action="${pageContext.request.contextPath}/admin/questionreading/search" method="post">
 	                            <div class="input-group form">
-	                                <input type="text" class="form-control" placeholder="Search..." name = "questionid">
+	                                <input type="text" class="form-control" placeholder="Search question..." name = "questionid">
 	                                <span class="input-group-btn">
 	                         		<button class="btn btn-primary" type="submit">Search</button>
 	                       			</span>
@@ -32,8 +31,11 @@
                             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
                                 <thead>
                                     <tr>
-                                        <th class="center" style="text-align:center;">ID</th>
-                                        <th class="center" style="text-align:center;">Loại</th>
+                                        <th class="center" style="text-align:center;">Câu hỏi</th>
+                                        <th class="center" style="text-align:center;">option1</th>
+                                        <th class="center" style="text-align:center;">option2</th>
+                                        <th class="center" style="text-align:center;">option3</th>
+                                        <th class="center" style="text-align:center;">option4</th>
                                         <th class="center" style="text-align:center;">Active</th>
                                         <th class="center" style="text-align:center;">Chức năng</th>
                                     </tr>
@@ -41,8 +43,19 @@
                                 <tbody>
 	                                <c:forEach items="${listquestion }" var="objquestion">
 	                                    <tr class="odd gradeX">
-	                                        <td style="text-align:center;">${objquestion.questionid }</td>
-	                                        <td style="text-align:center;">${objquestion.categoryquestionname }</td>
+	                                    	
+	                                         <c:choose>
+                     						 <c:when test="${objquestion.question ne null}">
+                         						 <td style="text-align:center;">${objquestion.question }</td>
+                     						 </c:when>
+                     						<c:otherwise>
+                          						<td style="text-align:center;">${objquestion.paragraph }</td>
+                       						</c:otherwise>
+	                       					</c:choose>
+	                                        <td style="text-align:center;">${objquestion.option1 }</td>
+	                                        <td style="text-align:center;">${objquestion.option2 }</td>
+	                                        <td style="text-align:center;">${objquestion.option3 }</td>
+	                                        <td style="text-align:center;">${objquestion.option4 }</td>
 	                                        <c:choose>
                      						 <c:when test="${objquestion.isactive == 0 }">
                          						 <c:set var="image" value="minus-circle.gif"></c:set>
@@ -55,18 +68,8 @@
 	                       					</c:choose>
 	                    					<td align="center" id="setactive-${objquestion.questionid}"><a  href="javascript:void(0)" onclick="return setActive(${objquestion.questionid}, ${objquestion.isactive})" title="${title }"><img src="${pageContext.request.contextPath}/templates/admin/images/${image}" alt="" /></a></td>
 	                                        <td class="center text-center">
-	                                        	<c:choose>
-		                     						<c:when test="${objquestion.categoryquestionid == 1 }">
-		                         						<a href="${pageContext.request.contextPath}/admin/question/listenedit/${objquestion.questionid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-		                     						</c:when>
-		                     						<c:when test="${objquestion.categoryquestionid == 2 }">
-		                         						<a href="${pageContext.request.contextPath}/admin/question/readedit/${objquestion.questionid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-		                     						</c:when>
-		                     						<c:otherwise>
-		                          						<a href="${pageContext.request.contextPath}/admin/question/readedit/${objquestion.questionid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
-		                       						</c:otherwise>
-		                       					</c:choose>
-	                                            <a href="${pageContext.request.contextPath}/admin/question/del/${objquestion.questionid }" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
+	                                        	<a href="${pageContext.request.contextPath}/admin/questionreading/readedit/${objquestion.questionid }" title="" class="btn btn-primary"><span class="glyphicon glyphicon-pencil "></span> Sửa</a>
+<%-- 	                                            <a href="${pageContext.request.contextPath}/admin/question/del/${objquestion.questionid }" title="" onclick="return confirmAction()" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a> --%>
 	                                        </td>
 	                                    </tr>
 	                                 </c:forEach>  
@@ -91,7 +94,7 @@
 										<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 										<c:forEach var="i" begin="1" end="${sumPage}">
 										<li <c:if test="${page == i }">class="active"</c:if>><a
-												href="${pageContext.request.contextPath}/admin/question/${i}">${i}<span
+												href="${pageContext.request.contextPath}/admin/questionreading/${i}">${i}<span
 													class="sr-only">(current)</span></a></li>
 										</c:forEach>
 										<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>

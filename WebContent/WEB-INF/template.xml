@@ -29,24 +29,28 @@
     <put-attribute name="body" value="/WEB-INF/jsp/admin/member/edit.jsp" />
   </definition>
   
-  <definition name="admin.question.index" extends="admin.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/index.jsp" />
+  <definition name="admin.question.listening.index" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/questionlistening/index.jsp" />
   </definition>
   
-  <definition name="admin.question.listenadd" extends="admin.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/listening_add.jsp" />
+  <definition name="admin.question.reading.index" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/questionreading/index.jsp" />
   </definition>
   
-  <definition name="admin.question.readadd" extends="admin.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/reading_add.jsp" />
+  <definition name="admin.question.listening.listenadd" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/questionlistening/listening_add.jsp" />
   </definition>
   
-  <definition name="admin.question.listenedit" extends="admin.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/listening_edit.jsp" />
+  <definition name="admin.question.reading.readadd" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/questionreading/reading_add.jsp" />
   </definition>
   
-  <definition name="admin.question.readedit" extends="admin.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/reading_edit.jsp" />
+  <definition name="admin.question.listening.listenedit" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/questionlistening/listening_edit.jsp" />
+  </definition>
+  
+  <definition name="admin.question.reading.readedit" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/questionreading/reading_edit.jsp" />
   </definition>
   
   <definition name="admin.categoryVacaburaly.index" extends="admin.template">
@@ -105,8 +109,12 @@
     <put-attribute name="body" value="/WEB-INF/jsp/admin/grammar/search.jsp" />
   </definition>
   
-  <definition name="admin.question.search" extends="admin.template">
-    <put-attribute name="body" value="/WEB-INF/jsp/admin/question/search.jsp" />
+  <definition name="admin.question.listening.search" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/questionlistening/search.jsp" />
+  </definition>
+  
+  <definition name="admin.question.reading.search" extends="admin.template">
+    <put-attribute name="body" value="/WEB-INF/jsp/admin/questionreading/search.jsp" />
   </definition>
   
   <definition name="admin.categoryGrammar.search" extends="admin.template">

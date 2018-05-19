@@ -313,17 +313,15 @@ public class Create_ExaminationController {
 		if(examinationDao.addItem(examination)>0){
 			int level = examination.getLeveldifficult();
 			int categoryquestionid = examination.getCategoryexamination();
-			if(categoryquestionid <3){
-				if(categoryquestionid == 1){ //listening
-					modelMap.addAttribute("part1",questionDao.getItembyLevelandCategory(level, 1,1));
-					modelMap.addAttribute("part2",questionDao.getItembyLevelandCategory(level, 1,2));
-					modelMap.addAttribute("part3",questionDao.getItembyLevelandCategory(level, 1,3));
-					modelMap.addAttribute("part4",questionDao.getItembyLevelandCategory(level, 1,4));
-				}else{//reading
-					modelMap.addAttribute("part5",questionDao.getItembyLevelandCategory(level, 2,5));
-					modelMap.addAttribute("part6",questionDao.getItembyLevelandCategory(level, 2,6));
-					modelMap.addAttribute("part7",questionDao.getItembyLevelandCategory(level, 2,7));
-				}
+			if(categoryquestionid == 1){ //listening
+				modelMap.addAttribute("part1",questionDao.getItembyLevelandCategory(level, 1,1));
+				modelMap.addAttribute("part2",questionDao.getItembyLevelandCategory(level, 1,2));
+				modelMap.addAttribute("part3",questionDao.getItembyLevelandCategory(level, 1,3));
+				modelMap.addAttribute("part4",questionDao.getItembyLevelandCategory(level, 1,4));
+			}else if(categoryquestionid == 2){//reading
+				modelMap.addAttribute("part5",questionDao.getItembyLevelandCategory(level, 2,5));
+				modelMap.addAttribute("part6",questionDao.getItembyLevelandCategory(level, 2,6));
+				modelMap.addAttribute("part7",questionDao.getItembyLevelandCategory(level, 2,7));
 			}else{//sumary
 				modelMap.addAttribute("part1",questionDao.getItembyLevelandCategory(level, 1,1));
 				modelMap.addAttribute("part2",questionDao.getItembyLevelandCategory(level, 1,2));
@@ -333,9 +331,12 @@ public class Create_ExaminationController {
 				modelMap.addAttribute("part6",questionDao.getItembyLevelandCategory(level, 2,6));
 				modelMap.addAttribute("part7",questionDao.getItembyLevelandCategory(level, 2,7));
 			}
+			modelMap.addAttribute("examinationid",examinationDao.getNewItem().getExaminationid());
+			modelMap.addAttribute("categoryexaminationid",examinationDao.getNewItem().getCategoryexamination());
 			return "public.exam.chose";
 		}
 		modelMap.addAttribute("msg","Tạo đề thi thất bại!!!");
 		return "public.index.home"; 
 	}
+
 }

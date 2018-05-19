@@ -24,38 +24,54 @@ import entity.member;
 import entity.question;
 
 @Controller
-@RequestMapping("admin/question")
 public class AdminQuestionController {
 	@Autowired
 	private QuestionDao questionDao;
 	
-	@RequestMapping(value={"{page}",""})
-	public String index(ModelMap modelMap, @PathVariable(value="page", required = false) Integer page,HttpSession session){
+	@RequestMapping(value={"admin/questionlistening/{page}","admin/questionlistening"})
+	public String indexlistening(ModelMap modelMap, @PathVariable(value="page", required = false) Integer page,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
 			if(page == null) {
 				page = 1;
 			}
-			int sumPage = (int) Math.ceil((float)questionDao.countItem()/Defines.ROW_COUNT);
+			int sumPage = (int) Math.ceil((float)questionDao.countItemlistening()/Defines.ROW_COUNT);
 			int offset= (page - 1) * Defines.ROW_COUNT;
 			modelMap.addAttribute("sumPage", sumPage);
 			modelMap.addAttribute("page", page);
-			modelMap.addAttribute("listquestion", questionDao.getItems(offset));
-			return "admin.question.index";
+			modelMap.addAttribute("listquestion", questionDao.getItemsListening(offset));
+			return "admin.question.listening.index";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping("listenadd")
+	@RequestMapping(value={"admin/questionreading/{page}","admin/questionreading"})
+	public String indexreading(ModelMap modelMap, @PathVariable(value="page", required = false) Integer page,HttpSession session){
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(page == null) {
+				page = 1;
+			}
+			int sumPage = (int) Math.ceil((float)questionDao.countItemreading()/Defines.ROW_COUNT);
+			int offset= (page - 1) * Defines.ROW_COUNT;
+			modelMap.addAttribute("sumPage", sumPage);
+			modelMap.addAttribute("page", page);
+			modelMap.addAttribute("listquestion", questionDao.getItemsreading(offset));
+			return "admin.question.reading.index";
+		}
+		return "redirect:/admin";
+	}
+	
+	@RequestMapping("admin/questionlistening/listenadd")
 	public String listenadd(HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
-			return "admin.question.listenadd";
+			return "admin.question.listening.listenadd";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping(value="listenadd",method=RequestMethod.POST)
+	@RequestMapping(value="admin/questionlistening/listenadd",method=RequestMethod.POST)
 	public String listenadd(ModelMap modelMap,@RequestParam(value="multiaudio") CommonsMultipartFile multiaudio,@RequestParam(value="multiimage") CommonsMultipartFile multiimage,@ModelAttribute("objquestion") question question,RedirectAttributes ra, BindingResult rs,HttpServletRequest request,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
@@ -103,23 +119,23 @@ public class AdminQuestionController {
 					ra.addFlashAttribute("msg","Thêm thành công!!");
 				}else{
 					modelMap.addAttribute("msg","Thêm thất bại!!");
-					return "admin.question.listenadd";
+					return "admin.question.listening.listenadd";
 				}
-			return "redirect:/admin/question";
+			return "redirect:/admin/questionlistening";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping("readadd")
+	@RequestMapping("admin/questionreading/readadd")
 	public String readadd(HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
-			return "admin.question.readadd";
+			return "admin.question.reading.readadd";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping(value="readadd",method=RequestMethod.POST)
+	@RequestMapping(value="admin/questionreading/readadd",method=RequestMethod.POST)
 	public String readadd(ModelMap modelMap,@ModelAttribute("objquestion") question question,RedirectAttributes ra, BindingResult rs,HttpServletRequest request,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
@@ -129,24 +145,24 @@ public class AdminQuestionController {
 					ra.addFlashAttribute("msg","Thêm thành công!!");
 			}else{
 				modelMap.addAttribute("msg","Thêm thất bại!!");
-				return "admin.question.readadd";
+				return "admin.question.reading.readadd";
 			}
-			return "redirect:/admin/question";
+			return "redirect:/admin/questionreading";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping("listenedit/{id}")
+	@RequestMapping("admin/questionlistening/listenedit/{id}")
 	public String listenedit(@PathVariable("id") int id, ModelMap modelMap,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
 			modelMap.addAttribute("objquestion", questionDao.getItem(id));
-			return "admin.question.listenedit";
+			return "admin.question.listening.listenedit";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping(value="listenedit/{id}",method=RequestMethod.POST)
+	@RequestMapping(value="admin/questionlistening/listenedit/{id}",method=RequestMethod.POST)
 	public String listenedit(@PathVariable("id") int id,ModelMap modelMap,@RequestParam(value="multiaudio") CommonsMultipartFile multiaudio,@RequestParam(value="multiimage") CommonsMultipartFile multiimage,@ModelAttribute("objquestion") question question,RedirectAttributes ra, BindingResult rs,HttpServletRequest request,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
@@ -195,22 +211,22 @@ public class AdminQuestionController {
 				}else{
 					ra.addFlashAttribute("msg","sửa thất bại!!");
 				}
-			return "redirect:/admin/question";
+			return "redirect:/admin/questionlistening";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping("readedit/{id}")
+	@RequestMapping("admin/questionreading/readedit/{id}")
 	public String readedit(@PathVariable("id") int id, ModelMap modelMap,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
 			modelMap.addAttribute("objquestion", questionDao.getItem(id));
-			return "admin.question.readedit";
+			return "admin.question.reading.readedit";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping(value="readedit/{id}",method=RequestMethod.POST)
+	@RequestMapping(value="admin/questionreading/readedit/{id}",method=RequestMethod.POST)
 	public String readedit(@PathVariable("id") int id,ModelMap modelMap,@ModelAttribute("objquestion") question question,RedirectAttributes ra, BindingResult rs,HttpServletRequest request,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
@@ -221,12 +237,12 @@ public class AdminQuestionController {
 				}else{
 					ra.addFlashAttribute("msg","sửa thất bại!!");
 				}
-			return "redirect:/admin/question";
+			return "redirect:/admin/questionreading";
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping("del/{id}")
+	@RequestMapping("admin/question/del/{id}")
 	public String del(@PathVariable("id") int id,RedirectAttributes ra,HttpSession session){
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
@@ -235,22 +251,43 @@ public class AdminQuestionController {
 			}else{
 				ra.addFlashAttribute("msg","xóa thất bại!!");
 			}
-			return "redirect:/admin/question";
+			if(questionDao.getItembyID(id).getCategoryquestionid()== 1){
+				return "redirect:/admin/questionlistening";
+			}else{
+				return "redirect:/admin/questionreading";
+			}
+			
 		}
 		return "redirect:/admin";
 	}
 	
-	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public String search(@ModelAttribute("questionid") String questionid ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request,HttpSession session){
+	@RequestMapping(value = "admin/questionlistening/search", method = RequestMethod.POST)
+	public String searchlistening(@ModelAttribute("questionid") String questionid ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request,HttpSession session){
 		
 		member member = (entity.member) session.getAttribute("objmember");
 		if (member != null){
 			if(questionid.isEmpty()) {
-				return "redirect:/admin/member";
+				return "redirect:/admin/questionlistening";
 			}else {
-				List<question> list = questionDao.searchQuestionByID(questionid);
+				List<question> list = questionDao.searchQuestionByquestion(questionid,1);
 				modelMap.addAttribute("listquestion", list);
-				return "admin.question.search";
+				return "admin.question.listening.search";
+			}
+		}
+		return "redirect:/admin";
+	}
+	
+	@RequestMapping(value = "admin/questionreading/search", method = RequestMethod.POST)
+	public String searchreading(@ModelAttribute("questionid") String questionid ,RedirectAttributes ra,ModelMap modelMap, BindingResult rs,HttpServletRequest request,HttpSession session){
+		
+		member member = (entity.member) session.getAttribute("objmember");
+		if (member != null){
+			if(questionid.isEmpty()) {
+				return "redirect:/admin/questionreading";
+			}else {
+				List<question> list = questionDao.searchQuestionByquestion(questionid,2);
+				modelMap.addAttribute("listquestion", list);
+				return "admin.question.reading.search";
 			}
 		}
 		return "redirect:/admin";
