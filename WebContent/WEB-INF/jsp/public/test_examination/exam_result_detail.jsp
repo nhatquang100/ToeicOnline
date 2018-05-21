@@ -30,41 +30,41 @@
 										<c:choose>
 											<c:when test="${question.chose eq 'A'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'B'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'C'}">
 												<div class="row" style="color:red">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'D'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:otherwise>
 										</c:choose>
 			
@@ -91,41 +91,41 @@
 										<c:choose>
 											<c:when test="${question.chose eq 'A'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'B'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'C'}">
 												<div class="row" style="color:red">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'D'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:otherwise>
 										</c:choose>
 			
@@ -152,41 +152,41 @@
 										<c:choose>
 											<c:when test="${question.chose eq 'A'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'B'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'C'}">
 												<div class="row" style="color:red">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'D'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:otherwise>
 										</c:choose>
 			
@@ -213,41 +213,41 @@
 										<c:choose>
 											<c:when test="${question.chose eq 'A'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'B'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'C'}">
 												<div class="row" style="color:red">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'D'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:otherwise>
 										</c:choose>
 			
@@ -489,41 +489,41 @@
 										<c:choose>
 											<c:when test="${question.chose eq 'A'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'B'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'C'}">
 												<div class="row" style="color:red">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'D'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:otherwise>
 										</c:choose>
 			
@@ -550,41 +550,41 @@
 										<c:choose>
 											<c:when test="${question.chose eq 'A'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'B'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'C'}">
 												<div class="row" style="color:red">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'D'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:otherwise>
 										</c:choose>
 			
@@ -611,41 +611,41 @@
 										<c:choose>
 											<c:when test="${question.chose eq 'A'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'B'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'C'}">
 												<div class="row" style="color:red">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'D'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:otherwise>
 										</c:choose>
 			
@@ -672,41 +672,41 @@
 										<c:choose>
 											<c:when test="${question.chose eq 'A'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="A"> (A)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'B'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="B"> (B)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'C'}">
 												<div class="row" style="color:red">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						   	 					<input class="form-control" type="radio" name="" value="C"> (C)</div>
+						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
 											<c:when test="${question.chose eq 'D'}">
 												<div class="row" style="color:red">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
 											<c:otherwise>
 												<div class="row">
-						    					<input class="form-control" type="radio" name="" value="D"> (D)</div>
+						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:otherwise>
 										</c:choose>
 			
