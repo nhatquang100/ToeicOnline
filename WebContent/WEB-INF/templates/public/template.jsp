@@ -10,4 +10,5 @@
 			</div>
 			<tiles:insertAttribute name="rightbar"></tiles:insertAttribute>
 		</div>
+		<div class="full-width green-bg footer-container">
 <tiles:insertAttribute name="footer"></tiles:insertAttribute>  

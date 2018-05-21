@@ -16,6 +16,7 @@ import dao.CategoryGrammarDao;
 import dao.ExaminationDao;
 import dao.GrammarDao;
 import dao.MemberDao;
+import dao.ResultDao;
 import dao.VocaburalyDao;
 import dao.VocaburalysDao;
 import entity.CategoryVocabulary;
@@ -46,8 +47,15 @@ public class PublicIndexController {
 	@Autowired
 	private GrammarDao grammarDao;
 	
+	@Autowired
+	private ResultDao resultDao;
+	
 	@RequestMapping("")
 	public String index(ModelMap modelMap,HttpSession session,HttpServletRequest request){
+		member member = (entity.member) session.getAttribute("objmember");
+		if(member != null){
+			session.setAttribute("listresult",resultDao.getItembymemberID(memberDao.getMemberbyUsername(member.getUsername()).getMemberid()));
+		}
 		modelMap.addAttribute("listexamlistening",examinationDao.getExaminationListenLimit());
 		modelMap.addAttribute("listexamreading",examinationDao.getExaminationReadingLimit());
 		modelMap.addAttribute("listexamsumary",examinationDao.getExaminationSumaryLimit());
@@ -60,6 +68,10 @@ public class PublicIndexController {
 	
 	@RequestMapping("{id}")
 	public String indexss(ModelMap modelMap,HttpSession session,HttpServletRequest request,@PathVariable("id") String id){
+		member member = (entity.member) session.getAttribute("objmember");
+		if(member != null){
+			session.setAttribute("listresult",resultDao.getItembymemberID(memberDao.getMemberbyUsername(member.getUsername()).getMemberid()));
+		}
 		modelMap.addAttribute("listexamlistening",examinationDao.getExaminationListenLimit());
 		modelMap.addAttribute("listexamreading",examinationDao.getExaminationReadingLimit());
 		modelMap.addAttribute("listexamsumary",examinationDao.getExaminationSumaryLimit());
@@ -72,6 +84,10 @@ public class PublicIndexController {
 	
 	@RequestMapping("/public")
 	public String indexs(ModelMap modelMap,HttpSession session,HttpServletRequest request){
+		member member = (entity.member) session.getAttribute("objmember");
+		if(member != null){
+			session.setAttribute("listresult",resultDao.getItembymemberID(memberDao.getMemberbyUsername(member.getUsername()).getMemberid()));
+		}
 		modelMap.addAttribute("listexamlistening",examinationDao.getExaminationListenLimit());
 		modelMap.addAttribute("listexamreading",examinationDao.getExaminationReadingLimit());
 		modelMap.addAttribute("listexamsumary",examinationDao.getExaminationSumaryLimit());

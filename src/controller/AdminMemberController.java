@@ -64,7 +64,6 @@ public class AdminMemberController {
 		if (memberss != null){
 			if(memberss.getCategorymemberid() == 1){
 				member.setIsactive(1);
-				member.setCategorymemberid(2);
 				member.setPassword(stringUtil.md5(member.getPassword()));
 				ArrayList<member> list = (ArrayList<member>) memberDao.getItems();
 				for(member objmb: list){

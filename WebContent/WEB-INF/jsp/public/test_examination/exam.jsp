@@ -286,7 +286,7 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<div class="row">
@@ -316,7 +316,7 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<div class="row">
@@ -346,7 +346,7 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<div class="row">

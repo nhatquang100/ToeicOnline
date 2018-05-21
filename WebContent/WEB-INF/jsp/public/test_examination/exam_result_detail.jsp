@@ -28,7 +28,7 @@
 										<div class="q"></div>
 										
 										<c:choose>
-											<c:when test="${question.chose eq 'A'}">
+											<c:when test="${question.chose eq question.option1}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
@@ -38,7 +38,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'B'}">
+											<c:when test="${question.chose eq question.option2}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
@@ -48,7 +48,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'C'}">
+											<c:when test="${question.chose eq question.option3}">
 												<div class="row" style="color:red">
 						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
@@ -58,7 +58,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'D'}">
+											<c:when test="${question.chose eq question.option4}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
@@ -85,11 +85,11 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<c:choose>
-											<c:when test="${question.chose eq 'A'}">
+											<c:when test="${question.chose eq question.option1}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
@@ -99,7 +99,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'B'}">
+											<c:when test="${question.chose eq question.option2}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
@@ -109,7 +109,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'C'}">
+											<c:when test="${question.chose eq question.option3}">
 												<div class="row" style="color:red">
 						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
@@ -119,7 +119,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'D'}">
+											<c:when test="${question.chose eq question.option4}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
@@ -146,11 +146,11 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<c:choose>
-											<c:when test="${question.chose eq 'A'}">
+											<c:when test="${question.chose eq question.option1}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
@@ -160,7 +160,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'B'}">
+											<c:when test="${question.chose eq question.option2}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
@@ -170,7 +170,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'C'}">
+											<c:when test="${question.chose eq question.option3}">
 												<div class="row" style="color:red">
 						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
@@ -180,7 +180,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'D'}">
+											<c:when test="${question.chose eq question.option4}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
@@ -207,11 +207,11 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<c:choose>
-											<c:when test="${question.chose eq 'A'}">
+											<c:when test="${question.chose eq question.option1}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
@@ -221,7 +221,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'B'}">
+											<c:when test="${question.chose eq question.option2}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
@@ -231,7 +231,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'C'}">
+											<c:when test="${question.chose eq question.option3}">
 												<div class="row" style="color:red">
 						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
@@ -241,7 +241,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'D'}">
+											<c:when test="${question.chose eq question.option4}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
@@ -487,7 +487,7 @@
 										<div class="q"></div>
 										
 										<c:choose>
-											<c:when test="${question.chose eq 'A'}">
+											<c:when test="${question.chose eq question.option1}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
@@ -497,7 +497,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'B'}">
+											<c:when test="${question.chose eq question.option2}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
@@ -507,7 +507,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'C'}">
+											<c:when test="${question.chose eq question.option3}">
 												<div class="row" style="color:red">
 						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
@@ -517,7 +517,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'D'}">
+											<c:when test="${question.chose eq question.option4}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
@@ -544,11 +544,11 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<c:choose>
-											<c:when test="${question.chose eq 'A'}">
+											<c:when test="${question.chose eq question.option1}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
@@ -558,7 +558,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'B'}">
+											<c:when test="${question.chose eq question.option2}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
@@ -568,7 +568,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'C'}">
+											<c:when test="${question.chose eq question.option3}">
 												<div class="row" style="color:red">
 						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
@@ -578,7 +578,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'D'}">
+											<c:when test="${question.chose eq question.option4}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
@@ -605,11 +605,11 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<c:choose>
-											<c:when test="${question.chose eq 'A'}">
+											<c:when test="${question.chose eq question.option1}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
@@ -619,7 +619,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'B'}">
+											<c:when test="${question.chose eq question.option2}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
@@ -629,7 +629,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'C'}">
+											<c:when test="${question.chose eq question.option3}">
 												<div class="row" style="color:red">
 						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
@@ -639,7 +639,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'D'}">
+											<c:when test="${question.chose eq question.option4}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>
@@ -666,11 +666,11 @@
 												<source src="${pageContext.request.contextPath}/upload/${question.audio}" type="audio/mpeg">
 												  Your browser does not support the audio tag.
 											</audio>
-											
+										</div>	
 										<div class="q"></div>
 										
 										<c:choose>
-											<c:when test="${question.chose eq 'A'}">
+											<c:when test="${question.chose eq question.option1}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option1}">${question.option1}</div>
 											</c:when>
@@ -680,7 +680,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'B'}">
+											<c:when test="${question.chose eq question.option2}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option2}">${question.option2}</div>
 											</c:when>
@@ -690,7 +690,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'C'}">
+											<c:when test="${question.chose eq question.option3}">
 												<div class="row" style="color:red">
 						   	 					<input class="form-control" type="radio" name="" value="${question.option3}">${question.option3}</div>
 											</c:when>
@@ -700,7 +700,7 @@
 											</c:otherwise>
 										</c:choose>
 										<c:choose>
-											<c:when test="${question.chose eq 'D'}">
+											<c:when test="${question.chose eq question.option4}">
 												<div class="row" style="color:red">
 						    					<input class="form-control" type="radio" name="" value="${question.option4}">${question.option4}</div>
 											</c:when>

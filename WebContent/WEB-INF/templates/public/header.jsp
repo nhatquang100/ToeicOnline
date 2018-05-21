@@ -61,6 +61,18 @@
 src="<%=request.getContextPath()%>/templates/public/js/contactjs/contact.create.js"></script>
 <script
 	src="<%=request.getContextPath()%>/templates/public/js/comment.js"></script>
+	
+<style type="text/css">
+	#toTop {
+    padding: 5px 3px;
+    background: #000;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 5px;
+    display: none;
+}
+</style>
 </head>
 
 <body onload="myFunction()">

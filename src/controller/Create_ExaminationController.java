@@ -125,12 +125,11 @@ public class Create_ExaminationController {
 					}
 				}
 //				---------------------------------------------------------
-				examination lastexa = examinationDao.getNewItem();
 				
 				if(examinationDao.addItem(examination)>0){
-
+					examination lastexa = examinationDao.getNewItem();
 					for(question objqs:randomPicks){
-						examination_question eq = new examination_question(lastexa.getExaminationid()+1,objqs.getQuestionid());
+						examination_question eq = new examination_question(lastexa.getExaminationid(),objqs.getQuestionid());
 						examination_Question_Dao.addItem(eq);		
 					}
 					modelMap.addAttribute("msg","Tạo đề thi thành công!!");
@@ -172,12 +171,11 @@ public class Create_ExaminationController {
 				}
 //				--------------------------------------------------------
 				
-				examination lastexa = examinationDao.getNewItem();
 				
 				if(examinationDao.addItem(examination)>0){
-
+					examination lastexa = examinationDao.getNewItem();
 					for(question objqs:randomPicks){
-						examination_question eq = new examination_question(lastexa.getExaminationid()+1,objqs.getQuestionid());
+						examination_question eq = new examination_question(lastexa.getExaminationid(),objqs.getQuestionid());
 						examination_Question_Dao.addItem(eq);		
 					}
 					modelMap.addAttribute("msg","Tạo đề thi thành công!!");
@@ -270,13 +268,13 @@ public class Create_ExaminationController {
 				}
 			}
 //			---------------------------------------------------------
-			examination lastexa = examinationDao.getNewItem();
+			
 			
 			if(examinationDao.addItem(examination)>0){
-
+				examination lastexa = examinationDao.getNewItem();
 				for(question objqs:randomPicks){
 					
-					examination_question eq = new examination_question(lastexa.getExaminationid()+1,objqs.getQuestionid());
+					examination_question eq = new examination_question(lastexa.getExaminationid(),objqs.getQuestionid());
 					examination_Question_Dao.addItem(eq);		
 				}
 				modelMap.addAttribute("msg","Tạo đề thi thành công!!");

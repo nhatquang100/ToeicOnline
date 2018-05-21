@@ -29,10 +29,18 @@
 	                                            <input name ="username" type="text" class="form-control" placeholder="input Username" minlength=6 maxlength=30 required>
 	                                            
 	                                            <label for="password">Password</label>
-	                                            <input name ="password" type="password" class="form-control" placeholder="input Password" minlength=6 maxlength=30 required>
+	                                            <input name ="password" type="password" class="form-control" id="password" placeholder="input Password" minlength=8 maxlength=30 required>
 	                                            
 	                                            <label for="repassword">Repassword</label>
-	                                            <input name ="repassword" type="password" class="form-control" placeholder="input Repassword" minlength=6 maxlength=30 required>
+	                                            <input name ="repassword" type="password" class="form-control" id="password_confirm" placeholder="input Repassword" minlength=8 maxlength=30 required>
+	                                        	
+	                                        	<label for="categorymemberid" style="margin-top:10px;font-size:15px">Loại tài khoản</label>
+												 <select name="categorymemberid" style="margin-top:10px;">
+													<option value="3">Học sinh</option>
+													<option value="2">Giáo viên</option>
+													<option value="1">Admin</option>
+												</select>
+	                                        	
 	                                        </div>
 	                                   </div>
 	                                <hr>
