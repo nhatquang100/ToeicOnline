@@ -35,7 +35,7 @@
 												 </c:if>
 												 
 	                                            <label for="password">Password:</label>
-	                                            <input name ="password" type="password" class="form-control" placeholder="input Password" minlength=6 maxlength=30 required>
+	                                            <input name ="password" type="password" class="form-control" placeholder="input Password" minlength=8 maxlength=30 required>
 	                                          
 	                                        </div>
 	                                        <form:errors path="objmember.membername" cssStyle="color:red;display:block"></form:errors>

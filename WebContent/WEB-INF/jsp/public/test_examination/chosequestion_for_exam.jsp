@@ -229,7 +229,7 @@ function setActive(id, isactive,partid){
 	var dem1 = $('#part1').val();
 	var a1 = parseInt(dem1);
 	if(partid == 1){
-		if(a1 == 3){
+		if(a1 == 10){
 			if(isactive == 1){
 				a1 -= 1;
 				var removeItem = id;
@@ -259,7 +259,7 @@ function setActive(id, isactive,partid){
 	var dem2 = $('#part2').val();
 	var a2 = parseInt(dem2);
 	if(partid == 2){
-		if(a2 == 3){
+		if(a2 == 10){
 			if(isactive == 1){
 				a2 -= 1;
 				var removeItem = id;
@@ -267,7 +267,7 @@ function setActive(id, isactive,partid){
 					  return value != removeItem;
 				});
 			}else{
-				alert("Part 2 chỉ giới hạn 30 câu hỏi");
+				alert("Part 2 chỉ giới hạn 10 câu hỏi");
 				return false;
 			}
 		}else{
@@ -288,7 +288,7 @@ function setActive(id, isactive,partid){
 	var dem3 = $('#part3').val();
 	var a3 = parseInt(dem3);
 	if(partid == 3){
-		if(a3 == 3){
+		if(a3 == 10){
 			if(isactive == 1){
 				a3 -= 1;
 				var removeItem = id;
@@ -296,7 +296,7 @@ function setActive(id, isactive,partid){
 					  return value != removeItem;
 				});
 			}else{
-				alert("Part 3 chỉ giới hạn 30 câu hỏi");
+				alert("Part 3 chỉ giới hạn 10 câu hỏi");
 				return false;
 			}
 		}else{
@@ -317,7 +317,7 @@ function setActive(id, isactive,partid){
 	var dem4 = $('#part4').val();
 	var a4 = parseInt(dem4);
 	if(partid == 4){
-		if(a4 == 3){
+		if(a4 == 10){
 			if(isactive == 1){
 				a4 -= 1;
 				var removeItem = id;
@@ -325,7 +325,7 @@ function setActive(id, isactive,partid){
 					  return value != removeItem;
 				});
 			}else{
-				alert("Part 4 chỉ giới hạn 30 câu hỏi");
+				alert("Part 4 chỉ giới hạn 10 câu hỏi");
 				return false;
 			}
 		}else{
@@ -346,7 +346,7 @@ function setActive(id, isactive,partid){
 	var dem5 = $('#part5').val();
 	var a5 = parseInt(dem5);
 	if(partid == 5){
-		if(a5 == 3){
+		if(a5 == 15){
 			if(isactive == 1){
 				a5 -= 1;
 				var removeItem = id;
@@ -354,7 +354,7 @@ function setActive(id, isactive,partid){
 					  return value != removeItem;
 				});
 			}else{
-				alert("Part 5 chỉ giới hạn 40 câu hỏi");
+				alert("Part 5 chỉ giới hạn 15 câu hỏi");
 				return false;
 			}
 		}else{
@@ -375,7 +375,7 @@ function setActive(id, isactive,partid){
 	var dem6 = $('#part6').val();
 	var a6 = parseInt(dem6);
 	if(partid == 6){
-		if(a6 == 3){
+		if(a6 == 12){
 			if(isactive == 1){
 				a6 -= 1;
 				var removeItem = id;
@@ -404,7 +404,7 @@ function setActive(id, isactive,partid){
 	var dem7 = $('#part7').val();
 	var a7 = parseInt(dem7);
 	if(partid == 7){
-		if(a7 == 3){
+		if(a7 == 10){
 			if(isactive == 1){
 				a7 -= 1;
 				var removeItem = id;
@@ -412,7 +412,7 @@ function setActive(id, isactive,partid){
 					  return value != removeItem;
 				});
 			}else{
-				alert("Part 7 chỉ giới hạn 28 câu hỏi");
+				alert("Part 7 chỉ giới hạn 10 câu hỏi");
 				return false;
 			}
 		}else{
@@ -461,7 +461,7 @@ $( "#buttoncreate" ).click(function() {
 	var dem7 = $('#part7').val();
 	var a7 = parseInt(dem7);
 	if(categoryexaminationid == 1){
-		if(a1 != 3 || a2 != 3 || a3 != 3 || a4 != 3  ){
+		if(a1 != 10 || a2 != 10 || a3 != 10 || a4 != 10  ){
 			alert("Bạn hãy chọn đủ số lượng câu hỏi");
 			return false;
 		}else{
@@ -481,7 +481,7 @@ $( "#buttoncreate" ).click(function() {
 			return false;
 		}
 	}else if(categoryexaminationid == 2){
-		if(a5 != 3 || a6 != 3 || a7 != 3  ){
+		if(a5 != 15 || a6 != 12 || a7 != 10  ){
 			alert("Bạn hãy chọn đủ số lượng câu hỏi");
 			return false;
 		}else{
@@ -501,7 +501,7 @@ $( "#buttoncreate" ).click(function() {
 			return false;
 		}
 	}else{
-		if(a1 != 3 || a2 != 3 || a3 != 3 || a4 != 3  || a5 != 3 || a6 != 3 || a7 != 3  ){
+		if(a1 != 10 || a2 != 10 || a3 != 10 || a4 != 10  || a5 != 15 || a6 != 12 || a7 != 10  ){
 			alert("Bạn hãy chọn đủ số lượng câu hỏi");
 			return false;
 		}else{

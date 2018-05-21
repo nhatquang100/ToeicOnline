@@ -34,6 +34,7 @@
     <url-pattern>*.svg</url-pattern>
     <url-pattern>*.ttf</url-pattern>
     <url-pattern>*.woff</url-pattern>
+    <url-pattern>*.mp3</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>encoding-filter</filter-name>

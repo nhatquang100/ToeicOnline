@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/templates/taglib.jsp"%>
-<div class="full-width green-bg footer-container">
+
+<div id='toTop'>To The Top!</div>
 	<div class="width footer">
 		<div class="logo">ToeicOline</div>
 		<div class="copyright">
@@ -90,24 +91,6 @@
 				<span class="label"></span> <input type="submit"
 					class="green-button" value="Đăng Nhập" />
 			</div>
-			<div class="row">
-				<span class="label"></span> <a
-					href="https://accounts.google.com/o/oauth2/auth?access_type=online&amp;approval_prompt=auto&amp;response_type=code&amp;scope=profile%20email&amp;client_id=790559908503-c98fftp4r7pv8r64vm3ou7gsoj52qlfl.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%2Flogin_google_callback&amp;state"
-					class="social-login google" style="width: 65%;"><i
-					class="fa fa-google-plus"> </i>Đăng nhập qua Google+</a> <br>
-				<p style="float: right;">
-					<i>Click để đăng nhập thông qua tài khoản gmail của bạn</i>
-				</p>
-			</div>
-			<div class="row">
-				<span class="label"></span> <a
-					href="https://www.facebook.com/v2.4/dialog/oauth?client_id=1081182245235103&amp;state=b64a9795f34015da6d6579f92a4111c3&amp;response_type=code&amp;sdk=php-sdk-5.0.0&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%3A443%2Flogin_fb_callback&amp;scope=email&redirect_uri=https://www.toeic123.vn:443/login_fb_callback"
-					class="social-login facebook"><i class="fa fa-facebook"> </i>Đăng
-					nhập qua Facebook</a> <a
-					href="https://accounts.google.com/o/oauth2/auth?access_type=online&approval_prompt=auto&response_type=code&scope=profile%20email&client_id=790559908503-c98fftp4r7pv8r64vm3ou7gsoj52qlfl.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.toeic123.vn%2Flogin_google_callback&state"
-					class="social-login google"><i class="fa fa-google-plus"> </i>Đăng
-					nhập qua Google+</a>
-			</div>
 		</form>
 		<script>
 			$(document).ready(function() {
@@ -146,36 +129,22 @@
 			</div>
 			<div class="row">
 				<span class="label">Mật khẩu <span class="red">*</span>:
-				</span> <input type="password" value="" name="password"
-					class="form-control" minlength=6 maxlength=30 required/>
+				</span> <input type="password" value="" id="password" name="password"
+					class="form-control" minlength=8 maxlength=30 required/>
 			</div>
 			<div class="row">
 				<span class="label">Xác nhận <span class="red">*</span>:
-				</span> <input type="password" value="" name="password_confirm"
-					class="form-control" minlength=6 maxlength=30 required/>
+				</span> <input type="password" value="" id="password_confirm" name="password_confirm"
+					class="form-control" minlength=8 maxlength=30 required/>
 			</div>
 			<div class="row">
 				<span class="label">Số ĐT:</span> <input type="text" value=""
 					name="phonenumber" class="form-control" pattern="\d*" minlength=10 maxlength=12 required/>
 			</div>
-			<div class="row">
-				<span class="label">&nbsp;</span>
-				<div class="form-control">
-					<input type="checkbox" name="accept" class="" value="1" /> Đã đọc
-					và chấp nhận <a href="#" target="_blank">các điều khoản</a>
-				</div>
-			</div>
+			
 			<div class="row">
 				<span class="label"></span> <input type="submit"
 					class="green-button" value="Đăng ký" />
-			</div>
-			<div class="row">
-				<span class="label"></span>
-				<!--<a href="https://www.facebook.com/v2.4/dialog/oauth?client_id=1081182245235103&amp;state=b64a9795f34015da6d6579f92a4111c3&amp;response_type=code&amp;sdk=php-sdk-5.0.0&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%3A443%2Flogin_fb_callback&amp;scope=email&redirect_uri=https://www.toeic123.vn:443/login_fb_callback" class="social-login facebook"><i class="fa fa-facebook"> </i>Đăng nhập qua Facebook</a>-->
-				<a
-					href="https://accounts.google.com/o/oauth2/auth?access_type=online&amp;approval_prompt=auto&amp;response_type=code&amp;scope=profile%20email&amp;client_id=790559908503-c98fftp4r7pv8r64vm3ou7gsoj52qlfl.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fwww.toeic123.vn%2Flogin_google_callback&amp;state"
-					class="social-login google"><i class="fa fa-google-plus"> </i>Đăng
-					nhập qua Google+</a>
 			</div>
 		</form>
 		<script>
@@ -344,6 +313,7 @@
 	</div>
 </div>
 
+
 <script type="text/javascript">
 	$('#buttoncreate').click(function(){
 		var select = $('#chosemethod').val();
@@ -352,5 +322,36 @@
 		}else{
 			$('#formcreateexamination').attr('action', '${pageContext.request.contextPath}/chosequestion');
 		}   
+	});
+	
+	var password = document.getElementById("password")
+	  , confirm_password = document.getElementById("password_confirm");
+
+	function validatePassword(){
+	  if(password.value != confirm_password.value) {
+	    confirm_password.setCustomValidity("Passwords Don't Match");
+	  } else {
+	    confirm_password.setCustomValidity('');
+	  }
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+	
+	
+	$(window).scroll(function() {
+	    if ($(this).scrollTop()) {
+	        $('#toTop').fadeIn();
+	    } else {
+	        $('#toTop').fadeOut();
+	    }
+	});
+
+	$("#toTop").click(function () {
+	   //1 second of animation time
+	   //html works for FFX but not Chrome
+	   //body works for Chrome but not FFX
+	   //This strange selector seems to work universally
+	   $("html, body").animate({scrollTop: 0}, 1000);
 	});
 </script>
