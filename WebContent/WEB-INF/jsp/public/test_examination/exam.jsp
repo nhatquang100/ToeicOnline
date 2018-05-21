@@ -27,16 +27,16 @@
 										<div class="q"></div>
 										
 										<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="A"> (A)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option1}">${question.option1}</div>
 						    			
 						    			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="B"> (B)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option2}">${question.option2}</div>
 						    			
 						    			<div class="row">
-						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="C"> (C)</div>
+						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option3}">${question.option3}</div>
 						   	 			
 						   	 			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="D"> (D)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option4}">${question.option4}</div>
 									</div>
 								</div>
 							</c:if>
@@ -57,16 +57,16 @@
 										<div class="q"></div>
 										
 										<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="A"> (A)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option1}">${question.option1}</div>
 						    			
 						    			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="B"> (B)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option2}">${question.option2}</div>
 						    			
 						    			<div class="row">
-						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="C"> (C)</div>
+						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option3}">${question.option3}</div>
 						   	 			
 						   	 			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="D"> (D)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option4}">${question.option4}</div>
 									</div>
 								</div>
 							</c:if>
@@ -87,16 +87,16 @@
 										<div class="q"></div>
 										
 										<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="A"> (A)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option1}">${question.option1}</div>
 						    			
 						    			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="B"> (B)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option2}">${question.option2}</div>
 						    			
 						    			<div class="row">
-						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="C"> (C)</div>
+						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option3}">${question.option3}</div>
 						   	 			
 						   	 			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="D"> (D)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option4}">${question.option4}</div>
 									</div>
 								</div>
 							</c:if>
@@ -117,16 +117,16 @@
 										<div class="q"></div>
 										
 										<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="A"> (A)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option1}">${question.option1}</div>
 						    			
 						    			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="B"> (B)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option2}">${question.option2}</div>
 						    			
 						    			<div class="row">
-						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="C"> (C)</div>
+						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option3}">${question.option3}</div>
 						   	 			
 						   	 			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="D"> (D)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option4}">${question.option4}</div>
 									</div>
 								</div>
 							</c:if>
@@ -260,16 +260,16 @@
 										<div class="q"></div>
 										
 										<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="A"> (A)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option1}">${question.option1}</div>
 						    			
 						    			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="B"> (B)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option2}">${question.option2}</div>
 						    			
 						    			<div class="row">
-						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="C"> (C)</div>
+						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option3}">${question.option3}</div>
 						   	 			
 						   	 			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="D"> (D)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option4}">${question.option4}</div>
 									</div>
 								</div>
 							</c:if>
@@ -290,16 +290,16 @@
 										<div class="q"></div>
 										
 										<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="A"> (A)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option1}">${question.option1}</div>
 						    			
 						    			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="B"> (B)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option2}">${question.option2}</div>
 						    			
 						    			<div class="row">
-						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="C"> (C)</div>
+						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option3}">${question.option3}</div>
 						   	 			
 						   	 			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="D"> (D)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option4}">${question.option4}</div>
 									</div>
 								</div>
 							</c:if>
@@ -320,16 +320,16 @@
 										<div class="q"></div>
 										
 										<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="A"> (A)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option1}">${question.option1}</div>
 						    			
 						    			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="B"> (B)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option2}">${question.option2}</div>
 						    			
 						    			<div class="row">
-						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="C"> (C)</div>
+						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option3}">${question.option3}</div>
 						   	 			
 						   	 			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="D"> (D)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option4}">${question.option4}</div>
 									</div>
 								</div>
 							</c:if>
@@ -350,16 +350,16 @@
 										<div class="q"></div>
 										
 										<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="A"> (A)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option1}">${question.option1}</div>
 						    			
 						    			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="B"> (B)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option2}">${question.option2}</div>
 						    			
 						    			<div class="row">
-						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="C"> (C)</div>
+						   	 			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option3}">${question.option3}</div>
 						   	 			
 						   	 			<div class="row">
-						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="D"> (D)</div>
+						    			<input class="form-control" type="radio" name="questionlist[${i.index}].chose" value="${question.option4}">${question.option4}</div>
 									</div>
 								</div>
 							</c:if>
